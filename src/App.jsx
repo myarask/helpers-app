@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import Home from 'pages/Home/Home';
+import Login from 'pages/Login/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'constants/theme';
@@ -52,9 +53,9 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <Suspense fallback={<div />}>
           <Router>
-            {/* {!this.state.isLoggedIn && <Redirect to="/login" />} */}
             <Switch>
               <Route path="/" render={props => <Home {...props} {...shared} />} />
+              <Route path="/login" render={props => <Login {...props} {...shared} />} />
             </Switch>
           </Router>
         </Suspense>
