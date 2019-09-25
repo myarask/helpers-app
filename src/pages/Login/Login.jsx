@@ -15,16 +15,20 @@ class Login extends React.Component {
     this.funcs = {
       setPageState: this.setState.bind(this),
       onChange: this.onChange.bind(this),
+      onSubmit: this.onSubmit.bind(this),
     };
   }
 
-  componentDidMount() {
-    this.fetchResults();
-  }
+  componentDidMount() {}
 
   onChange(e) {
     const { name, value } = e.target;
     this.setState({ [name]: value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.props.setAppState({ isLoggedIn: true }, this.props.history.push('/'));
   }
 
   render() {

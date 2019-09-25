@@ -54,8 +54,8 @@ class App extends React.Component {
         <Suspense fallback={<div />}>
           <Router>
             <Switch>
-              <Route path="/" render={props => <Home {...props} {...shared} />} />
-              <Route path="/login" render={props => <Login {...props} {...shared} />} />
+              <Route exact path="/" render={props => <Home {...props} {...shared} />} />
+              <Route exact path="/login" render={props => <Login {...props} {...shared} />} />
             </Switch>
           </Router>
         </Suspense>
