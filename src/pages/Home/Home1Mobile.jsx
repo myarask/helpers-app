@@ -8,16 +8,9 @@ const Home1Mobile = props => (
       <Typography variant="h1">Who would you like to help?</Typography>
     </Box>
 
-    <HomeClient
-      src="https://picsum.photos/200"
-      title="Grandma"
-      subheader="Last Visit: September 14, 2016"
-    />
-    <HomeClient
-      src="https://picsum.photos/200"
-      title="Grandpa"
-      subheader="Last Visit: October 10, 2016"
-    />
+    {props.clients.map((client, i) => (
+      <HomeClient {...client} onClick={() => props.onClientClick(i)} />
+    ))}
   </div>
 );
 
