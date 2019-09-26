@@ -4,7 +4,7 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import logo from 'assets/transparent_logo.png';
 
-const NavBar = () => {
+const NavBar = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
@@ -14,6 +14,11 @@ const NavBar = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const onLogout = () => {
+    setAnchorEl(null);
+    props.setAppState({ isLoggedIn: false });
   };
 
   return (
@@ -41,7 +46,7 @@ const NavBar = () => {
               onClose={handleClose}
             >
               <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem onClick={onLogout}>Logout</MenuItem>
             </Menu>
           </div>
         </Belt>
