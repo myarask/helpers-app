@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Card, CardContent, Typography, TextField } from '@material-ui/core';
 
-const HomeDesktop1 = props => <div>Desktop Home</div>;
+const Home1Desktop = props => <div>Desktop Home</div>;
 
-export default HomeDesktop1;
+export default Home1Desktop;
