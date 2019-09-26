@@ -6,6 +6,10 @@ import LoginTablet from './LoginTablet';
 
 class Login extends React.Component {
   constructor(props) {
+    if (props.isLoggedIn) {
+      props.history.push('/');
+    }
+
     super(props);
     this.state = {
       email: '',
@@ -18,8 +22,6 @@ class Login extends React.Component {
       onSubmit: this.onSubmit.bind(this),
     };
   }
-
-  componentDidMount() {}
 
   onChange(e) {
     const { name, value } = e.target;

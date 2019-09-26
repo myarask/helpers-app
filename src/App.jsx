@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from 'components/NavBar';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'constants/theme';
 
@@ -15,7 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
       deviceIndex: getDeviceIndex(),
     };
 
@@ -51,14 +52,18 @@ class App extends React.Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <Suspense fallback={<div />}>
-          <Router>
-            <Switch>
-              <Route exact path="/" render={props => <Home {...props} {...shared} />} />
-              <Route exact path="/login" render={props => <Login {...props} {...shared} />} />
-            </Switch>
-          </Router>
-        </Suspense>
+        <Router>
+          <Switch>
+            <Route exact path={['/']} render={props => <NavBar {...props} {...shared} />} />
+          </Switch>
+
+          <Switch>
+            <Route exact path="/login" render={props => <Login {...props} {...shared} />} />
+
+            {!this.state.isLoggedIn && <Redirect to="/login" />}
+            <Route exact path="/" render={props => <Home {...props} {...shared} />} />
+          </Switch>
+        </Router>
       </MuiThemeProvider>
     );
   }
