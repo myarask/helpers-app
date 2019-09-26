@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography, Box } from '@material-ui/core';
-import HomeClient from './HomeClient';
+import HomeClient from './_HomeClient';
 
-const HomeMobile = props => (
+const HomeMobile1 = props => (
   <div>
     <Box p={2}>
       <Typography variant="h1">Who would you like to help?</Typography>
@@ -21,4 +21,4 @@ const HomeMobile = props => (
   </div>
 );
 
-export default HomeMobile;
+export default HomeMobile1;
