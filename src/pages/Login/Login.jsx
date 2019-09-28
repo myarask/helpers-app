@@ -1,4 +1,5 @@
 import React from 'react';
+import Page from 'components/Page';
 import DeviceSwitch from 'components/DeviceSwitch';
 import LoginDesktop from './LoginDesktop';
 import LoginMobile from './LoginMobile';
@@ -35,11 +36,13 @@ class Login extends React.Component {
 
   render() {
     return (
-      <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
-        <LoginMobile />
-        <LoginTablet />
-        <LoginDesktop />
-      </DeviceSwitch>
+      <Page isFull>
+        <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
+          <LoginMobile />
+          <LoginTablet />
+          <LoginDesktop />
+        </DeviceSwitch>
+      </Page>
     );
   }
 }

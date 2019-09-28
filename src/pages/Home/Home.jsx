@@ -15,7 +15,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 1,
+      index: 0,
       clientIndex: 0,
       clients: [
         {
