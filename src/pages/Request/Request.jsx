@@ -8,10 +8,10 @@ import DriverCompanion from 'assets/services/DriverCompanion.svg';
 import Grooming from 'assets/services/Grooming.svg';
 import HelpingAndMobility from 'assets/services/HelpingAndMobility.svg';
 import Hygiene from 'assets/services/Hygiene.svg';
-import Home1 from './Home1';
-import Home2 from './Home2';
+import Request1 from './Request1';
+import Request2 from './Request2';
 
-class Home extends React.Component {
+class Request extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,11 +88,11 @@ class Home extends React.Component {
   render() {
     return (
       <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
-        <Home1 />
-        <Home2 />
+        <Request1 />
+        <Request2 />
       </ContentSwitch>
     );
   }
 }
 
-export default Home;
+export default Request;

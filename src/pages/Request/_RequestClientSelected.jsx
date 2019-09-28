@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardHeader, Avatar, ButtonBase } from '@material-ui/core';
 import { ChevronLeft } from '@material-ui/icons';
 
-const HomeClientSelected = props => (
+const RequestClientSelected = props => (
   <Card square>
     <ButtonBase onClick={props.onClick} style={{ width: '100%' }}>
       <ChevronLeft color="primary" />
@@ -15,4 +15,4 @@ const HomeClientSelected = props => (
   </Card>
 );
 
-export default HomeClientSelected;
+export default RequestClientSelected;

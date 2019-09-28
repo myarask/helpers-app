@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, Avatar, ButtonBase } from '@material-ui/core';
 
-const HomeClient = props => (
+const RequestClient = props => (
   <Card square>
     <ButtonBase onClick={props.onClick} style={{ width: '100%' }}>
       <CardHeader
@@ -14,4 +14,4 @@ const HomeClient = props => (
   </Card>
 );
 
-export default HomeClient;
+export default RequestClient;

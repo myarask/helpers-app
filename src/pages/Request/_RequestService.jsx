@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, ButtonBase, Typography } from '@material-ui/core';
 
-const HomeService = props => (
+const RequestService = props => (
   <Card square>
     <ButtonBase onClick={props.onClick} style={{ width: '100%', height: '95px' }}>
       <img src={props.src} alt="" style={{ position: 'absolute', width: '50px', top: '10px' }} />
@@ -18,4 +18,4 @@ const HomeService = props => (
   </Card>
 );
 
-export default HomeService;
+export default RequestService;

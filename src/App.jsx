@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from 'pages/Home/Home';
+import Request from 'pages/Request/Request';
 import Login from 'pages/Login/Login';
 import NavBar from 'components/NavBar';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -61,7 +61,7 @@ class App extends React.Component {
             <Route exact path="/login" render={props => <Login {...props} {...shared} />} />
 
             {!this.state.isLoggedIn && <Redirect to="/login" />}
-            <Route exact path="/" render={props => <Home {...props} {...shared} />} />
+            <Route exact path="/" render={props => <Request {...props} {...shared} />} />
           </Switch>
         </Router>
       </MuiThemeProvider>

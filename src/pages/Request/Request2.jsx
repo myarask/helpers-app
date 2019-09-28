@@ -1,10 +1,10 @@
 import React from 'react';
 import DeviceSwitch from 'components/DeviceSwitch';
-import Home2Desktop from './Home2Desktop';
-import Home2Mobile from './Home2Mobile';
-import Home2Tablet from './Home2Tablet';
+import Request2Desktop from './Request2Desktop';
+import Request2Mobile from './Request2Mobile';
+import Request2Tablet from './Request2Tablet';
 
-const Home1 = props => {
+const Request1 = props => {
   const onBackClick = () => {
     props.setPageState({
       index: 0,
@@ -14,11 +14,11 @@ const Home1 = props => {
 
   return (
     <DeviceSwitch {...props} client={props.clients[props.clientIndex]} onBackClick={onBackClick}>
-      <Home2Mobile />
-      <Home2Tablet />
-      <Home2Desktop />
+      <Request2Mobile />
+      <Request2Tablet />
+      <Request2Desktop />
     </DeviceSwitch>
   );
 };
 
-export default Home1;
+export default Request1;

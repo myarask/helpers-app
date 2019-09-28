@@ -1,10 +1,10 @@
 import React from 'react';
 import DeviceSwitch from 'components/DeviceSwitch';
-import Home1Desktop from './Home1Desktop';
-import Home1Mobile from './Home1Mobile';
-import Home1Tablet from './Home1Tablet';
+import Request1Desktop from './Request1Desktop';
+import Request1Mobile from './Request1Mobile';
+import Request1Tablet from './Request1Tablet';
 
-const Home1 = props => {
+const Request1 = props => {
   console.log(props);
 
   const onClientClick = clientIndex => {
@@ -14,11 +14,11 @@ const Home1 = props => {
 
   return (
     <DeviceSwitch {...props} onClientClick={onClientClick}>
-      <Home1Mobile />
-      <Home1Tablet />
-      <Home1Desktop />
+      <Request1Mobile />
+      <Request1Tablet />
+      <Request1Desktop />
     </DeviceSwitch>
   );
 };
 
-export default Home1;
+export default Request1;
