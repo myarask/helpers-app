@@ -7,13 +7,9 @@ const NavBar = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
-  const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleMenu = event => setAnchorEl(event.currentTarget);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleClose = () => setAnchorEl(null);
 
   const onLogout = () => {
     setAnchorEl(null);
@@ -51,7 +47,6 @@ const NavBar = props => {
             open={isMenuOpen}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={onLogout}>Logout</MenuItem>
           </Menu>
         </div>

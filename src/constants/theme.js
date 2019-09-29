@@ -5,6 +5,9 @@ const theme = createMuiTheme({
     primary: {
       main: 'rgb(18, 179, 179)',
     },
+    secondary: {
+      main: 'rgb(20, 126, 126)',
+    },
     dark: {
       main: '#222',
     },
@@ -46,6 +49,11 @@ const theme = createMuiTheme({
       body1: {
         fontSize: '0.8rem',
         fontFamily: 'Open Sans',
+      },
+    },
+    MuiButton: {
+      containedPrimary: {
+        color: 'white',
       },
     },
   },
