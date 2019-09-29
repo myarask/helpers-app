@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import RequestClientSelected from './_RequestClientSelected';
 import RequestService from './_RequestService';
 
-const Request2Mobile = props => (
+const Request1Mobile = props => (
   <div>
     <RequestClientSelected {...props.client} onClick={props.onBackClick} />
     <Grid container>
@@ -16,4 +16,4 @@ const Request2Mobile = props => (
   </div>
 );
 
-export default Request2Mobile;
+export default Request1Mobile;

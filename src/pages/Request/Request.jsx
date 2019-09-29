@@ -10,8 +10,8 @@ import DriverCompanion from 'assets/services/DriverCompanion.svg';
 import Grooming from 'assets/services/Grooming.svg';
 import HelpingAndMobility from 'assets/services/HelpingAndMobility.svg';
 import Hygiene from 'assets/services/Hygiene.svg';
-import Request1 from './Request0';
-import Request2 from './Request2';
+import Request0 from './Request0';
+import Request1 from './Request1';
 
 class Request extends React.Component {
   constructor(props) {
@@ -102,8 +102,8 @@ class Request extends React.Component {
         <NavBar {...this.props} onBackClick={this.onBackClick} />
         <Page>
           <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
+            <Request0 />
             <Request1 />
-            <Request2 />
           </ContentSwitch>
         </Page>
       </>
