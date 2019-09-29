@@ -1,5 +1,6 @@
 import React from 'react';
 import DeviceSwitch from 'components/DeviceSwitch';
+import Page from 'components/Page';
 import HomeDesktop from './HomeDesktop';
 import HomeMobile from './HomeMobile';
 import HomeTablet from './HomeTablet';
@@ -12,7 +13,7 @@ class Home extends React.Component {
     this.funcs = {
       setPageState: this.setState.bind(this),
       onChange: this.onChange.bind(this),
-      onRequestClick: this.props.history.push('/service-request'),
+      onRequestClick: () => this.props.history.push('/service-request'),
     };
   }
 
@@ -23,11 +24,13 @@ class Home extends React.Component {
 
   render() {
     return (
-      <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
-        <HomeMobile />
-        <HomeTablet />
-        <HomeDesktop />
-      </DeviceSwitch>
+      <Page>
+        <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
+          <HomeMobile />
+          <HomeTablet />
+          <HomeDesktop />
+        </DeviceSwitch>
+      </Page>
     );
   }
 }

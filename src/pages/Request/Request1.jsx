@@ -5,10 +5,7 @@ import Request1Mobile from './Request1Mobile';
 import Request1Tablet from './Request1Tablet';
 
 const Request1 = props => {
-  console.log(props);
-
   const onClientClick = clientIndex => {
-    console.log('here', clientIndex);
     props.setPageState({ clientIndex, index: 1 });
   };
 

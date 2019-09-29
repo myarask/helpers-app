@@ -3,14 +3,7 @@ import { Button, TextField } from '@material-ui/core';
 
 const LoginForm = props => (
   <form onSubmit={props.onSubmit}>
-    <TextField
-      fullWidth
-      label="Email"
-      name="email"
-      value={props.email}
-      onChange={props.onChange}
-      type="email"
-    />
+    <TextField fullWidth label="Email" name="email" value={props.email} onChange={props.onChange} type="email" />
     <TextField
       fullWidth
       label="Password"

@@ -16,12 +16,7 @@ const LoginMobile = props => (
     }}
   >
     <div style={{ flex: 0 }}>
-      <Img
-        src={logo}
-        alt="Helpers"
-        style={{ display: 'block', width: '100%', height: 'auto' }}
-        timeout={2000}
-      />
+      <Img src={logo} alt="Helpers" style={{ display: 'block', width: '100%', height: 'auto' }} timeout={2000} />
     </div>
 
     <Box>

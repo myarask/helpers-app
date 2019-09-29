@@ -55,7 +55,8 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route exact path={['/']} render={props => <NavBar {...props} {...shared} />} />
+            <Route exact path={['/login']} />
+            <Route render={props => <NavBar {...props} {...shared} />} />
           </Switch>
 
           <Switch>
@@ -63,11 +64,7 @@ class App extends React.Component {
 
             {!this.state.isLoggedIn && <Redirect to="/login" />}
             <Route exact path="/" render={props => <Home {...props} {...shared} />} />
-            <Route
-              exact
-              path="/service-request"
-              render={props => <Request {...props} {...shared} />}
-            />
+            <Route exact path="/service-request" render={props => <Request {...props} {...shared} />} />
           </Switch>
         </Router>
       </MuiThemeProvider>
