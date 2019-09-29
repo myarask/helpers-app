@@ -9,7 +9,7 @@ const Request1Mobile = props => (
     </Box>
 
     {props.clients.map((client, i) => (
-      <RequestClient {...client} onClick={() => props.onClientClick(i)} />
+      <RequestClient key={client.name} {...client} onClick={() => props.onClientClick(i)} />
     ))}
   </div>
 );

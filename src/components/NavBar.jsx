@@ -1,7 +1,7 @@
 import React from 'react';
 import Belt from 'components/Belt';
-import { AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
-import { AccountCircle } from '@material-ui/icons';
+import { AppBar, Button, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { AccountCircle, ChevronLeft } from '@material-ui/icons';
 import logo from 'assets/transparent_logo.png';
 
 const NavBar = props => {
@@ -21,10 +21,19 @@ const NavBar = props => {
     props.setAppState({ isLoggedIn: false });
   };
 
+  const { pathname } = props.history.location;
+
   return (
     <AppBar position="static">
       <Toolbar>
-        <img src={logo} alt="Helpers" height="40px" />
+        {pathname === '/login' && <img src={logo} alt="Helpers" height="40px" />}
+        {(pathname === '/' || pathname === '/service-request') && (
+          <Button style={{ color: 'white' }}>
+            <ChevronLeft />
+            <Typography> Back</Typography>
+          </Button>
+        )}
+
         <Belt>
           <div />
           <div>
