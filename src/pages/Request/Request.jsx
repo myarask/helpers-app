@@ -1,6 +1,7 @@
 import React from 'react';
 import ContentSwitch from 'components/ContentSwitch';
 import Page from 'components/Page';
+import NavBar from 'components/NavBar';
 import Activity from 'assets/services/Activity.svg';
 import Cleaning from 'assets/services/Cleaning.svg';
 import Companionship from 'assets/services/Companionship.svg';
@@ -88,12 +89,15 @@ class Request extends React.Component {
 
   render() {
     return (
-      <Page>
-        <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
-          <Request1 />
-          <Request2 />
-        </ContentSwitch>
-      </Page>
+      <>
+        <NavBar {...this.props} />
+        <Page>
+          <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
+            <Request1 />
+            <Request2 />
+          </ContentSwitch>
+        </Page>
+      </>
     );
   }
 }

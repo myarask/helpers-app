@@ -2,7 +2,6 @@ import React from 'react';
 import Request from 'pages/Request/Request';
 import Login from 'pages/Login/Login';
 import Home from 'pages/Home/Home';
-import NavBar from 'components/NavBar';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'constants/theme';
@@ -54,11 +53,6 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
-          <Switch>
-            <Route exact path={['/login']} />
-            <Route render={props => <NavBar {...props} {...shared} />} />
-          </Switch>
-
           <Switch>
             <Route exact path="/login" render={props => <Login {...props} {...shared} />} />
 
