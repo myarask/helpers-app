@@ -5,7 +5,7 @@ const Page = ({ children, style, isFull, ...rest }) => (
     style={{
       position: 'fixed',
       display: 'relative',
-      top: isFull ? 0 : '50px',
+      top: isFull ? 0 : '56px',
       bottom: 0,
       left: 0,
       right: 0,

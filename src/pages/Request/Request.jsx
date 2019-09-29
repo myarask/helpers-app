@@ -87,10 +87,19 @@ class Request extends React.Component {
     this.setState({ [name]: value });
   }
 
+  onBackClick = () => {
+    switch (this.state.index) {
+      case 0:
+        return this.props.history.push('/');
+      default:
+        return this.setState({ index: 0 });
+    }
+  };
+
   render() {
     return (
       <>
-        <NavBar {...this.props} />
+        <NavBar {...this.props} onBackClick={this.onBackClick} />
         <Page>
           <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
             <Request1 />

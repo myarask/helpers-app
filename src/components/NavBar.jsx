@@ -1,5 +1,4 @@
 import React from 'react';
-import Belt from 'components/Belt';
 import { AppBar, Button, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle, ChevronLeft } from '@material-ui/icons';
 import logo from 'assets/transparent_logo.png';
@@ -25,40 +24,37 @@ const NavBar = props => {
 
   return (
     <AppBar position="static">
-      <Toolbar>
-        {pathname === '/login' && <img src={logo} alt="Helpers" height="40px" />}
-        {(pathname === '/' || pathname === '/service-request') && (
-          <Button style={{ color: 'white' }}>
+      <Toolbar style={{ position: 'relative' }}>
+        {pathname === '/' && <img src={logo} alt="Helpers" height="40px" />}
+        {pathname === '/service-request' && (
+          <Button onClick={props.onBackClick} style={{ color: 'white', paddingRight: '20px' }}>
             <ChevronLeft />
-            <Typography> Back</Typography>
+            <Typography>Back</Typography>
           </Button>
         )}
 
-        <Belt>
-          <div />
-          <div>
-            <IconButton onClick={handleMenu}>
-              <AccountCircle style={{ color: 'white' }} />
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={isMenuOpen}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={onLogout}>Logout</MenuItem>
-            </Menu>
-          </div>
-        </Belt>
+        <div style={{ position: 'absolute', right: '16px' }}>
+          <IconButton onClick={handleMenu}>
+            <AccountCircle style={{ color: 'white' }} />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={isMenuOpen}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={onLogout}>Logout</MenuItem>
+          </Menu>
+        </div>
       </Toolbar>
     </AppBar>
   );
