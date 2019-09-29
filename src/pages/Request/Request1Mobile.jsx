@@ -5,14 +5,14 @@ import RequestService from './_RequestService';
 
 const Request1Mobile = props => (
   <div>
-    <RequestClientSelected {...props.client} onClick={props.onBackClick} />
     <Grid container>
       {props.services.map(service => (
         <Grid item xs={6}>
-          <RequestService {...service} />
+          <RequestService {...service} key={service.id} />
         </Grid>
       ))}
     </Grid>
+    <RequestClientSelected {...props.client} />
   </div>
 );
 

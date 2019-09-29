@@ -5,7 +5,9 @@ const HomeCard = props => (
   <Card square>
     <ButtonBase onClick={props.onClick} style={{ width: '100%' }}>
       <CardContent>
-        <Typography>{props.title}</Typography>
+        <Typography variant="h1" color="primary">
+          {props.title}
+        </Typography>
       </CardContent>
     </ButtonBase>
   </Card>

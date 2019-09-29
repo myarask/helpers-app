@@ -5,6 +5,9 @@ const theme = createMuiTheme({
     primary: {
       main: 'rgb(18, 179, 179)',
     },
+    dark: {
+      main: '#222',
+    },
   },
   typography: {
     fontFamily: ['Open Sans', 'Montserrat'].join(','),

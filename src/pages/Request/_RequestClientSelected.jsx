@@ -1,18 +1,11 @@
 import React from 'react';
-import { Card, CardHeader, Avatar, ButtonBase } from '@material-ui/core';
-import { ChevronLeft } from '@material-ui/icons';
+import { withTheme } from '@material-ui/styles';
+import { Box, Typography } from '@material-ui/core';
 
 const RequestClientSelected = props => (
-  <Card square>
-    <ButtonBase onClick={props.onClick} style={{ width: '100%' }}>
-      <ChevronLeft color="primary" />
-      <CardHeader
-        avatar={<Avatar src={props.src}>{props.name.charAt(0)}</Avatar>}
-        title={`Helping ${props.name}`}
-        style={{ width: '100%', textAlign: 'left' }}
-      />
-    </ButtonBase>
-  </Card>
+  <Box p={1} square style={{ background: props.theme.palette.dark.main }}>
+    <Typography style={{ color: 'white' }}>Helping {props.name}</Typography>
+  </Box>
 );
 
-export default RequestClientSelected;
+export default withTheme(RequestClientSelected);
