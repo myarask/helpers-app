@@ -10,7 +10,7 @@ import DriverCompanion from 'assets/services/DriverCompanion.svg';
 import Grooming from 'assets/services/Grooming.svg';
 import HelpingAndMobility from 'assets/services/HelpingAndMobility.svg';
 import Hygiene from 'assets/services/Hygiene.svg';
-import Request1 from './Request1';
+import Request1 from './Request0';
 import Request2 from './Request2';
 
 class Request extends React.Component {

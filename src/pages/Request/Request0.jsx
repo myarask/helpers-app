@@ -1,21 +1,21 @@
 import React from 'react';
 import DeviceSwitch from 'components/DeviceSwitch';
-import Request1Desktop from './Request1Desktop';
-import Request1Mobile from './Request1Mobile';
-import Request1Tablet from './Request1Tablet';
+import Request0Desktop from './Request0Desktop';
+import Request0Mobile from './Request0Mobile';
+import Request0Tablet from './Request0Tablet';
 
-const Request1 = props => {
+const Request0 = props => {
   const onClientClick = clientIndex => {
     props.setPageState({ clientIndex, index: 1 });
   };
 
   return (
     <DeviceSwitch {...props} onClientClick={onClientClick}>
-      <Request1Mobile />
-      <Request1Tablet />
-      <Request1Desktop />
+      <Request0Mobile />
+      <Request0Tablet />
+      <Request0Desktop />
     </DeviceSwitch>
   );
 };
 
-export default Request1;
+export default Request0;

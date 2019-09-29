@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import RequestClient from './_RequestClient';
 
-const Request1Mobile = props => (
+const Request0Mobile = props => (
   <div>
     <Box p={2}>
       <Typography variant="h1">Who would you like to help?</Typography>
@@ -14,4 +14,4 @@ const Request1Mobile = props => (
   </div>
 );
 
-export default Request1Mobile;
+export default Request0Mobile;
