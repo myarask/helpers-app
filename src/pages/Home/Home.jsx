@@ -14,7 +14,10 @@ class Home extends React.Component {
     this.funcs = {
       setPageState: this.setState.bind(this),
       onChange: this.onChange.bind(this),
-      onRequestClick: () => this.props.history.push('/service-request'),
+      onSubmitClick: () => props.history.push('/requests/new'),
+      onMonitorClick: () => props.history.push('/requests/mine'),
+      onIncomingClick: () => props.history.push('/requests/incoming'),
+      onReviewClick: () => props.history.push('/requests/active'),
     };
   }
 

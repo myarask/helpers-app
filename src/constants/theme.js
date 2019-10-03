@@ -23,37 +23,36 @@ const theme = createMuiTheme({
   overrides: {
     MuiTypography: {
       h1: {
-        fontSize: '1.4rem',
+        fontSize: '1.5rem',
         fontFamily: 'Montserrat',
       },
       h2: {
-        fontSize: '1.3rem',
+        fontSize: '1.4rem',
         fontFamily: 'Montserrat',
       },
       h3: {
-        fontSize: '1.2rem',
-        fontFamily: 'Montserrat',
-      },
-      h4: {
-        fontSize: '1.1rem',
-        fontFamily: 'Montserrat',
-      },
-      h5: {
-        fontSize: '1.0rem',
-        fontFamily: 'Montserrat',
-      },
-      h6: {
-        fontSize: '0.9rem',
+        fontSize: '1.3rem',
         fontFamily: 'Montserrat',
       },
       body1: {
-        fontSize: '0.8rem',
+        fontSize: '1rem',
         fontFamily: 'Open Sans',
       },
     },
     MuiButton: {
+      root: {
+        textTransform: 'none',
+        fontSize: '1rem',
+      },
       containedPrimary: {
         color: 'white',
+      },
+    },
+    MuiCardContent: {
+      root: {
+        '&:last-child': {
+          paddingBottom: '16px',
+        },
       },
     },
   },
