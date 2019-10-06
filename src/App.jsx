@@ -54,7 +54,7 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route exact path="/login" render={props => <Login {...props} {...shared} />} />
+            {!this.state.isLoggedIn && <Route exact path="/login" render={props => <Login {...props} {...shared} />} />}
 
             {!this.state.isLoggedIn && <Redirect to="/login" />}
             <Route exact path="/" render={props => <Home {...props} {...shared} />} />
