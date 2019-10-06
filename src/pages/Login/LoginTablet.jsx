@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from 'assets/padded_logo_teal.png';
 import { Box } from '@material-ui/core';
-import LoginForm from './LoginForm';
+import LoginForm from './_LoginForm';
 
 const LoginTablet = props => (
   <Box p={3}>

@@ -1,4 +1,4 @@
-const baseUrl = 'https://api.gigavate.com/api';
-const SEARCH = `${baseUrl}/search`;
+const host = 'https://helpers-test-api.herokuapp.com';
+const SESSIONS = `${host}/sessions`;
 
-export { SEARCH };
+export { SESSIONS };
