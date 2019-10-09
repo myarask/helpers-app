@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
+import services from 'constants/services';
 import RequestClientSelected from './_RequestClientSelected';
 import RequestService from './_RequestService';
 
@@ -17,7 +18,7 @@ const Request1Mobile = props => (
       }}
     >
       <Grid container style={{ flex: 0 }}>
-        {props.services.map(service => (
+        {services.map(service => (
           <Grid item xs={12}>
             <RequestService {...service} key={service.id} />
           </Grid>
