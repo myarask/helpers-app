@@ -5,6 +5,7 @@ import Home from 'pages/Home/Home';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'constants/theme';
+import links from 'constants/links';
 
 const getDeviceIndex = () => {
   if (document.documentElement.clientWidth <= 425) return 0;
@@ -54,11 +55,15 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <Router>
           <Switch>
-            {!this.state.isLoggedIn && <Route exact path="/login" render={props => <Login {...props} {...shared} />} />}
+            {!this.state.isLoggedIn && (
+              <Route exact path={links.login} render={props => <Login {...props} {...shared} />} />
+            )}
 
-            {!this.state.isLoggedIn && <Redirect to="/login" />}
-            <Route exact path="/" render={props => <Home {...props} {...shared} />} />
-            <Route exact path="/requests/new" render={props => <Request {...props} {...shared} />} />
+            {!this.state.isLoggedIn && <Redirect to={links.login} />}
+
+            <Route exact path={links.home} render={props => <Home {...props} {...shared} />} />
+            <Route exact path={links.request} render={props => <Request {...props} {...shared} />} />
+            {this.state.isLoggedIn && <Redirect to={links.home} />}
           </Switch>
         </Router>
       </MuiThemeProvider>

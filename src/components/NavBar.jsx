@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Button, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle, ChevronLeft } from '@material-ui/icons';
 import logo from 'assets/transparent_logo.png';
+import links from 'constants/links';
 
 const NavBar = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,8 +22,8 @@ const NavBar = props => {
   return (
     <AppBar position="static">
       <Toolbar style={{ position: 'relative' }}>
-        {pathname === '/' && <img src={logo} alt="Helpers" height="40px" />}
-        {pathname === '/requests/new' && (
+        {pathname === links.home && <img src={logo} alt="Helpers" height="40px" />}
+        {pathname === links.request && (
           <Button onClick={props.onBackClick} style={{ color: 'white', paddingRight: '20px' }}>
             <ChevronLeft />
             <Typography>Back</Typography>

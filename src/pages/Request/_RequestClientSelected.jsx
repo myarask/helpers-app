@@ -1,21 +1,23 @@
 import React from 'react';
 import { withTheme } from '@material-ui/styles';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, NativeSelect } from '@material-ui/core';
+import Belt from 'components/Belt';
 
-const RequestClientSelected = ({ style, theme, name, ...rest }) => (
+const RequestClientSelected = ({ style, theme, name, clients, clientIndex, ...rest }) => (
   <Box
     p={1}
     square
     style={{
       background: theme.palette.secondary.main,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
       ...style,
     }}
     {...rest}
   >
-    <Typography style={{ color: 'white' }}>Helping {name}</Typography>
+    <NativeSelect name="age" fullWidth>
+      {clients.map(client => (
+        <option value={clientIndex}>Help {client.name}</option>
+      ))}
+    </NativeSelect>
   </Box>
 );
 

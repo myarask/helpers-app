@@ -15,7 +15,7 @@ const LoginForm = props => (
       onChange={props.onChange}
       margin="normal"
       error={props.hasIncorrectCredentials}
-      helperText={props.hasIncorrectCredentials && 'Username or password was incorrect'}
+      helperText={props.hasIncorrectCredentials && 'Email or password was incorrect'}
     />
     <Box mt={1}>
       <Button

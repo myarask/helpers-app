@@ -4,16 +4,27 @@ import RequestClientSelected from './_RequestClientSelected';
 import RequestService from './_RequestService';
 
 const Request1Mobile = props => (
-  <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'auto' }}>
-    <Grid container style={{ flex: 0 }}>
-      {props.services.map(service => (
-        <Grid item xs={12}>
-          <RequestService {...service} key={service.id} />
-        </Grid>
-      ))}
-    </Grid>
-    <RequestClientSelected {...props.client} style={{ flex: 1 }} />
-  </div>
+  <>
+    <RequestClientSelected {...props} />
+
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: 'calc(100% - 40px)',
+        overflow: 'auto',
+        position: 'relative',
+      }}
+    >
+      <Grid container style={{ flex: 0 }}>
+        {props.services.map(service => (
+          <Grid item xs={12}>
+            <RequestService {...service} key={service.id} />
+          </Grid>
+        ))}
+      </Grid>
+    </div>
+  </>
 );
 
 export default Request1Mobile;
