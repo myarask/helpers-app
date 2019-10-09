@@ -32,8 +32,8 @@ const HomeMobile = props => (
         <FormControlLabel
           control={
             <Checkbox
-              value={props.isAcceptingRequests}
-              onChange={props.onChange}
+              checked={props.isAcceptingRequests}
+              onChange={props.toggleIsAcceptingRequests}
               name="isAcceptingRequests"
               color="primary"
             />

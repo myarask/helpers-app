@@ -19,6 +19,7 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       deviceIndex: getDeviceIndex(),
+      isAcceptingRequests: null,
     };
 
     this.onResize = this.onResize.bind(this);
