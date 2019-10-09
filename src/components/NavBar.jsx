@@ -18,7 +18,7 @@ const NavBar = props => {
     <AppBar position="static">
       <Toolbar style={{ position: 'relative' }}>
         {pathname === links.home && <img src={logo} alt="Helpers" height="40px" />}
-        {pathname === links.newRequest && (
+        {(pathname === links.newRequest || pathname === links.incoming) && (
           <Button variant="text" onClick={props.onBackClick} style={{ color: 'white', paddingRight: '20px' }}>
             <ChevronLeft />
             <Typography>Back</Typography>

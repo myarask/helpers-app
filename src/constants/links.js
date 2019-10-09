@@ -2,7 +2,7 @@ const home = '/';
 const login = '/login';
 const newRequest = '/requests/new';
 const myRequests = '/requests/mine';
-const incomingRequests = '/requests/incoming';
+const incoming = '/incoming';
 const reviewRequests = '/requests/active';
 
 export default {
@@ -10,6 +10,6 @@ export default {
   login,
   newRequest,
   myRequests,
-  incomingRequests,
+  incoming,
   reviewRequests,
 };

@@ -19,7 +19,7 @@ const HomeMobile = props => (
         </ButtonLink>
       </Box>
       <Box m={m} hidden={!props.isHelper}>
-        <ButtonLink to={links.incomingRequests} disabled={!props.isAcceptingRequests} fullWidth>
+        <ButtonLink to={links.incoming} disabled={!props.isAcceptingRequests} fullWidth>
           Incoming Requests
         </ButtonLink>
       </Box>
