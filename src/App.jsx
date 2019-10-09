@@ -62,7 +62,7 @@ class App extends React.Component {
             {!this.state.isLoggedIn && <Redirect to={links.login} />}
 
             <Route exact path={links.home} render={props => <Home {...props} {...shared} />} />
-            <Route exact path={links.request} render={props => <Request {...props} {...shared} />} />
+            <Route exact path={links.newRequest} render={props => <Request {...props} {...shared} />} />
             {this.state.isLoggedIn && <Redirect to={links.home} />}
           </Switch>
         </Router>

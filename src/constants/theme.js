@@ -16,8 +16,9 @@ const theme = createMuiTheme({
     fontFamily: ['Open Sans', 'Montserrat'].join(','),
   },
   props: {
-    MuiButtonBase: {
-      // disableRipple: true,
+    MuiButton: {
+      color: 'primary',
+      variant: 'contained',
     },
   },
   overrides: {

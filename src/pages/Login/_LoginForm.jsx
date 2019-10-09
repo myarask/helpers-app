@@ -18,13 +18,7 @@ const LoginForm = props => (
       helperText={props.hasIncorrectCredentials && 'Email or password was incorrect'}
     />
     <Box mt={1}>
-      <Button
-        fullWidth
-        variant="contained"
-        color="primary"
-        type="submit"
-        disabled={props.email === '' || props.password === '' || props.isLoading}
-      >
+      <Button fullWidth type="submit" disabled={props.email === '' || props.password === '' || props.isLoading}>
         Log In
       </Button>
     </Box>
