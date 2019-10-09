@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTheme } from '@material-ui/styles';
-import { Card, CardContent, ButtonBase, Typography } from '@material-ui/core';
+import { Card, ButtonBase, Typography } from '@material-ui/core';
 import { Img, Belt } from 'components';
 
 const RequestService = props => (

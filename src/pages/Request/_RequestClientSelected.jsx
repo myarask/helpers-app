@@ -1,7 +1,6 @@
 import React from 'react';
 import { withTheme } from '@material-ui/styles';
-import { Box, Typography, NativeSelect } from '@material-ui/core';
-import { Belt } from 'components';
+import { Box, NativeSelect } from '@material-ui/core';
 
 const RequestClientSelected = ({ style, theme, name, clients, clientIndex, ...rest }) => (
   <Box

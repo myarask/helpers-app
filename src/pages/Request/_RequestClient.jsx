@@ -1,6 +1,6 @@
 import React from 'react';
 import { Belt } from 'components';
-import { Box, Card, CardContent, Typography, Button, Avatar, ButtonBase } from '@material-ui/core';
+import { Box, Card, CardContent, Typography, Button } from '@material-ui/core';
 
 const RequestClient = props => (
   <Box m={1}>
