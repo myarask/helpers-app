@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box, FormControlLabel, Checkbox } from '@material-ui/core';
 import links from 'constants/links';
 import { ButtonLink } from 'components';
 
@@ -19,14 +19,27 @@ const HomeMobile = props => (
         </ButtonLink>
       </Box>
       <Box m={m} hidden={!props.isHelper}>
-        <ButtonLink to={links.incomingRequests} fullWidth>
+        <ButtonLink to={links.incomingRequests} disabled={!props.isAcceptingRequests} fullWidth>
           Incoming Requests
         </ButtonLink>
       </Box>
       <Box m={m} hidden={!props.isHelper}>
-        <ButtonLink to={links.reviewRequests} fullWidth>
+        <ButtonLink to={links.reviewRequests} disabled={!props.isAcceptingRequests} fullWidth>
           Review Active Request
         </ButtonLink>
+      </Box>
+      <Box m={m} mt={4} hidden={!props.isHelper}>
+        <FormControlLabel
+          control={
+            <Checkbox
+              value={props.isAcceptingRequests}
+              onChange={props.onChange}
+              name="isAcceptingRequests"
+              color="primary"
+            />
+          }
+          label="Accepting Requests"
+        />
       </Box>
     </Box>
   </Box>

@@ -7,21 +7,19 @@ import HomeTablet from './HomeTablet';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isAcceptingRequests: false,
+    };
 
     this.funcs = {
       setPageState: this.setState.bind(this),
       onChange: this.onChange.bind(this),
-      onSubmitClick: () => props.history.push('/requests/new'),
-      onMonitorClick: () => props.history.push('/requests/mine'),
-      onIncomingClick: () => props.history.push('/requests/incoming'),
-      onReviewClick: () => props.history.push('/requests/active'),
     };
   }
 
   onChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+    const { name, value, type } = e.target;
+    this.setState(prevState => ({ [name]: type === 'checkbox' ? !prevState[name] : value }));
   }
 
   render() {
