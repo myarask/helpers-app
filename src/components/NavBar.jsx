@@ -12,11 +12,6 @@ const NavBar = props => {
 
   const handleClose = () => setAnchorEl(null);
 
-  const onLogout = () => {
-    setAnchorEl(null);
-    props.setAppState({ isLoggedIn: false });
-  };
-
   const { pathname } = props.history.location;
 
   return (
@@ -48,7 +43,7 @@ const NavBar = props => {
             open={isMenuOpen}
             onClose={handleClose}
           >
-            <MenuItem onClick={onLogout}>Logout</MenuItem>
+            <MenuItem onClick={props.logout}>Logout</MenuItem>
           </Menu>
         </div>
       </Toolbar>

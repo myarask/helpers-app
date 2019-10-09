@@ -13,13 +13,17 @@ const getDeviceIndex = () => {
   return 2;
 };
 
+const freshState = {
+  isLoggedIn: false,
+  isAcceptingRequests: null,
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      ...freshState,
       deviceIndex: getDeviceIndex(),
-      isAcceptingRequests: null,
     };
 
     this.onResize = this.onResize.bind(this);
@@ -27,6 +31,7 @@ class App extends React.Component {
 
     this.funcs = {
       setAppState: this.setState.bind(this),
+      logout: this.logout.bind(this),
     };
   }
 
@@ -44,6 +49,10 @@ class App extends React.Component {
       document.body.style.height = `${window.innerHeight}px`;
       document.getElementById('root').style.height = `${window.innerHeight}px`;
     }
+  }
+
+  logout() {
+    this.setState(freshState);
   }
 
   render() {
