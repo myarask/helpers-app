@@ -1,7 +1,7 @@
 import React from 'react';
 import { DeviceSwitch, Page, NavBar } from 'components';
 import { SHIFTS } from 'constants/apis';
-import axios from 'axios';
+import axios from 'constants/axios';
 import IncomingDesktop from './IncomingDesktop';
 import IncomingMobile from './IncomingMobile';
 import IncomingTablet from './IncomingTablet';

@@ -45,7 +45,18 @@ class Login extends React.Component {
 
     axios
       .post(SESSIONS, {}, options)
-      .then(resp => this.props.setAppState({ ...resp.data, isLoggedIn: true }, () => this.props.history.push('/')))
+      .then(resp => {
+        console.log(resp.headers);
+        localStorage.setItem('jwt', resp.headers.Token);
+
+        this.props.setAppState(
+          {
+            ...resp.data,
+            isLoggedIn: true,
+          },
+          () => this.props.history.push('/')
+        );
+      })
       .catch(() => this.setState({ password: '', hasIncorrectCredentials: true, isLoading: false }));
   }
 
