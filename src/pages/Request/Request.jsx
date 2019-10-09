@@ -1,7 +1,5 @@
 import React from 'react';
-import ContentSwitch from 'components/ContentSwitch';
-import Page from 'components/Page';
-import NavBar from 'components/NavBar';
+import { ContentSwitch, Page, NavBar } from 'components';
 import Activity from 'assets/services/Activity.svg';
 import Cleaning from 'assets/services/Cleaning.svg';
 import Companionship from 'assets/services/Companionship.svg';

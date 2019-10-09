@@ -1,8 +1,7 @@
 import React from 'react';
 import { withTheme } from '@material-ui/styles';
 import { Card, CardContent, ButtonBase, Typography } from '@material-ui/core';
-import Img from 'components/Img';
-import Belt from 'components/Belt';
+import { Img, Belt } from 'components';
 
 const RequestService = props => (
   <Card square>

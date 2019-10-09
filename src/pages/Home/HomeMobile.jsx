@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import links from 'constants/links';
-import ButtonLink from 'components/ButtonLink';
+import { ButtonLink } from 'components';
 
 const m = 2;
 

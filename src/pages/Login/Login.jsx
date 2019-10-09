@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Page from 'components/Page';
-import DeviceSwitch from 'components/DeviceSwitch';
+import { Page, DeviceSwitch } from 'components';
 import { SESSIONS } from 'constants/apis';
 import LoginDesktop from './LoginDesktop';
 import LoginMobile from './LoginMobile';

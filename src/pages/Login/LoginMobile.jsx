@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from 'assets/padded_logo_teal.png';
 import { Box } from '@material-ui/core';
-import Img from 'components/Img';
+import { Img } from 'components';
 import LoginForm from './_LoginForm';
 
 const LoginMobile = props => (

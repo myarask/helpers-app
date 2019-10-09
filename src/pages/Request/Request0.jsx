@@ -1,5 +1,5 @@
 import React from 'react';
-import DeviceSwitch from 'components/DeviceSwitch';
+import { DeviceSwitch } from 'components';
 import Request0Desktop from './Request0Desktop';
 import Request0Mobile from './Request0Mobile';
 import Request0Tablet from './Request0Tablet';

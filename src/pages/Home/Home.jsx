@@ -1,7 +1,5 @@
 import React from 'react';
-import DeviceSwitch from 'components/DeviceSwitch';
-import Page from 'components/Page';
-import NavBar from 'components/NavBar';
+import { DeviceSwitch, Page, NavBar } from 'components';
 import HomeDesktop from './HomeDesktop';
 import HomeMobile from './HomeMobile';
 import HomeTablet from './HomeTablet';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import Belt from 'components/Belt';
+import { Belt } from 'components';
 import RequestClient from './_RequestClient';
 
 const Request0Mobile = props => (
