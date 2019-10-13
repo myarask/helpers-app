@@ -3,7 +3,7 @@ const login = '/login';
 const newRequest = '/requests/new';
 const myRequests = '/requests/mine';
 const incoming = '/incoming';
-const reviewRequests = '/requests/active';
+const activeJob = '/jobs/active';
 
 export default {
   home,
@@ -11,5 +11,5 @@ export default {
   newRequest,
   myRequests,
   incoming,
-  reviewRequests,
+  activeJob,
 };

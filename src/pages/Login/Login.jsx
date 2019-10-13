@@ -46,8 +46,7 @@ class Login extends React.Component {
     axios
       .post(SESSIONS, {}, options)
       .then(resp => {
-        console.log(resp.headers);
-        localStorage.setItem('jwt', resp.headers.Token);
+        localStorage.setItem('jwt', resp.headers.token);
 
         this.props.setAppState(
           {

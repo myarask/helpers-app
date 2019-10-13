@@ -1,17 +1,17 @@
 import React from 'react';
 import { DeviceSwitch, Page, NavBar } from 'components';
-import { SHIFTS } from 'constants/apis';
 import axios from 'helpers/axios';
-import IncomingDesktop from './IncomingDesktop';
-import IncomingMobile from './IncomingMobile';
-import IncomingTablet from './IncomingTablet';
+import { JOBS } from 'constants/apis';
+import Desktop from './JobDesktop';
+import Mobile from './JobMobile';
+import Tablet from './JobTablet';
 
-class Request extends React.Component {
+class Job extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shifts: [],
       isLoading: true,
+      job: {},
     };
 
     this.funcs = {
@@ -22,8 +22,8 @@ class Request extends React.Component {
 
   componentDidMount() {
     axios
-      .get(SHIFTS)
-      .then(resp => this.setState({ shifts: resp.data }))
+      .get(JOBS)
+      .then(resp => this.setState({ job: resp.data }))
       .catch(() => {})
       .then(() => this.setState({ isLoading: false }));
   }
@@ -33,9 +33,7 @@ class Request extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onBackClick = () => {
-    this.props.history.push('/');
-  };
+  onBackClick = () => this.props.history.push('/');
 
   render() {
     return (
@@ -43,9 +41,9 @@ class Request extends React.Component {
         <NavBar {...this.props} onBackClick={this.onBackClick} />
         <Page>
           <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
-            <IncomingMobile />
-            <IncomingTablet />
-            <IncomingDesktop />
+            <Mobile />
+            <Tablet />
+            <Desktop />
           </DeviceSwitch>
         </Page>
       </>
@@ -53,4 +51,4 @@ class Request extends React.Component {
   }
 }
 
-export default Request;
+export default Job;

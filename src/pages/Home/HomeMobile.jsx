@@ -24,8 +24,8 @@ const HomeMobile = props => (
         </ButtonLink>
       </Box>
       <Box m={m} hidden={!props.isHelper}>
-        <ButtonLink to={links.reviewRequests} disabled={!props.isAcceptingRequests} fullWidth>
-          Review Active Request
+        <ButtonLink to={links.activeJob} disabled={!props.isAcceptingRequests} fullWidth>
+          Active Job
         </ButtonLink>
       </Box>
       <Box m={m} mt={4} hidden={!props.isHelper}>

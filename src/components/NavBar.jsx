@@ -9,16 +9,19 @@ const NavBar = props => {
   const isMenuOpen = Boolean(anchorEl);
 
   const handleMenu = event => setAnchorEl(event.currentTarget);
-
   const handleClose = () => setAnchorEl(null);
 
   const { pathname } = props.history.location;
+
+  console.log(pathname, links.activeJob);
+  console.log(pathname === links.activeJob);
+  // console.log(pa);
 
   return (
     <AppBar position="static">
       <Toolbar style={{ position: 'relative' }}>
         {pathname === links.home && <img src={logo} alt="Helpers" height="40px" />}
-        {(pathname === links.newRequest || pathname === links.incoming) && (
+        {[links.newRequest, links.incoming, links.activeJob].includes(pathname) && (
           <Button variant="text" onClick={props.onBackClick} style={{ color: 'white', paddingRight: '20px' }}>
             <ChevronLeft />
             <Typography>Back</Typography>
