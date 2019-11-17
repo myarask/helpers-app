@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from 'pages/Login/Login';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Page } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'constants/theme';
 import links from 'constants/links';
@@ -62,15 +63,17 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
-          <Switch>
-            {!this.state.isLoggedIn && (
-              <Route exact path={links.login} render={props => <Login {...props} {...shared} />} />
-            )}
+          <Page>
+            <Switch>
+              {!this.state.isLoggedIn && (
+                <Route exact path={links.login} render={props => <Login {...props} {...shared} />} />
+              )}
 
-            {!this.state.isLoggedIn && <Redirect to={links.login} />}
+              {!this.state.isLoggedIn && <Redirect to={links.login} />}
 
-            {this.state.isLoggedIn && <Redirect to={links.home} />}
-          </Switch>
+              {this.state.isLoggedIn && <Redirect to={links.home} />}
+            </Switch>
+          </Page>
         </Router>
       </MuiThemeProvider>
     );

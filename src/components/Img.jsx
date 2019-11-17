@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Fade } from '@material-ui/core';
 
-const Img = ({ timeout = 1000, style, ...rest }) => {
+const Img = ({ timeout = 2000, style, ...rest }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
