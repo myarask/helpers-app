@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, Button, TextField, Typography } from '@material-ui/core';
+import axios from 'utils/axios';
+import { SESSIONS } from 'constants/apis';
+import { Box, Button, TextField } from '@material-ui/core';
 import { Formik } from 'formik';
 
-const LoginForm = () => (
+const LoginForm = props => (
   <Formik
     initialValues={{ email: '', password: '' }}
     validate={values => {
@@ -14,11 +16,28 @@ const LoginForm = () => (
       }
       return errors;
     }}
-    onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-      }, 400);
+    onSubmit={(values, { setSubmitting, setErrors }) => {
+      const options = {
+        auth: {
+          username: values.email,
+          password: values.password,
+        },
+      };
+      return axios
+        .post(SESSIONS, {}, options)
+        .then(resp => props.setAppState({ userId: resp.data.userId }))
+        .catch(e => {
+          const errors = {};
+
+          if (e.response.status === 401) {
+            errors.email = 'Incorrect password';
+          } else if (e.response.status === 404) {
+            errors.password = 'Incorrect email';
+          }
+
+          setErrors(errors);
+          setSubmitting(false);
+        });
     }}
   >
     {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
@@ -44,9 +63,9 @@ const LoginForm = () => (
           onBlur={handleBlur}
           value={values.password}
         />
-        {/* {errors.password && touched.password && errors.password} */}
+        {errors.password && touched.password && errors.password}
         <Box mt={3}>
-          <Button fullWidth margin="normal" type="submit" disabled={isSubmitting}>
+          <Button fullWidth type="submit" disabled={isSubmitting}>
             Login
           </Button>
         </Box>

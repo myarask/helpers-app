@@ -4,7 +4,7 @@ import { Box, Link, Typography } from '@material-ui/core';
 import { Img, Belt } from 'components';
 import LoginForm from './_LoginForm';
 
-const LoginMobile = () => {
+const LoginMobile = props => {
   return (
     <Belt isVertical>
       <Box p={3}>
@@ -12,7 +12,7 @@ const LoginMobile = () => {
       </Box>
 
       <Box p={3}>
-        <LoginForm />
+        <LoginForm {...props} />
       </Box>
 
       <Box p={3}>

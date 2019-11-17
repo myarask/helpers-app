@@ -13,8 +13,7 @@ const getDeviceIndex = () => {
 };
 
 const freshState = {
-  isLoggedIn: false,
-  isAcceptingRequests: null,
+  userId: null,
 };
 
 class App extends React.Component {
@@ -60,18 +59,22 @@ class App extends React.Component {
       ...this.funcs,
     };
 
+    console.log(this.state.userId);
+
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
           <Page>
             <Switch>
-              {!this.state.isLoggedIn && (
+              {!this.state.userId && (
                 <Route exact path={links.login} render={props => <Login {...props} {...shared} />} />
               )}
 
-              {!this.state.isLoggedIn && <Redirect to={links.login} />}
+              {!this.state.userId && <Redirect to={links.login} />}
 
-              {this.state.isLoggedIn && <Redirect to={links.home} />}
+              <Route exact path={links.home} render={() => <div />} />
+
+              {this.state.userId && <Redirect to={links.home} />}
             </Switch>
           </Page>
         </Router>
