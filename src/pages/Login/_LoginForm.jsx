@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'utils/axios';
 import { SESSIONS } from 'constants/apis';
-import { Box, Button, TextField } from '@material-ui/core';
-import { Formik } from 'formik';
+import { Box, Button } from '@material-ui/core';
+import { FormTextField } from 'components';
+import { Formik, ErrorMessage, Form, Field } from 'formik';
 
 const LoginForm = props => (
   <Formik
@@ -40,36 +41,22 @@ const LoginForm = props => (
         });
     }}
   >
-    {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-      <form onSubmit={handleSubmit}>
-        <TextField
-          fullWidth
-          type="email"
-          name="email"
-          margin="normal"
-          label="Email"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.email}
-        />
+    {({ isSubmitting }) => (
+      <Form>
+        {/* <FormTextField fullWidth type="email" name="email" margin="normal" label="Email" /> */}
+        <Field fullWidth type="email" name="email" margin="normal" label="Email" component={FormTextField} />
+        <ErrorMessage name="email" />
         {/* {errors.email && touched.email && errors.email} */}
-        <TextField
-          fullWidth
-          type="password"
-          name="password"
-          margin="normal"
-          label="Password"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.password}
-        />
-        {errors.password && touched.password && errors.password}
-        <Box mt={3}>
-          <Button fullWidth type="submit" disabled={isSubmitting}>
-            Login
-          </Button>
-        </Box>
-      </form>
+        {/* <FormTextField fullWidth type="password" name="password" margin="normal" label="Password" /> */}
+        <Field fullWidth type="password" name="password" margin="normal" label="Password" />
+        {/* {errors.password && touched.password && errors.password} */}
+        <ErrorMessage name="password" />
+        {/* <Box mt={3}> */}
+        <Button fullWidth type="submit" disabled={isSubmitting}>
+          Login
+        </Button>
+        {/* </Box> */}
+      </Form>
     )}
   </Formik>
 );
