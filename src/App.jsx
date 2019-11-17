@@ -1,9 +1,5 @@
 import React from 'react';
-import Request from 'pages/Request/Request';
 import Login from 'pages/Login/Login';
-import Home from 'pages/Home/Home';
-import Incoming from 'pages/Incoming/Incoming';
-import Job from 'pages/Job/Job';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'constants/theme';
@@ -73,10 +69,6 @@ class App extends React.Component {
 
             {!this.state.isLoggedIn && <Redirect to={links.login} />}
 
-            <Route exact path={links.home} render={props => <Home {...props} {...shared} />} />
-            <Route exact path={links.newRequest} render={props => <Request {...props} {...shared} />} />
-            <Route exact path={links.incoming} render={props => <Incoming {...props} {...shared} />} />
-            <Route exact path={links.activeJob} render={props => <Job {...props} {...shared} />} />
             {this.state.isLoggedIn && <Redirect to={links.home} />}
           </Switch>
         </Router>
