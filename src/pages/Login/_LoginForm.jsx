@@ -48,7 +48,7 @@ const LoginForm = props => (
         <ErrorMessage name="email" />
         {/* {errors.email && touched.email && errors.email} */}
         {/* <FormTextField fullWidth type="password" name="password" margin="normal" label="Password" /> */}
-        <Field fullWidth type="password" name="password" margin="normal" label="Password" />
+        <Field fullWidth type="password" name="password" margin="normal" label="Password" component={FormTextField} />
         {/* {errors.password && touched.password && errors.password} */}
         <ErrorMessage name="password" />
         {/* <Box mt={3}> */}
