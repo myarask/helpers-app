@@ -11,7 +11,7 @@ const LoginMobile = props => {
         <Img src={logo} alt="Helpers" style={{ display: 'block', width: '100%', height: 'auto' }} />
       </Box>
 
-      <Box p={3}>
+      <Box px={3}>
         <LoginForm {...props} />
         <Box mt={2}>
           <Typography align="center">

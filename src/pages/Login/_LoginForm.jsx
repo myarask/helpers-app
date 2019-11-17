@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'utils/axios';
 import { SESSIONS } from 'constants/apis';
 import { Box, Button } from '@material-ui/core';
-import { FormTextField } from 'components';
-import { Formik, ErrorMessage, Form, Field } from 'formik';
+import { TextField } from 'formik-material-ui';
+import { Formik, Form, Field } from 'formik';
 
 const LoginForm = props => (
   <Formik
@@ -31,9 +31,9 @@ const LoginForm = props => (
           const errors = {};
 
           if (e.response.status === 401) {
-            errors.email = 'Incorrect password';
+            errors.password = 'Incorrect password';
           } else if (e.response.status === 404) {
-            errors.password = 'Incorrect email';
+            errors.email = 'Incorrect email';
           }
 
           setErrors(errors);
@@ -43,19 +43,14 @@ const LoginForm = props => (
   >
     {({ isSubmitting }) => (
       <Form>
-        {/* <FormTextField fullWidth type="email" name="email" margin="normal" label="Email" /> */}
-        <Field fullWidth type="email" name="email" margin="normal" label="Email" component={FormTextField} />
-        <ErrorMessage name="email" />
-        {/* {errors.email && touched.email && errors.email} */}
-        {/* <FormTextField fullWidth type="password" name="password" margin="normal" label="Password" /> */}
-        <Field fullWidth type="password" name="password" margin="normal" label="Password" component={FormTextField} />
-        {/* {errors.password && touched.password && errors.password} */}
-        <ErrorMessage name="password" />
-        {/* <Box mt={3}> */}
-        <Button fullWidth type="submit" disabled={isSubmitting}>
-          Login
-        </Button>
-        {/* </Box> */}
+        <Field fullWidth type="email" name="email" margin="normal" label="Email" component={TextField} />
+        <Field fullWidth type="password" name="password" margin="normal" label="Password" component={TextField} />
+
+        <Box mt={2}>
+          <Button fullWidth type="submit" disabled={isSubmitting}>
+            Login
+          </Button>
+        </Box>
       </Form>
     )}
   </Formik>
