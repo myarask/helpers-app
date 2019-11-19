@@ -15,9 +15,15 @@ const LoginMobile = props => {
         <LoginForm {...props} />
         <Box mt={2}>
           <Typography align="center">
+            <b>Email us at </b>
+          </Typography>
+          <Typography align="center">
             <b>
-              <Link href="http://www.gethelpers.ca/">Forgot Password?</Link>
+              <Link href="http://www.gethelpers.ca/">reset@gethelpers.ca</Link>
             </b>
+          </Typography>
+          <Typography align="center">
+            <b> to reset your login</b>
           </Typography>
         </Box>
       </Box>

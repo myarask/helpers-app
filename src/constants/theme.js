@@ -23,9 +23,6 @@ const theme = createMuiTheme({
       color: 'primary',
       variant: 'contained',
     },
-    MuiInput: {
-      disableUnderline: true,
-    },
     MuiTextField: {
       InputLabelProps: {
         shrink: true,
