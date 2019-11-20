@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
   icons: {
     color: theme.palette.primary.main,
   },
+  price: {
+    color: theme.palette.primary.main,
+  },
 }));
 
 const ServicesOption = props => {
@@ -25,7 +28,9 @@ const ServicesOption = props => {
             <b>{props.name}</b>
           </Typography>
           <Typography gutterBottom>{props.description}</Typography>
-          <Typography>${props.flatFee.toFixed(2)}</Typography>
+          <Typography className={classes.price}>
+            <b>${props.flatFee.toFixed(2)}</b>
+          </Typography>
         </Box>
 
         <Checkbox

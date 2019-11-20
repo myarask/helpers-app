@@ -1,12 +1,21 @@
 import React from 'react';
-import { Paper, Box, Typography } from '@material-ui/core';
+import { Paper, Box, IconButton, Typography } from '@material-ui/core';
 import links from 'constants/links';
-import { ButtonLink, NavBar } from 'components';
+import { ButtonLink, NavBar, NavLogo } from 'components';
+import { AccountCircle, Menu } from '@material-ui/icons';
 
 const HomeMobile = props => {
   return (
     <>
-      <NavBar {...props} />
+      <NavBar {...props}>
+        <IconButton>
+          <Menu style={{ color: 'white' }} />
+        </IconButton>
+        <NavLogo />
+        <IconButton style={{ visibility: 'hidden' }}>
+          <AccountCircle style={{ color: 'white' }} />
+        </IconButton>
+      </NavBar>
 
       <Paper square>
         <Box p={2}>
