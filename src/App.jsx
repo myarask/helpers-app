@@ -24,8 +24,10 @@ const freshState = {
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(JSON.parse(localStorage.getItem('APP'));
     this.state = {
       ...freshState,
+      ...JSON.parse(localStorage.getItem('APP') || {}),
       deviceIndex: getDeviceIndex(),
     };
 
@@ -40,6 +42,10 @@ class App extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('APP', JSON.stringify(this.state));
   }
 
   onResize() {

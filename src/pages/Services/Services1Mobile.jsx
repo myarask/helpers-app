@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Button, Divider, IconButton, Paper, Typography } from '@material-ui/core';
 import { NavBar, Belt } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
-import links from 'constants/links';
 import ServicesOptionItem from './_ServicesOptionItem';
 
 const Services1Mobile = props => {

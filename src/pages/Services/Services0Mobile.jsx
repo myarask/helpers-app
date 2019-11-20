@@ -35,7 +35,7 @@ const Services0Mobile = props => {
         </Typography>
       </Box>
       {props.services.map(service => (
-        <Box m={2}>
+        <Box m={2} key={service.id}>
           <ServicesOption
             {...service}
             checked={props.serviceIds.includes(service.id)}
@@ -57,7 +57,9 @@ const Services0Mobile = props => {
           >
             <option disabled hidden value="" />
             {props.clients.map(client => (
-              <option value={client.clientId}>{[client.firstName, client.lastName].join(' ')}</option>
+              <option key={client.clientId} value={client.clientId}>
+                {[client.firstName, client.lastName].join(' ')}
+              </option>
             ))}
           </Select>
         </FormControl>
