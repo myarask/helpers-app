@@ -16,6 +16,9 @@ const getDeviceIndex = () => {
 
 const freshState = {
   userId: null,
+  requesterId: null,
+  helperId: null,
+  clientId: null,
 };
 
 class App extends React.Component {

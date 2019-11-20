@@ -26,7 +26,7 @@ const LoginForm = props => (
       };
       return axios
         .post(SESSIONS, {}, options)
-        .then(resp => props.setAppState({ userId: resp.data.userId }))
+        .then(resp => props.setAppState({ userId: resp.data.userId, requesterId: resp.data.requesterId || null }))
         .catch(e => {
           const errors = {};
 
