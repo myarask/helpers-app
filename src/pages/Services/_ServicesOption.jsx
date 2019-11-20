@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Paper, Button, Box, Typography, Checkbox } from '@material-ui/core';
+import { Paper, Box, Typography, Checkbox } from '@material-ui/core';
 import { RadioButtonUnchecked, CheckCircle } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
