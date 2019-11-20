@@ -28,9 +28,6 @@ const theme = createMuiTheme({
         shrink: true,
       },
     },
-    MuiPaper: {
-      // square: true,
-    },
   },
   overrides: {
     MuiButton: {
@@ -68,8 +65,8 @@ const theme = createMuiTheme({
     },
     MuiTypography: {
       h1: {
-        fontSize: '1.3rem',
-        // fontFamily: 'Montserrat',
+        fontSize: '1.25rem',
+        fontWeight: 600,
         color: grey,
       },
       h2: {

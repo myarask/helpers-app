@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import { NavBar, NavLogo, IconButtonLink } from 'components';
+import { NavBar, IconButtonLink } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
 import links from 'constants/links';
 import ServicesOption from './_ServicesOption';
@@ -22,7 +22,9 @@ const ServicesMobile = props => {
         <IconButtonLink to={links.home}>
           <ChevronLeft style={{ color: 'white' }} />
         </IconButtonLink>
-        <NavLogo />
+        <Typography variant="h1" style={{ color: 'white' }}>
+          Select Services
+        </Typography>
         <IconButton style={{ visibility: 'hidden' }}>
           <ChevronLeft style={{ color: 'white' }} />
         </IconButton>

@@ -22,7 +22,7 @@ const ServicesOption = props => {
             <img src={props.src} alt={props.name} />
           </Box>
           <Box p={2}>
-            <Typography variant="h2" gutterBottom align="left">
+            <Typography variant="h2" component="h3" gutterBottom align="left">
               {props.name}
             </Typography>
             <Typography gutterBottom align="left">
