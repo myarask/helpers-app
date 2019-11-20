@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
-import { AccountCircle, ChevronLeft } from '@material-ui/icons';
+import Belt from 'components/Belt';
+import { AppBar, Button, Toolbar, Typography, IconButton } from '@material-ui/core';
+import { AccountCircle, ChevronLeft, Menu } from '@material-ui/icons';
 import logo from 'assets/transparent_logo.png';
 import links from 'constants/links';
 
@@ -13,42 +14,20 @@ const NavBar = props => {
 
   const { pathname } = props.history.location;
 
-  console.log(pathname, links.activeJob);
-  console.log(pathname === links.activeJob);
-  // console.log(pa);
-
   return (
     <AppBar position="static">
       <Toolbar style={{ position: 'relative' }}>
-        {pathname === links.home && <img src={logo} alt="Helpers" height="40px" />}
-        {[links.newRequest, links.incoming, links.activeJob].includes(pathname) && (
-          <Button variant="text" onClick={props.onBackClick} style={{ color: 'white', paddingRight: '20px' }}>
-            <ChevronLeft />
-            <Typography>Back</Typography>
-          </Button>
-        )}
-
-        <div style={{ position: 'absolute', right: '16px' }}>
+        <Belt style={{ width: '100%' }}>
           <IconButton onClick={handleMenu}>
+            <Menu style={{ color: 'white' }} />
+          </IconButton>
+
+          <img src={logo} alt="Helpers" height="40px" />
+
+          <IconButton style={{ visibility: 'hidden' }}>
             <AccountCircle style={{ color: 'white' }} />
           </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={isMenuOpen}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={props.logout}>Logout</MenuItem>
-          </Menu>
-        </div>
+        </Belt>
       </Toolbar>
     </AppBar>
   );

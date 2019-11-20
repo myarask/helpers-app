@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from 'pages/Login/Login';
+import Home from 'pages/Home/Home';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -59,8 +60,6 @@ class App extends React.Component {
       ...this.funcs,
     };
 
-    console.log(this.state.userId);
-
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
@@ -70,9 +69,9 @@ class App extends React.Component {
                 <Route exact path={links.login} render={props => <Login {...props} {...shared} />} />
               )}
 
-              {!this.state.userId && <Redirect to={links.login} />}
+              {/* {!this.state.userId && <Redirect to={links.login} />} */}
 
-              <Route exact path={links.home} render={() => <div />} />
+              <Route exact path={links.home} render={props => <Home {...props} {...shared} />} />
 
               {this.state.userId && <Redirect to={links.home} />}
             </Switch>
