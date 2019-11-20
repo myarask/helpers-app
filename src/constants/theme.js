@@ -75,6 +75,7 @@ const theme = createMuiTheme({
       h2: {
         fontSize: '1.125rem',
         color: grey,
+        fontWeight: 700,
       },
       h3: {
         fontSize: '1rem',

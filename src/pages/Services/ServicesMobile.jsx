@@ -1,10 +1,9 @@
 import React from 'react';
-import services from 'constants/services';
 import {
   Box,
+  Button,
   Divider,
   FormControl,
-  InputLabel,
   IconButton,
   OutlinedInput,
   Select,
@@ -28,13 +27,22 @@ const ServicesMobile = props => {
           <ChevronLeft style={{ color: 'white' }} />
         </IconButton>
       </NavBar>
-      {services.map(service => (
+      <Box m={2}>
+        <Typography gutterBottom variant="h2">
+          Select required services:
+        </Typography>
+      </Box>
+      {props.services.map(service => (
         <Box m={2}>
-          <ServicesOption {...service} />
+          <ServicesOption
+            {...service}
+            checked={props.serviceIds.includes(service.id)}
+            onClick={() => props.toggleServiceId(service.id)}
+          />
         </Box>
       ))}
       <Divider />
-      <Box p={2}>
+      <Box m={2}>
         <Typography gutterBottom variant="h3">
           Who&apos;s the service for
         </Typography>
@@ -53,7 +61,7 @@ const ServicesMobile = props => {
         </FormControl>
       </Box>
       <Divider />
-      <Box p={2}>
+      <Box m={2}>
         <Typography gutterBottom variant="h3">
           Important Notes to Helper
         </Typography>
@@ -65,6 +73,15 @@ const ServicesMobile = props => {
           value={props.notes}
           onChange={e => props.setPageState({ notes: e.target.value })}
         />
+      </Box>
+      <Box m={2}>
+        <Box mb={2}>
+          <Button fullWidth>Proceed</Button>
+        </Box>
+
+        <Button variant="text" fullWidth>
+          Go Back
+        </Button>
       </Box>
     </>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import services from 'constants/services';
 import { DeviceSwitch } from 'components';
 import ServicesDesktop from './ServicesDesktop';
 import ServicesMobile from './ServicesMobile';
@@ -22,12 +23,21 @@ class Services extends React.Component {
         },
       ],
       notes: '',
+      serviceIds: [2],
+      services,
     };
 
     this.funcs = {
       setPageState: this.setState.bind(this),
+      toggleServiceId: this.toggleServiceId.bind(this),
     };
   }
+
+  toggleServiceId = id => {
+    this.setState(({ serviceIds }) => ({
+      serviceIds: serviceIds.includes(id) ? serviceIds.filter(x => x !== id) : [...serviceIds, id],
+    }));
+  };
 
   render() {
     return (

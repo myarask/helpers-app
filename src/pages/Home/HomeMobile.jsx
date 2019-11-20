@@ -27,9 +27,7 @@ const HomeMobile = props => {
       <Box pt={1}>
         <Paper>
           <Box p={2}>
-            <Typography variant="h2">
-              <b>Current Active Services</b>
-            </Typography>
+            <Typography variant="h2">Current Active Services</Typography>
           </Box>
         </Paper>
       </Box>
