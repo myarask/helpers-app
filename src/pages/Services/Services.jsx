@@ -14,7 +14,7 @@ class Services extends React.Component {
       clientId: '',
       clients: [],
       notes: '',
-      serviceIds: [1, 3],
+      serviceIds: [],
       services,
     };
 
