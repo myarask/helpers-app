@@ -77,7 +77,7 @@ const Services0Mobile = props => {
         />
       </Box>
       <Box m={2}>
-        <Box mb={2}>
+        <Box mb={1}>
           <Button
             fullWidth
             disabled={!props.serviceIds.length || !props.clientId}
