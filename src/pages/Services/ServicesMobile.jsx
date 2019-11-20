@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import { NavBar, IconButtonLink } from 'components';
+import { NavBar, IconButtonLink, ButtonLink } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
 import links from 'constants/links';
 import ServicesOption from './_ServicesOption';
@@ -78,12 +78,14 @@ const ServicesMobile = props => {
       </Box>
       <Box m={2}>
         <Box mb={2}>
-          <Button fullWidth>Proceed</Button>
+          <Button fullWidth disabled={!props.serviceIds.length || !props.clientId}>
+            Proceed
+          </Button>
         </Box>
 
-        <Button variant="text" fullWidth>
+        <ButtonLink variant="text" fullWidth to={links.home}>
           Go Back
-        </Button>
+        </ButtonLink>
       </Box>
     </>
   );

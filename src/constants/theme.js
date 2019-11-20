@@ -63,6 +63,14 @@ const theme = createMuiTheme({
         padding: '0.5rem',
       },
     },
+    MuiOutlinedInput: {
+      input: {
+        padding: '0.5rem',
+      },
+      multiline: {
+        padding: '0.5rem',
+      },
+    },
     MuiTypography: {
       h1: {
         fontSize: '1.25rem',
