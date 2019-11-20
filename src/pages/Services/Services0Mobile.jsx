@@ -15,7 +15,7 @@ import { ChevronLeft } from '@material-ui/icons';
 import links from 'constants/links';
 import ServicesOption from './_ServicesOption';
 
-const ServicesMobile = props => {
+const Services0Mobile = props => {
   return (
     <>
       <NavBar {...props}>
@@ -78,7 +78,11 @@ const ServicesMobile = props => {
       </Box>
       <Box m={2}>
         <Box mb={2}>
-          <Button fullWidth disabled={!props.serviceIds.length || !props.clientId}>
+          <Button
+            fullWidth
+            disabled={!props.serviceIds.length || !props.clientId}
+            onClick={() => props.setPageState({ index: 1 })}
+          >
             Proceed
           </Button>
         </Box>
@@ -91,4 +95,4 @@ const ServicesMobile = props => {
   );
 };
 
-export default ServicesMobile;
+export default Services0Mobile;

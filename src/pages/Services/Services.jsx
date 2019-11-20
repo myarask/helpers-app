@@ -1,14 +1,14 @@
 import React from 'react';
 import services from 'constants/services';
-import { DeviceSwitch } from 'components';
-import ServicesDesktop from './ServicesDesktop';
-import ServicesMobile from './ServicesMobile';
-import ServicesTablet from './ServicesTablet';
+import { DeviceSwitch, ContentSwitch } from 'components';
+import Services0 from './Services0';
+import Services1 from './Services1';
 
 class Services extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      index: 0,
       clientId: '',
       clients: [
         {
@@ -23,7 +23,7 @@ class Services extends React.Component {
         },
       ],
       notes: '',
-      serviceIds: [2],
+      serviceIds: [],
       services,
     };
 
@@ -41,11 +41,10 @@ class Services extends React.Component {
 
   render() {
     return (
-      <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
-        <ServicesMobile />
-        <ServicesTablet />
-        <ServicesDesktop />
-      </DeviceSwitch>
+      <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
+        <Services0 />
+        <Services1 />
+      </ContentSwitch>
     );
   }
 }
