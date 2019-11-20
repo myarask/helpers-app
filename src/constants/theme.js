@@ -29,7 +29,7 @@ const theme = createMuiTheme({
       },
     },
     MuiPaper: {
-      square: true,
+      // square: true,
     },
   },
   overrides: {

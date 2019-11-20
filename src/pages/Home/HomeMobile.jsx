@@ -1,15 +1,18 @@
 import React from 'react';
-import { Paper, Button, Box, Typography } from '@material-ui/core';
-import { NavBar } from 'components';
+import { Paper, Box, Typography } from '@material-ui/core';
+import links from 'constants/links';
+import { ButtonLink, NavBar } from 'components';
 
 const HomeMobile = props => {
   return (
     <>
       <NavBar {...props} />
 
-      <Paper>
+      <Paper square>
         <Box p={2}>
-          <Button fullWidth>Request Help</Button>
+          <ButtonLink fullWidth to={links.services}>
+            Request Help
+          </ButtonLink>
         </Box>
       </Paper>
       <Box pt={1}>

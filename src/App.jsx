@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from 'pages/Login/Login';
 import Home from 'pages/Home/Home';
+import Services from 'pages/Services/Services';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -72,6 +73,7 @@ class App extends React.Component {
               {/* {!this.state.userId && <Redirect to={links.login} />} */}
 
               <Route exact path={links.home} render={props => <Home {...props} {...shared} />} />
+              <Route exact path={links.services} render={props => <Services {...props} {...shared} />} />
 
               {this.state.userId && <Redirect to={links.home} />}
             </Switch>

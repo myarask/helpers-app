@@ -9,43 +9,31 @@ import Hygiene from 'assets/services/Hygiene.svg';
 
 export default [
   {
-    id: 'service_1',
-    name: 'Driver Companion',
+    id: 1,
+    name: 'Personal Care',
+    description: 'Assistance with bathing, personal hygiene, toileting or dressing',
+    flatFee: 59.99,
     src: DriverCompanion,
   },
   {
-    id: 'service_2',
-    name: 'Hygiene',
-    src: Hygiene,
+    id: 2,
+    name: 'Mobility Assist',
+    description: 'Lifting and transfers, including from sit to stand, wheelchair assistance.',
+    flatFee: 35.0,
+    src: DriverCompanion,
   },
   {
-    id: 'service_3',
-    name: 'Helping & Mobility',
-    src: HelpingAndMobility,
+    id: 3,
+    name: 'Medication Reminder',
+    description: 'As in person reminder and assistance for scheduled medications.',
+    flatFee: 20.0,
+    src: DriverCompanion,
   },
   {
-    id: 'service_4',
-    name: 'Cleaning',
-    src: Cleaning,
-  },
-  {
-    id: 'service_5',
-    name: 'Grooming',
-    src: Grooming,
-  },
-  {
-    id: 'service_6',
-    name: 'Companionship',
-    src: Companionship,
-  },
-  {
-    id: 'service_7',
-    name: 'Cooking',
-    src: Cooking,
-  },
-  {
-    id: 'service_8',
-    name: 'Activity',
-    src: Activity,
+    id: 4,
+    name: 'Driving Companion',
+    description: 'Transportation with a companion for errands, shopping or appointments.',
+    flatFee: 74.99,
+    src: DriverCompanion,
   },
 ];

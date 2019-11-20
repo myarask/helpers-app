@@ -4,6 +4,7 @@ const newRequest = '/requests/new';
 const myRequests = '/requests/mine';
 const incoming = '/incoming';
 const activeJob = '/jobs/active';
+const services = '/services';
 
 export default {
   home,
@@ -12,4 +13,5 @@ export default {
   myRequests,
   incoming,
   activeJob,
+  services,
 };
