@@ -3,6 +3,7 @@ import services from 'constants/services';
 import { ContentSwitch } from 'components';
 import axios from 'utils/axios';
 import { REQUESTERS_ID_CLIENTS } from 'constants/apis';
+import AppContext from 'contexts/app';
 import Services0 from './Services0';
 import Services1 from './Services1';
 
@@ -25,7 +26,9 @@ class Services extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(REQUESTERS_ID_CLIENTS(this.props.requesterId)).then(resp => this.setState({ clients: resp.data }));
+    axios
+      .get(REQUESTERS_ID_CLIENTS(this.props.context.requesterId))
+      .then(resp => this.setState({ clients: resp.data }));
   }
 
   toggleServiceId = id => {
@@ -44,4 +47,6 @@ class Services extends React.Component {
   }
 }
 
-export default Services;
+export default props => (
+  <AppContext.Consumer>{context => <Services context={context} {...props} />}</AppContext.Consumer>
+);

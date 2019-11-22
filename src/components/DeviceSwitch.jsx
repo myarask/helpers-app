@@ -1,13 +1,20 @@
 import React from 'react';
+import AppContext from 'contexts/app';
 
-const DeviceSwitch = ({ deviceIndex, children, ...rest }) => {
+const DeviceSwitch = ({ children, ...rest }) => {
   const arr = React.Children.toArray(children);
 
-  if (deviceIndex >= 0 && deviceIndex <= arr.length) {
-    return React.cloneElement(arr[deviceIndex], rest);
-  }
+  return (
+    <AppContext.Consumer>
+      {({ deviceIndex }) => {
+        if (deviceIndex >= 0 && deviceIndex <= arr.length) {
+          return React.cloneElement(arr[deviceIndex], rest);
+        }
 
-  return null;
+        return null;
+      }}
+    </AppContext.Consumer>
+  );
 };
 
 export default DeviceSwitch;

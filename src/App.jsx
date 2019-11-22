@@ -5,6 +5,7 @@ import Services from 'pages/Services/Services';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import AppContext from 'contexts/app';
 import theme from 'constants/theme';
 import links from 'constants/links';
 
@@ -24,7 +25,7 @@ const freshState = {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(JSON.parse(localStorage.getItem('APP'));
+
     this.state = {
       ...freshState,
       ...JSON.parse(localStorage.getItem('APP') || {}),
@@ -72,22 +73,30 @@ class App extends React.Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <Router>
-          <Page>
-            <Switch>
-              {!this.state.userId && (
-                <Route exact path={links.login} render={props => <Login {...props} {...shared} />} />
-              )}
+        <AppContext.Provider value={shared}>
+          <Router>
+            <Page>
+              <Switch>
+                {!this.state.userId && (
+                  <Route exact path={links.login}>
+                    <Login />
+                  </Route>
+                )}
 
-              {/* {!this.state.userId && <Redirect to={links.login} />} */}
+                {/* {!this.state.userId && <Redirect to={links.login} />} */}
 
-              <Route exact path={links.home} render={props => <Home {...props} {...shared} />} />
-              <Route exact path={links.services} render={props => <Services {...props} {...shared} />} />
+                <Route exact path={links.home}>
+                  <Home />
+                </Route>
+                <Route exact path={links.services}>
+                  <Services />
+                </Route>
 
-              {this.state.userId && <Redirect to={links.home} />}
-            </Switch>
-          </Page>
-        </Router>
+                {this.state.userId && <Redirect to={links.home} />}
+              </Switch>
+            </Page>
+          </Router>
+        </AppContext.Provider>
       </MuiThemeProvider>
     );
   }

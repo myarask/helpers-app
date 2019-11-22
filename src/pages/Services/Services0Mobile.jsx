@@ -52,7 +52,7 @@ const Services0Mobile = props => {
           <Select
             native
             value={props.clientId}
-            onChange={e => props.setPageState({ clientId: e.target.value })}
+            onChange={e => props.setPageState({ clientId: Number(e.target.value) })}
             input={<OutlinedInput />}
           >
             <option disabled hidden value="" />
