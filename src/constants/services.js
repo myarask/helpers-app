@@ -1,11 +1,11 @@
-import Activity from 'assets/services/Activity.svg';
-import Cleaning from 'assets/services/Cleaning.svg';
-import Companionship from 'assets/services/Companionship.svg';
-import Cooking from 'assets/services/Cooking.svg';
+// import Activity from 'assets/services/Activity.svg';
+// import Cleaning from 'assets/services/Cleaning.svg';
+// import Companionship from 'assets/services/Companionship.svg';
+// import Cooking from 'assets/services/Cooking.svg';
 import DriverCompanion from 'assets/services/DriverCompanion.svg';
-import Grooming from 'assets/services/Grooming.svg';
-import HelpingAndMobility from 'assets/services/HelpingAndMobility.svg';
-import Hygiene from 'assets/services/Hygiene.svg';
+// import Grooming from 'assets/services/Grooming.svg';
+// import HelpingAndMobility from 'assets/services/HelpingAndMobility.svg';
+// import Hygiene from 'assets/services/Hygiene.svg';
 
 export default [
   {

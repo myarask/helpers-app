@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from 'pages/Login/Login';
+import Job from 'pages/Job/Job';
 import Home from 'pages/Home/Home';
 import Services from 'pages/Services/Services';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -90,6 +91,9 @@ class App extends React.Component {
                 </Route>
                 <Route exact path={links.services}>
                   <Services />
+                </Route>
+                <Route exact path={links.job}>
+                  <Job />
                 </Route>
 
                 {this.state.userId && <Redirect to={links.home} />}

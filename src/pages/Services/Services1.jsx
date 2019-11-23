@@ -4,7 +4,7 @@ import Services1Desktop from './Services1Desktop';
 import Services1Mobile from './Services1Mobile';
 import Services1Tablet from './Services1Tablet';
 
-const Services0 = props => {
+const Services1 = props => {
   const selectedServices = props.services.filter(service => props.serviceIds.includes(service.id));
   const fees = selectedServices.map(service => service.flatFee).reduce((acc, fee) => acc + fee, 0);
   const taxes = fees * 0.13;
@@ -26,4 +26,4 @@ const Services0 = props => {
   );
 };
 
-export default Services0;
+export default Services1;
