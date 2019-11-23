@@ -17,7 +17,7 @@ const Services1Mobile = props => {
           Review Order Details
         </Typography>
         <IconButton style={{ visibility: 'hidden' }}>
-          <ChevronLeft style={{ color: 'white' }} />
+          <ChevronLeft />
         </IconButton>
       </NavBar>
       <Box m={2}>
@@ -36,7 +36,7 @@ const Services1Mobile = props => {
             <Typography gutterBottom variant="h3">
               Patient
             </Typography>
-            <Typography>{[props.client.firstName, props.client.lastName].join(' ')}</Typography>
+            <Typography gutterBottom>{[props.client.firstName, props.client.lastName].join(' ')}</Typography>
             {props.notes && (
               <>
                 <Typography gutterBottom variant="h3">
