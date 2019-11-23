@@ -17,15 +17,19 @@ const Job = () => {
   const [notes, setNotes] = useState(null);
   const [status, setStatus] = useState(null);
 
-  useEffect(async () => {
-    const job = await axios.get(JOBS_ID(id)).then(resp => resp.data);
+  useEffect(() => {
+    async function fetchData() {
+      const job = await axios.get(JOBS_ID(id)).then(resp => resp.data);
 
-    setServices(job.services);
-    setClient(job.client);
-    setNotes(job.notes);
-    setStatus(job.status);
-    setIsLoading(false);
-  }, []);
+      setServices(job.services);
+      setClient(job.client);
+      setNotes(job.notes);
+      setStatus(job.status);
+      setIsLoading(false);
+    }
+
+    fetchData();
+  }, [id]);
 
   if (isLoading) return <CircularProgress />;
 
