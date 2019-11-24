@@ -3,11 +3,11 @@ import Belt from 'components/Belt';
 import { AppBar, Toolbar } from '@material-ui/core';
 
 const NavBar = props => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const isMenuOpen = Boolean(anchorEl);
+  // const [anchorEl, setAnchorEl] = React.useState(null);
+  // const isMenuOpen = Boolean(anchorEl);
 
-  const handleMenu = event => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
+  // const handleMenu = event => setAnchorEl(event.currentTarget);
+  // const handleClose = () => setAnchorEl(null);
 
   return (
     <AppBar position="static">

@@ -15,6 +15,20 @@ const Home = props => {
 
   useEffect(() => {
     async function fetchData() {
+      async function fetchJobDetails(jobId, i) {
+        const job = await axios.get(JOBS_ID(jobId)).then(resp => resp.data);
+
+        setJobs(j => [
+          ...j.slice(0, i),
+          {
+            ...j[i],
+            ...job,
+            isLoading: false,
+          },
+          ...j.slice(i + 1),
+        ]);
+      }
+
       const options = {
         params: {
           status: 'open',
@@ -29,20 +43,6 @@ const Home = props => {
 
       setJobs(jobData);
       setIsLoading(false);
-
-      async function fetchJobDetails(jobId, i) {
-        const job = await axios.get(JOBS_ID(jobId)).then(resp => resp.data);
-
-        setJobs(j => [
-          ...j.slice(0, i),
-          {
-            ...j[i],
-            ...job,
-            isLoading: false,
-          },
-          ...j.slice(i + 1),
-        ]);
-      }
 
       jobData.map(({ id }) => id).map(fetchJobDetails);
     }
