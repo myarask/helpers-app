@@ -52,13 +52,13 @@ const JobMobile = props => (
         <Belt>
           <Typography>HST / Taxes</Typography>
           <Typography>
-            <b>${props.taxes}</b>
+            <b>{props.taxes}</b>
           </Typography>
         </Belt>
         <Belt>
           <Typography>Total</Typography>
           <Typography>
-            <b>CDN ${props.total}</b>
+            <b>CDN ${props.feesAfterTaxes}</b>
           </Typography>
         </Belt>
       </Box>
@@ -68,11 +68,13 @@ const JobMobile = props => (
       <Typography align="center">Confirm Order by selecting &quot;Find me a Helper&quot;</Typography>
     </Box>
     <Box m={2}>
-      <Box mb={1}>
-        <Button fullWidth onClick={props.onSubmit} disabled={props.isSubmitting}>
-          Find me a Helper
-        </Button>
-      </Box>
+      {props.status === 'draft' && (
+        <Box mb={1}>
+          <Button fullWidth onClick={props.onSubmit} disabled={props.isSubmitting}>
+            Find me a Helper
+          </Button>
+        </Box>
+      )}
 
       <Button fullWidth variant="text" onClick={props.onBackClick}>
         Go Back

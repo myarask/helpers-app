@@ -6,7 +6,7 @@ const JobService = props => (
   <Belt>
     <Typography gutterBottom>{props.name}</Typography>
     <Typography>
-      <b>${props.flatFee}</b>
+      <b>{props.flatFee}</b>
     </Typography>
   </Belt>
 );

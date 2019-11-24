@@ -15,19 +15,13 @@ const Job = () => {
   const { id } = useParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [services, setServices] = useState([]);
-  const [client, setClient] = useState({});
-  const [notes, setNotes] = useState(null);
-  const [status, setStatus] = useState(null);
+  const [job, setJob] = useState({});
 
   useEffect(() => {
     async function fetchData() {
-      const job = await axios.get(JOBS_ID(id)).then(resp => resp.data);
+      const resp = await axios.get(JOBS_ID(id));
 
-      setServices(job.services);
-      setClient(job.client);
-      setNotes(job.notes);
-      setStatus(job.status);
+      setJob(resp.data);
       setIsLoading(false);
     }
 
@@ -36,15 +30,15 @@ const Job = () => {
 
   if (isLoading) return <CircularProgress />;
 
-  const fees = services.map(service => Number(service.flatFee)).reduce((acc, fee) => acc + fee, 0);
-  const taxes = fees * 0.13;
-  const total = fees + taxes;
-
   const onBackClick = () => {
+    if (job.status === 'open') {
+      return history.push(links.home);
+    }
+
     const settings = {
-      notes: encodeURI(notes),
-      serviceIds: encodeURI(services.map(service => service.serviceId).join(',')),
-      clientId: encodeURI(client.id),
+      notes: encodeURI(job.notes),
+      serviceIds: encodeURI(job.services.map(service => service.serviceId).join(',')),
+      clientId: encodeURI(job.client.id),
     };
 
     const searchParams = Object.keys(settings)
@@ -53,7 +47,7 @@ const Job = () => {
 
     const link = `${links.services}?${searchParams}`;
 
-    history.push(link);
+    return history.push(link);
   };
 
   const onSubmit = async () => {
@@ -67,17 +61,7 @@ const Job = () => {
   };
 
   return (
-    <DeviceSwitch
-      services={services}
-      client={client}
-      notes={notes}
-      status={status}
-      taxes={taxes.toFixed(2)}
-      total={total.toFixed(2)}
-      onBackClick={onBackClick}
-      onSubmit={onSubmit}
-      isSubmitting={isSubmitting}
-    >
+    <DeviceSwitch {...job} onBackClick={onBackClick} onSubmit={onSubmit} isSubmitting={isSubmitting}>
       <JobMobile />
       <JobTablet />
       <JobDesktop />
