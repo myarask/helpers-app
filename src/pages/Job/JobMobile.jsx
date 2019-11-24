@@ -1,16 +1,15 @@
 import React from 'react';
 import { Box, Button, Divider, IconButton, Paper, Typography } from '@material-ui/core';
-import { NavBar, Belt, ButtonLink, IconButtonLink } from 'components';
+import { NavBar, Belt } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
-import links from 'constants/links';
 import JobService from './_JobService';
 
 const JobMobile = props => (
   <>
     <NavBar {...props}>
-      <IconButtonLink to={links.services}>
+      <IconButton onClick={props.onBackClick}>
         <ChevronLeft style={{ color: 'white' }} />
-      </IconButtonLink>
+      </IconButton>
       <Typography variant="h1" style={{ color: 'white' }}>
         Review Order Details
       </Typography>
@@ -75,9 +74,9 @@ const JobMobile = props => (
         </Button>
       </Box>
 
-      <ButtonLink variant="text" fullWidth to={links.services}>
+      <Button fullWidth variant="text" onClick={props.onBackClick}>
         Go Back
-      </ButtonLink>
+      </Button>
     </Box>
   </>
 );

@@ -3,13 +3,15 @@ import AppContext from 'contexts/app';
 import axios from 'utils/axios';
 import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { JOBS_ID } from 'constants/apis';
+import links from 'constants/links';
 import JobDesktop from './JobDesktop';
 import JobMobile from './JobMobile';
 import JobTablet from './JobTablet';
 
 const Job = () => {
+  const history = useHistory();
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [services, setServices] = useState([]);
@@ -37,6 +39,22 @@ const Job = () => {
   const taxes = fees * 0.13;
   const total = fees + taxes;
 
+  const onBackClick = () => {
+    const settings = {
+      notes: encodeURI(notes),
+      serviceIds: encodeURI(services.map(service => service.id).join(',')),
+      clientId: encodeURI(client.id),
+    };
+
+    const searchParams = Object.keys(settings)
+      .map(key => `${key}=${settings[key]}`)
+      .join('&');
+
+    const link = `${links.services}?${searchParams}`;
+
+    history.push(link);
+  };
+
   return (
     <DeviceSwitch
       services={services}
@@ -45,6 +63,7 @@ const Job = () => {
       status={status}
       taxes={taxes.toFixed(2)}
       total={total.toFixed(2)}
+      onBackClick={onBackClick}
     >
       <JobMobile />
       <JobTablet />
