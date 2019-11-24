@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AppContext from 'contexts/app';
+import axios from 'utils/axios';
 import { DeviceSwitch } from 'components';
-import LoginDesktop from './HomeDesktop';
-import LoginMobile from './HomeMobile';
-import LoginTablet from './HomeTablet';
+import { JOBS } from 'constants/apis';
+import { CircularProgress } from '@material-ui/core';
+import HomeDesktop from './HomeDesktop';
+import HomeMobile from './HomeMobile';
+import HomeTablet from './HomeTablet';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+const Home = props => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [jobs, setJobs] = useState([]);
 
-    this.funcs = {
-      setPageState: this.setState.bind(this),
-    };
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const options = {
+        params: {
+          status: 'open',
+          requesterId: props.context.requesterId,
+        },
+      };
 
-  render() {
-    return (
-      <DeviceSwitch {...this.props} {...this.state} {...this.funcs}>
-        <LoginMobile />
-        <LoginTablet />
-        <LoginDesktop />
-      </DeviceSwitch>
-    );
-  }
-}
+      const resp = await axios.get(JOBS, options);
 
-export default Login;
+      setJobs(resp.data.data);
+      setIsLoading(false);
+    }
+
+    fetchData();
+  }, []);
+
+  if (isLoading) return <CircularProgress />;
+
+  return (
+    <DeviceSwitch jobs={jobs}>
+      <HomeMobile />
+      <HomeTablet />
+      <HomeDesktop />
+    </DeviceSwitch>
+  );
+};
+
+export default props => <AppContext.Consumer>{context => <Home context={context} {...props} />}</AppContext.Consumer>;
