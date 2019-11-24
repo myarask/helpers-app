@@ -4,18 +4,25 @@ import links from 'constants/links';
 import axios from 'utils/axios';
 import { JOBS, JOB_SERVICES, REQUESTERS_ID_CLIENTS } from 'constants/apis';
 import AppContext from 'contexts/app';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { DeviceSwitch } from 'components';
 import ServicesDesktop from './ServicesDesktop';
 import ServicesMobile from './ServicesMobile';
 import ServicesTablet from './ServicesTablet';
 
 const Services = props => {
+  const query = new URLSearchParams(useLocation().search);
+
+  const initialClientId = query.get('clientId') || '';
+  const initialNotes = query.get('notes') || '';
+  const rawServiceIds = query.get('serviceIds') || '';
+  const initialServiceIds = rawServiceIds ? rawServiceIds.split(',').map(x => Number(x)) : [];
+
   const history = useHistory();
-  const [clientId, setClientId] = useState('');
+  const [clientId, setClientId] = useState(initialClientId);
   const [clients, setClients] = useState([]);
-  const [notes, setNotes] = useState('');
-  const [serviceIds, setServiceIds] = useState([]);
+  const [notes, setNotes] = useState(initialNotes);
+  const [serviceIds, setServiceIds] = useState(initialServiceIds);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {

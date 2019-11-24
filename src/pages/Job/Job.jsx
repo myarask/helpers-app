@@ -42,7 +42,7 @@ const Job = () => {
   const onBackClick = () => {
     const settings = {
       notes: encodeURI(notes),
-      serviceIds: encodeURI(services.map(service => service.id).join(',')),
+      serviceIds: encodeURI(services.map(service => service.serviceId).join(',')),
       clientId: encodeURI(client.id),
     };
 
