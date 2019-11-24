@@ -52,7 +52,7 @@ const ServicesMobile = props => {
           <Select
             native
             value={props.clientId}
-            onChange={e => props.setPageState({ clientId: Number(e.target.value) })}
+            onChange={e => props.setClientId(Number(e.target.value))}
             input={<OutlinedInput />}
           >
             <option disabled hidden value="" />
@@ -75,7 +75,7 @@ const ServicesMobile = props => {
           fullWidth
           variant="outlined"
           value={props.notes}
-          onChange={e => props.setPageState({ notes: e.target.value })}
+          onChange={e => props.setNotes(e.target.value)}
         />
       </Box>
       <Box m={2}>

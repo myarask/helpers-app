@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import services from 'constants/services';
 import axios from 'utils/axios';
 import { REQUESTERS_ID_CLIENTS } from 'constants/apis';
@@ -8,46 +8,46 @@ import ServicesDesktop from './ServicesDesktop';
 import ServicesMobile from './ServicesMobile';
 import ServicesTablet from './ServicesTablet';
 
-class Services extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0,
-      clientId: '',
-      clients: [],
-      notes: '',
-      serviceIds: [],
-      services,
-    };
+const Services = props => {
+  const [clientId, setClientId] = useState('');
+  const [clients, setClients] = useState([]);
+  const [notes, setNotes] = useState('');
+  const [serviceIds, setServiceIds] = useState([]);
 
-    this.funcs = {
-      setPageState: this.setState.bind(this),
-      toggleServiceId: this.toggleServiceId.bind(this),
-    };
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const data = await axios.get(REQUESTERS_ID_CLIENTS(props.context.requesterId)).then(resp => resp.data);
 
-  componentDidMount() {
-    axios
-      .get(REQUESTERS_ID_CLIENTS(this.props.context.requesterId))
-      .then(resp => this.setState({ clients: resp.data }));
-  }
+      setClients(data);
+    }
 
-  toggleServiceId = id => {
-    this.setState(({ serviceIds }) => ({
-      serviceIds: serviceIds.includes(id) ? serviceIds.filter(x => x !== id) : [...serviceIds, id],
-    }));
+    fetchData();
+  }, []);
+
+  const toggleServiceId = id => {
+    const newServiceIds = serviceIds.includes(id) ? serviceIds.filter(x => x !== id) : [...serviceIds, id];
+
+    setServiceIds(newServiceIds);
   };
 
-  render() {
-    return (
-      <DeviceSwitch {...this.props} {...this.state}>
-        <ServicesMobile />
-        <ServicesTablet />
-        <ServicesDesktop />
-      </DeviceSwitch>
-    );
-  }
-}
+  return (
+    <DeviceSwitch
+      clientId={clientId}
+      clients={clients}
+      notes={notes}
+      serviceIds={serviceIds}
+      services={services}
+      setClientId={setClientId}
+      setNotes={setNotes}
+      setServiceIds={setServiceIds}
+      toggleServiceId={toggleServiceId}
+    >
+      <ServicesMobile />
+      <ServicesTablet />
+      <ServicesDesktop />
+    </DeviceSwitch>
+  );
+};
 
 export default props => (
   <AppContext.Consumer>{context => <Services context={context} {...props} />}</AppContext.Consumer>
