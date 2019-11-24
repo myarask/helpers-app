@@ -13,7 +13,8 @@ import ServicesTablet from './ServicesTablet';
 const Services = props => {
   const query = new URLSearchParams(useLocation().search);
 
-  const initialClientId = query.get('clientId') || '';
+  const rawClientId = query.get('clientId');
+  const initialClientId = rawClientId ? Number(rawClientId) : '';
   const initialNotes = query.get('notes') || '';
   const rawServiceIds = query.get('serviceIds') || '';
   const initialServiceIds = rawServiceIds ? rawServiceIds.split(',').map(x => Number(x)) : [];
