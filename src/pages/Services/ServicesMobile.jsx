@@ -82,8 +82,8 @@ const ServicesMobile = props => {
         <Box mb={1}>
           <Button
             fullWidth
-            disabled={!props.serviceIds.length || !props.clientId}
-            onClick={() => props.setPageState({ index: 1 })}
+            disabled={!props.serviceIds.length || !props.clientId || props.isSubmitting}
+            onClick={props.onSubmit}
           >
             Proceed
           </Button>

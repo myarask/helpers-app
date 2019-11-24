@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import services from 'constants/services';
+import links from 'constants/links';
 import axios from 'utils/axios';
-import { REQUESTERS_ID_CLIENTS } from 'constants/apis';
+import { JOBS, JOB_SERVICES, REQUESTERS_ID_CLIENTS } from 'constants/apis';
 import AppContext from 'contexts/app';
+import { useHistory } from 'react-router-dom';
 import { DeviceSwitch } from 'components';
 import ServicesDesktop from './ServicesDesktop';
 import ServicesMobile from './ServicesMobile';
 import ServicesTablet from './ServicesTablet';
 
 const Services = props => {
+  const history = useHistory();
   const [clientId, setClientId] = useState('');
   const [clients, setClients] = useState([]);
   const [notes, setNotes] = useState('');
   const [serviceIds, setServiceIds] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,6 +34,23 @@ const Services = props => {
     setServiceIds(newServiceIds);
   };
 
+  const onSubmit = async () => {
+    setIsSubmitting(true);
+
+    const payload = {
+      clientId,
+      requesterId: props.context.requesterId,
+      notes,
+    };
+
+    const job = await axios.post(JOBS, payload).then(resp => resp.data);
+    const jobId = job.id;
+
+    await Promise.all(serviceIds.map(serviceId => axios.post(JOB_SERVICES, { jobId, serviceId })));
+
+    history.push(links.job.replace(':id', jobId));
+  };
+
   return (
     <DeviceSwitch
       clientId={clientId}
@@ -41,6 +62,8 @@ const Services = props => {
       setNotes={setNotes}
       setServiceIds={setServiceIds}
       toggleServiceId={toggleServiceId}
+      isSubmitting={isSubmitting}
+      onSubmit={onSubmit}
     >
       <ServicesMobile />
       <ServicesTablet />
