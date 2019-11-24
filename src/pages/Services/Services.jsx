@@ -1,11 +1,12 @@
 import React from 'react';
 import services from 'constants/services';
-import { ContentSwitch } from 'components';
 import axios from 'utils/axios';
 import { REQUESTERS_ID_CLIENTS } from 'constants/apis';
 import AppContext from 'contexts/app';
-import Services0 from './Services0';
-import Services1 from './Services1';
+import { DeviceSwitch } from 'components';
+import ServicesDesktop from './ServicesDesktop';
+import ServicesMobile from './ServicesMobile';
+import ServicesTablet from './ServicesTablet';
 
 class Services extends React.Component {
   constructor(props) {
@@ -39,10 +40,11 @@ class Services extends React.Component {
 
   render() {
     return (
-      <ContentSwitch {...this.props} {...this.state} {...this.funcs}>
-        <Services0 />
-        <Services1 />
-      </ContentSwitch>
+      <DeviceSwitch {...this.props} {...this.state}>
+        <ServicesMobile />
+        <ServicesTablet />
+        <ServicesDesktop />
+      </DeviceSwitch>
     );
   }
 }

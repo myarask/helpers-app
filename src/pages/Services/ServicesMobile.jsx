@@ -15,7 +15,7 @@ import { ChevronLeft } from '@material-ui/icons';
 import links from 'constants/links';
 import ServicesOption from './_ServicesOption';
 
-const Services0Mobile = props => {
+const ServicesMobile = props => {
   return (
     <>
       <NavBar {...props}>
@@ -97,4 +97,4 @@ const Services0Mobile = props => {
   );
 };
 
-export default Services0Mobile;
+export default ServicesMobile;
