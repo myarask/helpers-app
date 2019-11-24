@@ -50,6 +50,14 @@ const Job = () => {
     return history.push(link);
   };
 
+  const onCancel = () => {
+    setIsSubmitting(true);
+    const payload = { status: 'cancelled' };
+    const options = { params: { id } };
+
+    axios.patch(JOBS, payload, options).then(() => history.push(links.home));
+  };
+
   const onSubmit = async () => {
     setIsSubmitting(true);
 
@@ -61,7 +69,13 @@ const Job = () => {
   };
 
   return (
-    <DeviceSwitch {...job} onBackClick={onBackClick} onSubmit={onSubmit} isSubmitting={isSubmitting}>
+    <DeviceSwitch
+      {...job}
+      onBackClick={onBackClick}
+      onSubmit={onSubmit}
+      onCancel={onCancel}
+      isSubmitting={isSubmitting}
+    >
       <JobMobile />
       <JobTablet />
       <JobDesktop />
