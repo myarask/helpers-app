@@ -12,6 +12,7 @@ import ServicesTablet from './ServicesTablet';
 
 const Services = props => {
   const query = new URLSearchParams(useLocation().search);
+  const { requesterId } = props.context;
 
   const rawClientId = query.get('clientId');
   const initialClientId = rawClientId ? Number(rawClientId) : '';
@@ -28,13 +29,13 @@ const Services = props => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await axios.get(REQUESTERS_ID_CLIENTS(props.context.requesterId)).then(resp => resp.data);
+      const data = await axios.get(REQUESTERS_ID_CLIENTS(requesterId)).then(resp => resp.data);
 
       setClients(data);
     }
 
     fetchData();
-  }, []);
+  }, [requesterId]);
 
   const toggleServiceId = id => {
     const newServiceIds = serviceIds.includes(id) ? serviceIds.filter(x => x !== id) : [...serviceIds, id];

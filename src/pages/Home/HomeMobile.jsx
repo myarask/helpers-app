@@ -26,7 +26,7 @@ const HomeMobile = props => {
             </Box>
           </Paper>
           {props.jobs.map(job => (
-            <HomeJob {...job} />
+            <HomeJob key={job.id} {...job} />
           ))}
         </Grid>
 
