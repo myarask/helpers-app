@@ -69,7 +69,7 @@ const JobMobile = props => (
     </Box>
     <Box m={2}>
       <Box mb={1}>
-        <Button fullWidth onClick={() => props.setPageState({ index: 1 })}>
+        <Button fullWidth onClick={props.onSubmit} disabled={props.isSubmitting}>
           Find me a Helper
         </Button>
       </Box>
