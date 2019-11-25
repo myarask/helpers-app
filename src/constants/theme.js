@@ -91,6 +91,12 @@ const theme = createMuiTheme({
         fontSize: '0.875rem',
         color: grey,
       },
+      body2: {
+        color: primary.main,
+        fontWeight: 700,
+        fontSize: '0.75rem',
+        textTransform: 'uppercase',
+      },
     },
   },
 });

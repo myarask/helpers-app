@@ -21,7 +21,9 @@ const HomeJob = props => {
             <Box display="flex" style={{ alignItems: 'center' }}>
               <Box>
                 <Typography align="right">{props.feesAfterTaxes}</Typography>
-                <Typography align="right">{props.status}</Typography>
+                <Typography align="right" variant="body2">
+                  {props.status}
+                </Typography>
               </Box>
               <ChevronRight />
             </Box>

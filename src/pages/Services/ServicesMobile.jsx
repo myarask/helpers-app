@@ -31,22 +31,7 @@ const ServicesMobile = props => {
       </NavBar>
       <Box m={2}>
         <Typography gutterBottom variant="h2">
-          Select required services:
-        </Typography>
-      </Box>
-      {props.services.map(service => (
-        <Box m={2} key={service.id}>
-          <ServicesOption
-            {...service}
-            checked={props.serviceIds.includes(service.id)}
-            onClick={() => props.toggleServiceId(service.id)}
-          />
-        </Box>
-      ))}
-      <Divider />
-      <Box m={2}>
-        <Typography gutterBottom variant="h3">
-          Who&apos;s the service for
+          Who&apos;s the Service for:
         </Typography>
         <FormControl variant="outlined" fullWidth>
           <Select
@@ -65,6 +50,22 @@ const ServicesMobile = props => {
         </FormControl>
       </Box>
       <Divider />
+      <Box m={2}>
+        <Typography gutterBottom variant="h2">
+          Select required services:
+        </Typography>
+      </Box>
+      {props.services.map(service => (
+        <Box m={2} key={service.id}>
+          <ServicesOption
+            {...service}
+            checked={props.serviceIds.includes(service.id)}
+            onClick={() => props.toggleServiceId(service.id)}
+          />
+        </Box>
+      ))}
+      <Divider />
+
       <Box m={2}>
         <Typography gutterBottom variant="h3">
           Important Notes to Helper

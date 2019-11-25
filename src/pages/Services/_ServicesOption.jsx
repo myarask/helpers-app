@@ -5,6 +5,9 @@ import { RadioButtonUnchecked, CheckCircle } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
   teaser: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     background: theme.palette.primary.main,
   },
   teal: {
@@ -18,8 +21,8 @@ const ServicesOption = props => {
     <Paper>
       <ButtonBase onClick={props.onClick}>
         <Box display="flex">
-          <Box className={classes.teaser}>
-            <img src={props.src} alt={props.name} />
+          <Box className={classes.teaser} px={2}>
+            <img src={props.src} alt={props.name} width="35px" />
           </Box>
           <Box p={2}>
             <Typography variant="h2" component="h3" gutterBottom align="left">
