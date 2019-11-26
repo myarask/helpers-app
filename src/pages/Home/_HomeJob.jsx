@@ -12,8 +12,6 @@ const HomeJob = props => {
 
   const onClick = () => history.push(links.job.replace(':id', props.id));
 
-  console.log(props.services);
-
   return (
     <Paper square>
       <ButtonBase style={{ width: '100%' }} onClick={onClick}>
