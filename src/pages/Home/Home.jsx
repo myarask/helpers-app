@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AppContext from 'contexts/app';
 import axios from 'utils/axios';
+import services from 'constants/services';
 import { DeviceSwitch } from 'components';
 import { JOBS, JOBS_ID } from 'constants/apis';
 import { CircularProgress } from '@material-ui/core';
@@ -23,6 +24,10 @@ const Home = props => {
           {
             ...j[i],
             ...job,
+            services: job.services.map(service => ({
+              ...service,
+              src: services.find(x => x.id === service.serviceId).srcColor,
+            })),
             isLoading: false,
           },
           ...j.slice(i + 1),

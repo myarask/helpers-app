@@ -12,14 +12,33 @@ const HomeJob = props => {
 
   const onClick = () => history.push(links.job.replace(':id', props.id));
 
+  console.log(props.services);
+
   return (
     <Paper square>
       <ButtonBase style={{ width: '100%' }} onClick={onClick}>
         <Box p={2} style={{ width: '100%' }}>
           <Belt>
-            <Box>Job {props.id}</Box>
-            <Box display="flex" style={{ alignItems: 'center' }}>
-              <Box>
+            <Box>
+              <Typography variant="h3" align="left" gutterBottom>
+                Job {props.id}
+              </Typography>
+              <Box display="flex" alignItems="center">
+                {props.services.map(service => (
+                  <Box pr={1}>
+                    <img
+                      key={service.id}
+                      src={service.src}
+                      alt={service.name}
+                      style={{ maxHeight: '20px', maxWidth: '20px' }}
+                    />
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+
+            <Box display="flex" alignItems="center">
+              <Box mr={1}>
                 <Typography align="right">{props.feesAfterTaxes}</Typography>
                 <Typography align="right" variant="body2">
                   {props.status}
