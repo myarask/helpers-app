@@ -10,12 +10,6 @@ import AppContext from 'contexts/app';
 import theme from 'constants/theme';
 import links from 'constants/links';
 
-const getDeviceIndex = () => {
-  if (document.documentElement.clientWidth <= 425) return 0;
-  if (document.documentElement.clientWidth <= 768) return 1; // Change to 2 to disable the tablet view
-  return 2;
-};
-
 const freshState = {
   userId: null,
   requesterId: null,
@@ -30,11 +24,7 @@ class App extends React.Component {
     this.state = {
       ...freshState,
       ...JSON.parse(localStorage.getItem('APP') || {}),
-      deviceIndex: getDeviceIndex(),
     };
-
-    this.onResize = this.onResize.bind(this);
-    this.onResize();
 
     this.funcs = {
       setAppState: this.setState.bind(this),
@@ -42,24 +32,8 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    window.addEventListener('resize', this.onResize);
-  }
-
   componentDidUpdate() {
     localStorage.setItem('APP', JSON.stringify(this.state));
-  }
-
-  onResize() {
-    const deviceIndex = getDeviceIndex();
-    if (deviceIndex !== this.state.deviceIndex) {
-      this.setState({ deviceIndex });
-    }
-
-    if (deviceIndex === 0) {
-      document.body.style.height = `${window.innerHeight}px`;
-      document.getElementById('root').style.height = `${window.innerHeight}px`;
-    }
   }
 
   logout() {
