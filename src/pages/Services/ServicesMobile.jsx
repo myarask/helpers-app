@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Divider,
-  FormControl,
-  IconButton,
-  OutlinedInput,
-  Select,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Box, Button, Divider, FormControl, OutlinedInput, Select, TextField, Typography } from '@material-ui/core';
 import { NavBar, IconButtonLink, ButtonLink } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
 import links from 'constants/links';
@@ -18,16 +8,13 @@ import ServicesOption from './_ServicesOption';
 const ServicesMobile = props => {
   return (
     <>
-      <NavBar>
+      <NavBar padRight>
         <IconButtonLink to={links.home}>
           <ChevronLeft style={{ color: 'white' }} />
         </IconButtonLink>
         <Typography variant="h1" style={{ color: 'white' }}>
           Select Services
         </Typography>
-        <IconButton style={{ visibility: 'hidden' }}>
-          <ChevronLeft style={{ color: 'white' }} />
-        </IconButton>
       </NavBar>
       <Box m={2}>
         <Typography gutterBottom variant="h2">

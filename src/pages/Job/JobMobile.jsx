@@ -6,16 +6,13 @@ import JobService from './_JobService';
 
 const JobMobile = props => (
   <>
-    <NavBar>
+    <NavBar padRight>
       <IconButton onClick={props.onBackClick}>
         <ChevronLeft style={{ color: 'white' }} />
       </IconButton>
       <Typography variant="h1" style={{ color: 'white' }}>
         Review Order Details
       </Typography>
-      <IconButton style={{ visibility: 'hidden' }}>
-        <ChevronLeft />
-      </IconButton>
     </NavBar>
     <Box m={2}>
       <Typography gutterBottom variant="h2">
