@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import Login from 'pages/Login/Login';
-import Job from 'pages/Job/Job';
-import Services from 'pages/Services/Services';
-import HomeClient from 'pages/HomeClient/HomeClient';
-import HomeHelper from 'pages/HomeHelper/HomeHelper';
-import HomeRequester from 'pages/HomeRequester/HomeRequester';
+import Pages from 'pages';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page, MobileDrawer } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -57,7 +52,7 @@ const App = () => {
             <Switch>
               {!state.userId && (
                 <Route exact path={links.login}>
-                  <Login />
+                  <Pages.Login />
                 </Route>
               )}
 
@@ -69,19 +64,19 @@ const App = () => {
                 {state.helperId && <Redirect to={links.homeHelper} />}
               </Route>
               <Route exact path={links.homeRequester}>
-                <HomeRequester />
+                <Pages.HomeRequester />
               </Route>
               <Route exact path={links.homeClient}>
-                <HomeClient />
+                <Pages.HomeClient />
               </Route>
               <Route exact path={links.homeHelper}>
-                <HomeHelper />
+                <Pages.HomeHelper />
               </Route>
               <Route exact path={links.services}>
-                <Services />
+                <Pages.Services />
               </Route>
               <Route exact path={links.job}>
-                <Job />
+                <Pages.Job />
               </Route>
 
               {state.userId && <Redirect to={links.home} />}
