@@ -7,8 +7,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { Page, MobileDrawer } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { AppContext } from 'contexts';
-import theme from 'constants/theme';
-import links from 'constants/links';
+import { theme, links } from 'constants';
 
 const freshState = {
   userId: null,

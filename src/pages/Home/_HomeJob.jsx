@@ -3,7 +3,7 @@ import { ButtonBase, Paper, Box, Typography, CircularProgress } from '@material-
 import { ChevronRight } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { Belt } from 'components';
-import links from 'constants/links';
+import { links } from 'constants';
 
 const HomeJob = props => {
   const history = useHistory();

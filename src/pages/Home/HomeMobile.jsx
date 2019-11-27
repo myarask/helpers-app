@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, Box, IconButton, Typography, Grid } from '@material-ui/core';
-import links from 'constants/links';
+import { links } from 'constants';
 import { ButtonLink, NavBar, NavBarMenu, NavLogo } from 'components';
 import { AccountCircle } from '@material-ui/icons';
 import HomeJob from './_HomeJob';

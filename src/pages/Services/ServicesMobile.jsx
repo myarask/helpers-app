@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { NavBar, IconButtonLink, ButtonLink } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
-import links from 'constants/links';
+import { links } from 'constants';
 import ServicesOption from './_ServicesOption';
 
 const ServicesMobile = props => {
