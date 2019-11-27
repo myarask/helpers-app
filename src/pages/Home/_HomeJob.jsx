@@ -39,7 +39,7 @@ const HomeJob = props => {
               <Box mr={1}>
                 <Typography align="right">{props.feesAfterTaxes}</Typography>
                 <Typography align="right" variant="body2">
-                  {props.status}
+                  {props.status === 'open' ? 'looking for helper' : props.status}
                 </Typography>
               </Box>
               <ChevronRight />

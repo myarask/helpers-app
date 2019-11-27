@@ -27,7 +27,7 @@ export default [
   {
     id: 3,
     name: 'Medication Reminder',
-    description: 'As in person reminder and assistance for scheduled medications.',
+    description: 'An in person reminder and assistance for scheduled medications.',
     flatFee: 20,
     src: Medication,
     srcColor: MedicationTeal,
