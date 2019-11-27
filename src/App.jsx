@@ -4,27 +4,13 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { Page, MobileDrawer } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { AppContext } from 'contexts';
+import appState from 'constants/appState';
 import links from 'constants/links';
 import theme from 'constants/theme';
 
-const freshState = {
-  firstName: null,
-  lastName: null,
-  email: null,
-  userId: null,
-  requesterId: null,
-  helperId: null,
-  clientId: null,
-};
-
 const App = () => {
-  const initState = {
-    ...freshState,
-    ...JSON.parse(localStorage.getItem('APP') || '{}'),
-  };
-
-  const [state, setState] = useState(initState);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [state, setState] = useState(appState.local);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const onLogin = data => {
     localStorage.setItem('APP', JSON.stringify(data));
@@ -33,15 +19,15 @@ const App = () => {
 
   const onLogout = () => {
     localStorage.removeItem('APP');
-    setMenuOpen(false);
-    setState(freshState);
+    setIsMenuOpen(false);
+    setState(appState.fresh);
   };
 
   const value = {
     ...state,
     onLogin,
     onLogout,
-    setMenuOpen,
+    setIsMenuOpen,
   };
 
   return (
@@ -83,7 +69,7 @@ const App = () => {
             </Switch>
           </Page>
         </Router>
-        <MobileDrawer open={menuOpen} onClose={() => setMenuOpen(false)} onOpen={() => setMenuOpen(true)} />
+        <MobileDrawer open={isMenuOpen} onClose={() => setIsMenuOpen(false)} onOpen={() => setIsMenuOpen(true)} />
       </AppContext.Provider>
     </MuiThemeProvider>
   );
