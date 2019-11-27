@@ -11,6 +11,9 @@ import links from 'constants/links';
 import theme from 'constants/theme';
 
 const freshState = {
+  firstName: null,
+  lastName: null,
+  email: null,
   userId: null,
   requesterId: null,
   helperId: null,
@@ -72,12 +75,7 @@ const App = () => {
             </Switch>
           </Page>
         </Router>
-        <MobileDrawer
-          open={menuOpen}
-          onClose={() => setMenuOpen(false)}
-          onOpen={() => setMenuOpen(true)}
-          onLogout={onLogout}
-        />
+        <MobileDrawer open={menuOpen} onClose={() => setMenuOpen(false)} onOpen={() => setMenuOpen(true)} />
       </AppContext.Provider>
     </MuiThemeProvider>
   );
