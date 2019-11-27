@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AppContext from 'contexts/app';
+import { AppContext } from 'contexts';
 import axios from 'utils/axios';
 import services from 'constants/services';
 import { DeviceSwitch } from 'components';

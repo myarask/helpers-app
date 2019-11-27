@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AppContext from 'contexts/app';
+import { AppContext } from 'contexts';
 import axios from 'utils/axios';
 import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';

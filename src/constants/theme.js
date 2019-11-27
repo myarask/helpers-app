@@ -48,6 +48,11 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiDrawer: {
+      paperAnchorLeft: {
+        right: '100px',
+      },
+    },
     MuiFormLabel: {
       root: {
         color: primary.main,

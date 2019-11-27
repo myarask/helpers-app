@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>lock-solid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Helper-/-menu" transform="translate(-21.000000, -398.000000)" fill="#12B3B3" fill-rule="nonzero">
+            <g id="lock-solid" transform="translate(21.000000, 398.000000)">
+                <path d="M13.3928571,7.875 L12.5892857,7.875 L12.5892857,5.34375 C12.5892857,2.39765625 10.3058036,0 7.5,0 C4.69419643,0 2.41071429,2.39765625 2.41071429,5.34375 L2.41071429,7.875 L1.60714286,7.875 C0.719866071,7.875 0,8.63085937 0,9.5625 L0,16.3125 C0,17.2441406 0.719866071,18 1.60714286,18 L13.3928571,18 C14.2801339,18 15,17.2441406 15,16.3125 L15,9.5625 C15,8.63085937 14.2801339,7.875 13.3928571,7.875 Z M9.91071429,7.875 L5.08928571,7.875 L5.08928571,5.34375 C5.08928571,3.94804687 6.17075893,2.8125 7.5,2.8125 C8.82924107,2.8125 9.91071429,3.94804687 9.91071429,5.34375 L9.91071429,7.875 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

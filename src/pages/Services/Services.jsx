@@ -3,7 +3,7 @@ import services from 'constants/services';
 import links from 'constants/links';
 import axios from 'utils/axios';
 import { JOBS, JOB_SERVICES, REQUESTERS_ID_CLIENTS } from 'constants/apis';
-import AppContext from 'contexts/app';
+import { AppContext } from 'contexts';
 import { useHistory, useLocation } from 'react-router-dom';
 import { DeviceSwitch } from 'components';
 import ServicesDesktop from './ServicesDesktop';

@@ -23,13 +23,8 @@ const HomeJob = props => {
               </Typography>
               <Box display="flex" alignItems="center">
                 {props.services.map(service => (
-                  <Box pr={1}>
-                    <img
-                      key={service.id}
-                      src={service.src}
-                      alt={service.name}
-                      style={{ maxHeight: '20px', maxWidth: '20px' }}
-                    />
+                  <Box pr={1} key={service.id}>
+                    <img src={service.src} alt={service.name} style={{ maxHeight: '20px', maxWidth: '20px' }} />
                   </Box>
                 ))}
               </Box>
