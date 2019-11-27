@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Login from 'pages/Login/Login';
 import Job from 'pages/Job/Job';
-import Home from 'pages/Home/Home';
+import HomeClient from 'pages/HomeClient/HomeClient';
 import Services from 'pages/Services/Services';
+import HomeRequester from 'pages/HomeRequester/HomeRequester';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page, MobileDrawer } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -62,7 +63,14 @@ const App = () => {
               {!state.userId && <Redirect to={links.login} />}
 
               <Route exact path={links.home}>
-                <Home />
+                {state.requesterId && <Redirect to={links.homeRequester} />}
+                {state.clientId && <Redirect to={links.homeClient} />}
+              </Route>
+              <Route exact path={links.homeRequester}>
+                <HomeRequester />
+              </Route>
+              <Route exact path={links.homeClient}>
+                <HomeClient />
               </Route>
               <Route exact path={links.services}>
                 <Services />

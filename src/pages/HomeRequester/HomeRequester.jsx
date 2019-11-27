@@ -5,11 +5,11 @@ import services from 'constants/services';
 import { DeviceSwitch } from 'components';
 import { JOBS, JOBS_ID } from 'constants/apis';
 import { CircularProgress } from '@material-ui/core';
-import HomeDesktop from './HomeDesktop';
-import HomeMobile from './HomeMobile';
-import HomeTablet from './HomeTablet';
+import HomeRequesterDesktop from './HomeRequesterDesktop';
+import HomeRequesterMobile from './HomeRequesterMobile';
+import HomeRequesterTablet from './HomeRequesterTablet';
 
-const Home = props => {
+const HomeRequester = props => {
   const { requesterId } = props.context;
   const [isLoading, setIsLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
@@ -59,11 +59,13 @@ const Home = props => {
 
   return (
     <DeviceSwitch jobs={jobs}>
-      <HomeMobile />
-      <HomeTablet />
-      <HomeDesktop />
+      <HomeRequesterMobile />
+      <HomeRequesterTablet />
+      <HomeRequesterDesktop />
     </DeviceSwitch>
   );
 };
 
-export default props => <AppContext.Consumer>{context => <Home context={context} {...props} />}</AppContext.Consumer>;
+export default props => (
+  <AppContext.Consumer>{context => <HomeRequester context={context} {...props} />}</AppContext.Consumer>
+);

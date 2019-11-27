@@ -18,7 +18,7 @@ import ServicesOption from './_ServicesOption';
 const ServicesMobile = props => {
   return (
     <>
-      <NavBar {...props}>
+      <NavBar>
         <IconButtonLink to={links.home}>
           <ChevronLeft style={{ color: 'white' }} />
         </IconButtonLink>

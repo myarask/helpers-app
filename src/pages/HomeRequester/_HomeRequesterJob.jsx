@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { Belt } from 'components';
 import links from 'constants/links';
 
-const HomeJob = props => {
+const HomeRequesterJob = props => {
   const history = useHistory();
 
   if (props.isLoading) return <CircularProgress />;
@@ -46,4 +46,4 @@ const HomeJob = props => {
   );
 };
 
-export default HomeJob;
+export default HomeRequesterJob;
