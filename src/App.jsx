@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Login from 'pages/Login/Login';
 import Job from 'pages/Job/Job';
-import HomeClient from 'pages/HomeClient/HomeClient';
 import Services from 'pages/Services/Services';
+import HomeClient from 'pages/HomeClient/HomeClient';
+import HomeHelper from 'pages/HomeHelper/HomeHelper';
 import HomeRequester from 'pages/HomeRequester/HomeRequester';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page, MobileDrawer } from 'components';
@@ -65,12 +66,16 @@ const App = () => {
               <Route exact path={links.home}>
                 {state.requesterId && <Redirect to={links.homeRequester} />}
                 {state.clientId && <Redirect to={links.homeClient} />}
+                {state.helperId && <Redirect to={links.homeHelper} />}
               </Route>
               <Route exact path={links.homeRequester}>
                 <HomeRequester />
               </Route>
               <Route exact path={links.homeClient}>
                 <HomeClient />
+              </Route>
+              <Route exact path={links.homeClient}>
+                <HomeHelper />
               </Route>
               <Route exact path={links.services}>
                 <Services />
