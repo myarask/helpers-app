@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import services from 'constants/services';
 import links from 'constants/links';
 import axios from 'utils/axios';
@@ -10,9 +10,9 @@ import ServicesDesktop from './ServicesDesktop';
 import ServicesMobile from './ServicesMobile';
 import ServicesTablet from './ServicesTablet';
 
-const Services = props => {
+const Services = () => {
   const query = new URLSearchParams(useLocation().search);
-  const { requesterId } = props.context;
+  const { requesterId } = useContext(AppContext);
 
   const rawClientId = query.get('clientId');
   const initialClientId = rawClientId ? Number(rawClientId) : '';
@@ -48,7 +48,7 @@ const Services = props => {
 
     const payload = {
       clientId,
-      requesterId: props.context.requesterId,
+      requesterId,
       notes,
     };
 
@@ -81,6 +81,4 @@ const Services = props => {
   );
 };
 
-export default props => (
-  <AppContext.Consumer>{context => <Services context={context} {...props} />}</AppContext.Consumer>
-);
+export default Services;

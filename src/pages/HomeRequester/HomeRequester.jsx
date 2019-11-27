@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts';
 import axios from 'utils/axios';
 import services from 'constants/services';
@@ -9,8 +9,8 @@ import HomeRequesterDesktop from './HomeRequesterDesktop';
 import HomeRequesterMobile from './HomeRequesterMobile';
 import HomeRequesterTablet from './HomeRequesterTablet';
 
-const HomeRequester = props => {
-  const { requesterId } = props.context;
+const HomeRequester = () => {
+  const { requesterId } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
 
@@ -66,6 +66,4 @@ const HomeRequester = props => {
   );
 };
 
-export default props => (
-  <AppContext.Consumer>{context => <HomeRequester context={context} {...props} />}</AppContext.Consumer>
-);
+export default HomeRequester;

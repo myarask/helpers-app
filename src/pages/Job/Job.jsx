@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AppContext } from 'contexts';
 import axios from 'utils/axios';
 import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
@@ -83,4 +82,4 @@ const Job = () => {
   );
 };
 
-export default props => <AppContext.Consumer>{context => <Job context={context} {...props} />}</AppContext.Consumer>;
+export default Job;
