@@ -23,22 +23,22 @@ const App = () => {
     ...JSON.parse(localStorage.getItem('APP') || '{}'),
   };
 
-  const [appState, setAppState] = useState(initState);
+  const [state, setState] = useState(initState);
   const [menuOpen, setMenuOpen] = useState(true);
 
   const onLogin = data => {
     localStorage.setItem('APP', JSON.stringify(data));
-    setAppState(data);
+    setState(data);
   };
 
   const onLogout = () => {
     localStorage.removeItem('APP');
     setMenuOpen(false);
-    setAppState(freshState);
+    setState(freshState);
   };
 
   const value = {
-    ...appState,
+    ...state,
     onLogin,
     onLogout,
     setMenuOpen,
@@ -50,13 +50,13 @@ const App = () => {
         <Router>
           <Page>
             <Switch>
-              {!appState.userId && (
+              {!state.userId && (
                 <Route exact path={links.login}>
                   <Login />
                 </Route>
               )}
 
-              {!appState.userId && <Redirect to={links.login} />}
+              {!state.userId && <Redirect to={links.login} />}
 
               <Route exact path={links.home}>
                 <Home />
@@ -68,7 +68,7 @@ const App = () => {
                 <Job />
               </Route>
 
-              {appState.userId && <Redirect to={links.home} />}
+              {state.userId && <Redirect to={links.home} />}
             </Switch>
           </Page>
         </Router>
