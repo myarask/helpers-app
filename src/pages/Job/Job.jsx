@@ -5,7 +5,7 @@ import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
 import { JOBS, JOBS_ID } from 'constants/apis';
-import { links } from 'constants';
+import links from 'constants/links';
 import JobDesktop from './JobDesktop';
 import JobMobile from './JobMobile';
 import JobTablet from './JobTablet';

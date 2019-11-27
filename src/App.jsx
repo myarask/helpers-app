@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { Page, MobileDrawer } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { AppContext } from 'contexts';
-import { theme, links } from 'constants';
+import links from 'constants/links';
+import theme from 'constants/theme';
 
 const freshState = {
   userId: null,
@@ -23,7 +24,7 @@ const App = () => {
   };
 
   const [state, setState] = useState(initState);
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const onLogin = data => {
     localStorage.setItem('APP', JSON.stringify(data));

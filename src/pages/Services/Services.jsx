@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { services, links } from 'constants';
+import services from 'constants/services';
+import links from 'constants/links';
 import axios from 'utils/axios';
 import { JOBS, JOB_SERVICES, REQUESTERS_ID_CLIENTS } from 'constants/apis';
 import { AppContext } from 'contexts';
