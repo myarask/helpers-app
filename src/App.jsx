@@ -74,7 +74,7 @@ const App = () => {
               <Route exact path={links.homeClient}>
                 <HomeClient />
               </Route>
-              <Route exact path={links.homeClient}>
+              <Route exact path={links.homeHelper}>
                 <HomeHelper />
               </Route>
               <Route exact path={links.services}>
