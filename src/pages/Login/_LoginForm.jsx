@@ -6,8 +6,8 @@ import { Box, Button } from '@material-ui/core';
 import { TextField } from 'formik-material-ui';
 import { Formik, Form, Field } from 'formik';
 
-const LoginForm = props => {
-  const appContext = useContext(AppContext);
+const LoginForm = () => {
+  const { onLogin } = useContext(AppContext);
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
@@ -29,10 +29,7 @@ const LoginForm = props => {
         };
         return axios
           .post(SESSIONS, {}, options)
-          .then(({ data }) => {
-            console.log(data);
-            appContext.setAppState({ ...data });
-          })
+          .then(({ data }) => onLogin(data))
           .catch(e => {
             const errors = {};
 

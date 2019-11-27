@@ -20,14 +20,27 @@ const freshState = {
 const App = () => {
   const initState = {
     ...freshState,
-    ...JSON.parse(localStorage.getItem('APP') || {}),
+    ...JSON.parse(localStorage.getItem('APP') || '{}'),
   };
 
   const [appState, setAppState] = useState(initState);
   const [menuOpen, setMenuOpen] = useState(true);
+
+  const onLogin = data => {
+    localStorage.setItem('APP', JSON.stringify(data));
+    setAppState(data);
+  };
+
+  const onLogout = () => {
+    localStorage.removeItem('APP');
+    setMenuOpen(false);
+    setAppState(freshState);
+  };
+
   const value = {
     ...appState,
-    setAppState,
+    onLogin,
+    onLogout,
     setMenuOpen,
   };
 
@@ -43,7 +56,7 @@ const App = () => {
                 </Route>
               )}
 
-              {/* {!this.state.userId && <Redirect to={links.login} />} */}
+              {!appState.userId && <Redirect to={links.login} />}
 
               <Route exact path={links.home}>
                 <Home />
@@ -59,7 +72,12 @@ const App = () => {
             </Switch>
           </Page>
         </Router>
-        <MobileDrawer open={menuOpen} onClose={() => setMenuOpen(false)} onOpen={() => setMenuOpen(true)} />
+        <MobileDrawer
+          open={menuOpen}
+          onClose={() => setMenuOpen(false)}
+          onOpen={() => setMenuOpen(true)}
+          onLogout={onLogout}
+        />
       </AppContext.Provider>
     </MuiThemeProvider>
   );
