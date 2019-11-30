@@ -37,7 +37,6 @@ const App = () => {
           <Page>
             <Switch>
               {!state.userId && <Route exact path={links.login} component={Pages.Login} />}
-
               {!state.userId && <Redirect to={links.login} />}
 
               <Route exact path={links.home}>
