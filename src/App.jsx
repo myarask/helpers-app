@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Pages from 'pages';
 import axios from 'utils/axios';
 import { HELPERS_ME } from 'constants/apis';
@@ -14,9 +14,12 @@ const App = () => {
   const [state, setState] = useState(appState.local);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    localStorage.setItem('APP', JSON.stringify(state));
+  }, [state]);
+
   const onLogin = data => {
     localStorage.setItem('jwt', data.token);
-    localStorage.setItem('APP', JSON.stringify(data));
     setState(data);
   };
 
