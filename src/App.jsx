@@ -36,11 +36,7 @@ const App = () => {
         <Router>
           <Page>
             <Switch>
-              {!state.userId && (
-                <Route exact path={links.login}>
-                  <Pages.Login />
-                </Route>
-              )}
+              {!state.userId && <Route exact path={links.login} component={Pages.Login} />}
 
               {!state.userId && <Redirect to={links.login} />}
 
@@ -49,21 +45,11 @@ const App = () => {
                 {state.clientId && <Redirect to={links.homeClient} />}
                 {state.helperId && <Redirect to={links.homeHelper} />}
               </Route>
-              <Route exact path={links.homeRequester}>
-                <Pages.HomeRequester />
-              </Route>
-              <Route exact path={links.homeClient}>
-                <Pages.HomeClient />
-              </Route>
-              <Route exact path={links.homeHelper}>
-                <Pages.HomeHelper />
-              </Route>
-              <Route exact path={links.services}>
-                <Pages.Services />
-              </Route>
-              <Route exact path={links.job}>
-                <Pages.Job />
-              </Route>
+              <Route exact path={links.homeRequester} component={Pages.HomeRequester} />
+              <Route exact path={links.homeClient} component={Pages.HomeClient} />
+              <Route exact path={links.homeHelper} component={Pages.HomeHelper} />
+              <Route exact path={links.services} component={Pages.Services} />
+              <Route exact path={links.job} component={Pages.Job} />
 
               {state.userId && <Redirect to={links.home} />}
             </Switch>
