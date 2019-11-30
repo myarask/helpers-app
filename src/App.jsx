@@ -23,10 +23,18 @@ const App = () => {
     setState(appState.fresh);
   };
 
+  const onToggleHelping = () => {
+    setState(prevState => ({
+      ...prevState,
+      isHelping: !prevState.isHelping,
+    }));
+  };
+
   const value = {
     ...state,
     onLogin,
     onLogout,
+    onToggleHelping,
     setIsMenuOpen,
   };
 

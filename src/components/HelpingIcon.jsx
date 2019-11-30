@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Typography, Fab } from '@material-ui/core';
+import { AppContext } from 'contexts';
 import Heart from 'assets/icons/heart-solid-teal.svg';
+import HeartOutline from 'assets/icons/heart-outline-teal.svg';
 
-const HelpingIcon = () => (
-  <span>
-    <Fab size="small">
-      <img src={Heart} alt="tap to start helping" style={{ width: '20px', height: '20px', marginTop: '2px' }} />
-    </Fab>
+const HelpingIcon = () => {
+  const { onToggleHelping, isHelping } = useContext(AppContext);
+  const src = isHelping ? Heart : HeartOutline;
 
-    <Typography align="center" style={{ color: 'white', fontSize: '0.5rem' }}>
-      Helping
-    </Typography>
-  </span>
-);
+  return (
+    <span>
+      <Fab size="small" onClick={onToggleHelping}>
+        <img src={src} alt="tap to start helping" style={{ width: '20px', height: '20px', marginTop: '2px' }} />
+      </Fab>
+
+      <Typography align="center" style={{ color: 'white', fontSize: '0.5rem' }}>
+        {isHelping ? 'Helping' : <>&nbsp;</>}
+      </Typography>
+    </span>
+  );
+};
 
 export default HelpingIcon;
