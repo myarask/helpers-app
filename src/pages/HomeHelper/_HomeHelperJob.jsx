@@ -10,9 +10,8 @@ const HomeHelperJob = props => {
 
   if (props.isLoading) return <CircularProgress />;
 
-  const onClick = () => history.push(links.job.replace(':id', props.id));
-
   const title = props.services.length > 1 ? 'Multiple Services' : props.services[0].name;
+  const onClick = () => history.push(links.job.replace(':id', props.id));
 
   return (
     <Paper square>
@@ -28,6 +27,7 @@ const HomeHelperJob = props => {
                   {props.feesBeforeTaxes}
                 </Typography>
               </Belt>
+              <Typography align="left">1 min • 0.3km</Typography>
 
               <Box display="flex">
                 {props.services.map(service => (
