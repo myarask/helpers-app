@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Pages from 'pages';
+import axios from 'utils/axios';
+import { HELPERS_ME } from 'constants/apis';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Page, MobileDrawer } from 'components';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -13,6 +15,7 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const onLogin = data => {
+    localStorage.setItem('jwt', data.token);
     localStorage.setItem('APP', JSON.stringify(data));
     setState(data);
   };
@@ -24,6 +27,7 @@ const App = () => {
   };
 
   const onToggleHelping = () => {
+    axios.patch(HELPERS_ME, { isHelping: !state.isHelping });
     setState(prevState => ({
       ...prevState,
       isHelping: !prevState.isHelping,
