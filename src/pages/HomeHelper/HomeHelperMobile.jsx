@@ -2,7 +2,7 @@ import React from 'react';
 import { HelpingIcon, NavBar, NavBarMenu, NavLogo } from 'components';
 import HomeHelperJob from './_HomeHelperJob';
 
-const HomeHelperTablet = props => (
+const HomeHelperMobile = props => (
   <>
     <NavBar>
       <NavBarMenu />
@@ -11,9 +11,9 @@ const HomeHelperTablet = props => (
     </NavBar>
 
     {props.jobs.map(job => (
-      <HomeHelperJob {...job} />
+      <HomeHelperJob key={job.id} {...job} />
     ))}
   </>
 );
 
-export default HomeHelperTablet;
+export default HomeHelperMobile;

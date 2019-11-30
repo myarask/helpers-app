@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Button, Divider, IconButton, Paper, Typography } from '@material-ui/core';
 import { NavBar, Belt } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
-import JobService from './_JobService';
+import JobService from './_JobRequesterService';
 
-const JobMobile = props => (
+const JobRequesterMobile = props => (
   <>
     <NavBar padRight>
       <IconButton onClick={props.onBackClick}>
@@ -83,4 +83,4 @@ const JobMobile = props => (
   </>
 );
 
-export default JobMobile;
+export default JobRequesterMobile;

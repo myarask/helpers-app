@@ -11,6 +11,7 @@ const HomeHelperJob = props => {
   if (props.isLoading) return <CircularProgress />;
 
   const title = props.services.length > 1 ? 'Multiple Services' : props.services[0].name;
+
   const onClick = () => history.push(links.job.replace(':id', props.id));
 
   return (
