@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { Belt } from 'components';
 
-const JobRequesterService = props => (
+const JobHelperService = props => (
   <Belt>
     <Typography gutterBottom>{props.name}</Typography>
     <Typography>
@@ -11,4 +11,4 @@ const JobRequesterService = props => (
   </Belt>
 );
 
-export default JobRequesterService;
+export default JobHelperService;

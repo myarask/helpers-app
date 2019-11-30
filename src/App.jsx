@@ -66,7 +66,7 @@ const App = () => {
 
               <Route exact path={links.job} component={Pages.Job} />
               <Route exact path={links.jobRequester} component={Pages.JobRequester} />
-              <Route exact path={links.jobHelper} component={Pages.JobRequester} />
+              <Route exact path={links.jobHelper} component={Pages.JobHelper} />
 
               {state.userId && <Redirect to={links.home} />}
             </Switch>
