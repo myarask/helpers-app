@@ -53,6 +53,16 @@ const theme = createMuiTheme({
         right: '100px',
       },
     },
+    MuiFab: {
+      root: {
+        minHeight: '28px',
+        backgroundColor: 'white',
+      },
+      sizeSmall: {
+        width: '28px',
+        height: '28px',
+      },
+    },
     MuiFormLabel: {
       root: {
         color: primary.main,

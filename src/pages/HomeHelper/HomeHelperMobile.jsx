@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavBar, NavBarMenu, NavLogo } from 'components';
+import { HelpingIcon, NavBar, NavBarMenu, NavLogo } from 'components';
 
 const HomeHelperTablet = () => (
   <>
-    <NavBar padRight>
+    <NavBar>
       <NavBarMenu />
       <NavLogo />
+      <HelpingIcon />
     </NavBar>
   </>
 );
