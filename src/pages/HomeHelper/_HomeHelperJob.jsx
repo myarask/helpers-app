@@ -5,41 +5,44 @@ import { useHistory } from 'react-router-dom';
 import { Belt } from 'components';
 import links from 'constants/links';
 
-const HomeRequesterJob = props => {
+const HomeHelperJob = props => {
   const history = useHistory();
 
   if (props.isLoading) return <CircularProgress />;
 
   const onClick = () => history.push(links.job.replace(':id', props.id));
 
+  const title = props.services.length > 1 ? 'Multiple Services' : props.services[0].name;
+
   return (
     <Paper square>
       <ButtonBase style={{ width: '100%' }} onClick={onClick}>
         <Box p={2} style={{ width: '100%' }}>
           <Belt>
-            <Box>
-              <Typography variant="h3" align="left" gutterBottom>
-                Job {props.id}
-              </Typography>
-              <Box display="flex" alignItems="center">
+            <div style={{ flexGrow: 1 }}>
+              <Belt>
+                <Typography variant="h3" align="left" gutterBottom>
+                  {title}
+                </Typography>
+                <Typography variant="h3" align="left" gutterBottom>
+                  {props.feesBeforeTaxes}
+                </Typography>
+              </Belt>
+
+              <Box display="flex">
                 {props.services.map(service => (
                   <img
-                    key={service.id}
                     src={service.src}
                     alt={service.name}
+                    key={service.id}
                     style={{ maxHeight: '20px', maxWidth: '20px', paddingRight: '10px' }}
                   />
                 ))}
+                <Typography noWrap>{props.notes}</Typography>
               </Box>
-            </Box>
+            </div>
 
             <Box display="flex" alignItems="center">
-              <Box mr={1}>
-                <Typography align="right">{props.feesAfterTaxes}</Typography>
-                <Typography align="right" variant="body2">
-                  {props.status === 'open' ? 'looking for helper' : props.status}
-                </Typography>
-              </Box>
               <ChevronRight />
             </Box>
           </Belt>
@@ -49,4 +52,4 @@ const HomeRequesterJob = props => {
   );
 };
 
-export default HomeRequesterJob;
+export default HomeHelperJob;
