@@ -64,10 +64,7 @@ const App = () => {
               <Route exact path={links.homeHelper} component={Pages.HomeHelper} />
               <Route exact path={links.services} component={Pages.Services} />
 
-              <Route exact path={links.job}>
-                {/* {() => console.log(123)} */}
-                <Pages.Job />
-              </Route>
+              <Route exact path={links.job} component={Pages.Job} />
               <Route exact path={links.jobRequester} component={Pages.JobRequester} />
               <Route exact path={links.jobHelper} component={Pages.JobRequester} />
 
