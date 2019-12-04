@@ -49,12 +49,11 @@ const JobHelper = () => {
     return history.push(link);
   };
 
-  const onCancel = () => {
-    setIsSubmitting(true);
-    const payload = { status: 'cancelled' };
-    const options = { params: { id } };
-
-    axios.patch(JOBS, payload, options).then(() => history.push(links.home));
+  const onAccept = () => {
+    // setIsSubmitting(true);
+    // const payload = { status: 'cancelled' };
+    // const options = { params: { id } };
+    // axios.patch(JOBS, payload, options).then(() => history.push(links.home));
   };
 
   const onSubmit = async () => {
@@ -72,7 +71,7 @@ const JobHelper = () => {
       {...job}
       onBackClick={onBackClick}
       onSubmit={onSubmit}
-      onCancel={onCancel}
+      onAccept={onAccept}
       isSubmitting={isSubmitting}
     >
       <JobHelperMobile />
