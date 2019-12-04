@@ -31,25 +31,7 @@ const JobHelper = () => {
 
   if (isLoading) return <CircularProgress />;
 
-  const onBackClick = () => {
-    if (job.status === 'open') {
-      return history.push(links.home);
-    }
-
-    const settings = {
-      notes: encodeURI(job.notes),
-      serviceIds: encodeURI(job.services.map(service => service.serviceId).join(',')),
-      clientId: encodeURI(job.client.id),
-    };
-
-    const searchParams = Object.keys(settings)
-      .map(key => `${key}=${settings[key]}`)
-      .join('&');
-
-    const link = `${links.services}?${searchParams}`;
-
-    return history.push(link);
-  };
+  const onBackClick = () => history.push(links.home);
 
   const onAccept = async () => {
     setIsSubmitting(true);
