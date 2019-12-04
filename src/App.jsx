@@ -12,6 +12,7 @@ import theme from 'constants/theme';
 
 const App = () => {
   const [state, setState] = useState(appState.local);
+  // const [isInitialized, setIsInitialized] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -55,6 +56,8 @@ const App = () => {
             <Switch>
               {!userId && <Route exact path={links.login} component={Pages.Login} />}
               {!userId && <Redirect to={links.login} />}
+
+              {/* {!isInitialized && <Route component={Pages.Initializing} />} */}
 
               <Route exact path={links.job} component={Pages.Job} />
               {requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
