@@ -1,22 +1,11 @@
 import React from 'react';
-import { Box, Button, Paper, Typography } from '@material-ui/core';
-import { MobileJobServices } from 'components';
+import { Box, Button } from '@material-ui/core';
+import { MobileJobServices, MobileJobProfile } from 'components';
 
 const JobHelperMobile2Open = props => (
   <>
     <MobileJobServices services={props.services} />
-    {props.notes && (
-      <Box m={2}>
-        <Paper>
-          <Box p={2}>
-            <Typography gutterBottom variant="h3">
-              Notes to Helpers
-            </Typography>
-            <Typography>{props.notes}</Typography>
-          </Box>
-        </Paper>
-      </Box>
-    )}
+    {props.notes && <MobileJobProfile notes={props.notes} />}
 
     <Box m={2}>
       <Button fullWidth onClick={props.onAccept} disabled={props.isSubmitting}>

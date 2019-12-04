@@ -1,14 +1,16 @@
 import React from 'react';
-import { Box, Button, Typography } from '@material-ui/core';
-import { MobileJobServices } from 'components';
+import { Box, Button, Divider } from '@material-ui/core';
+import { MobileJobServices, MobileJobProfile } from 'components';
 
 const JobHelperMobile3Reserved = props => (
   <>
     <Box p={2}>
       <Button fullWidth>Check-In to start Helping</Button>
     </Box>
-    <Typography>You have reserved this job</Typography>
+
+    <Divider />
     <MobileJobServices services={props.services} />
+    <MobileJobProfile notes={props.notes} client={props.client} />
   </>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Button, Divider, IconButton, Paper, Typography } from '@material-ui/core';
-import { NavBar, Belt, MobileJobServices } from 'components';
+import { Box, Button, Divider, IconButton, Typography } from '@material-ui/core';
+import { NavBar, Belt, MobileJobServices, MobileJobProfile } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
 
 const JobRequesterMobile = props => (
@@ -14,24 +14,7 @@ const JobRequesterMobile = props => (
       </Typography>
     </NavBar>
     <MobileJobServices services={props.services} />
-    <Box m={2}>
-      <Paper>
-        <Box p={2}>
-          <Typography gutterBottom variant="h3">
-            Patient
-          </Typography>
-          <Typography gutterBottom>{[props.client.firstName, props.client.lastName].join(' ')}</Typography>
-          {props.notes && (
-            <>
-              <Typography gutterBottom variant="h3">
-                Notes to Helpers
-              </Typography>
-              <Typography>{props.notes}</Typography>
-            </>
-          )}
-        </Box>
-      </Paper>
-    </Box>
+    <MobileJobProfile notes={props.notes} client={props.client} />
 
     <Box m={2}>
       <Divider />

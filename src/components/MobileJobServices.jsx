@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
-import { Belt } from 'components';
+import Belt from './Belt';
 
 const MobileJobService = props => (
   <Belt>
