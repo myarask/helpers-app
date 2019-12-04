@@ -59,14 +59,14 @@ const App = () => {
                 {state.clientId && <Redirect to={links.homeClient} />}
                 {state.helperId && <Redirect to={links.homeHelper} />}
               </Route>
-              <Route exact path={links.homeRequester} component={Pages.HomeRequester} />
-              <Route exact path={links.homeClient} component={Pages.HomeClient} />
-              <Route exact path={links.homeHelper} component={Pages.HomeHelper} />
+              {state.requesterId && <Route exact path={links.homeRequester} component={Pages.HomeRequester} />}
+              {state.clientId && <Route exact path={links.homeClient} component={Pages.HomeClient} />}
+              {state.helperId && <Route exact path={links.homeHelper} component={Pages.HomeHelper} />}
               <Route exact path={links.services} component={Pages.Services} />
 
               <Route exact path={links.job} component={Pages.Job} />
-              <Route exact path={links.jobRequester} component={Pages.JobRequester} />
-              <Route exact path={links.jobHelper} component={Pages.JobHelper} />
+              {state.requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
+              {state.helperId && <Route exact path={links.jobHelper} component={Pages.JobHelper} />}
 
               {state.userId && <Redirect to={links.home} />}
             </Switch>
