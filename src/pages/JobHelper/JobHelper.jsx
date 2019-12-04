@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'utils/axios';
 import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
-import { JOBS, JOBS_ID } from 'constants/apis';
+import { JOBS_ID } from 'constants/apis';
 import links from 'constants/links';
+import { AppContext } from 'contexts';
 import JobHelperDesktop from './JobHelperDesktop';
 import JobHelperMobile from './JobHelperMobile';
 import JobHelperTablet from './JobHelperTablet';
 
 const JobHelper = () => {
+  const { helperId } = useContext(AppContext);
   const history = useHistory();
   const { id } = useParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,31 +51,15 @@ const JobHelper = () => {
     return history.push(link);
   };
 
-  const onAccept = () => {
-    // setIsSubmitting(true);
-    // const payload = { status: 'cancelled' };
-    // const options = { params: { id } };
-    // axios.patch(JOBS, payload, options).then(() => history.push(links.home));
-  };
-
-  const onSubmit = async () => {
+  const onAccept = async () => {
     setIsSubmitting(true);
-
-    const payload = { status: 'open' };
-    const options = { params: { id } };
-
-    await axios.patch(JOBS, payload, options);
+    const payload = { status: 'reserved', helperId };
+    await axios.patch(JOBS_ID(id), payload);
     history.push(links.home);
   };
 
   return (
-    <DeviceSwitch
-      {...job}
-      onBackClick={onBackClick}
-      onSubmit={onSubmit}
-      onAccept={onAccept}
-      isSubmitting={isSubmitting}
-    >
+    <DeviceSwitch {...job} onBackClick={onBackClick} onAccept={onAccept} isSubmitting={isSubmitting}>
       <JobHelperMobile />
       <JobHelperTablet />
       <JobHelperDesktop />

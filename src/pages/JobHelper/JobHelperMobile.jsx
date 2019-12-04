@@ -37,12 +37,6 @@ const JobHelperMobile = props => (
     )}
 
     <Box m={2}>
-      {props.status === 'draft' && (
-        <Button fullWidth onClick={props.onSubmit} disabled={props.isSubmitting}>
-          Find me a Helper
-        </Button>
-      )}
-
       <Button fullWidth onClick={props.onAccept} disabled={props.isSubmitting}>
         Accept
       </Button>
