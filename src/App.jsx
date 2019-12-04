@@ -56,6 +56,10 @@ const App = () => {
               {!userId && <Route exact path={links.login} component={Pages.Login} />}
               {!userId && <Redirect to={links.login} />}
 
+              <Route exact path={links.job} component={Pages.Job} />
+              {requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
+              {helperId && <Route exact path={links.jobHelper} component={Pages.JobHelper} />}
+
               <Route exact path={links.home}>
                 {requesterId && <Redirect to={links.homeRequester} />}
                 {clientId && <Redirect to={links.homeClient} />}
@@ -63,13 +67,10 @@ const App = () => {
               </Route>
               {requesterId && <Route exact path={links.homeRequester} component={Pages.HomeRequester} />}
               {clientId && <Route exact path={links.homeClient} component={Pages.HomeClient} />}
+              {helperId && state.activeJobId && <Redirect to={links.jobHelper.replace(':id', state.activeJobId)} />}
               {helperId && <Route exact path={links.homeHelper} component={Pages.HomeHelper} />}
 
               <Route exact path={links.services} component={Pages.Services} />
-
-              <Route exact path={links.job} component={Pages.Job} />
-              {requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
-              {helperId && <Route exact path={links.jobHelper} component={Pages.JobHelper} />}
 
               <Redirect to={links.home} />
             </Switch>
