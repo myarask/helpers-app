@@ -45,30 +45,33 @@ const App = () => {
     setIsMenuOpen,
   };
 
+  const { userId, requesterId, helperId, clientId } = state;
+
   return (
     <MuiThemeProvider theme={theme}>
       <AppContext.Provider value={value}>
         <Router>
           <Page>
             <Switch>
-              {!state.userId && <Route exact path={links.login} component={Pages.Login} />}
-              {!state.userId && <Redirect to={links.login} />}
+              {!userId && <Route exact path={links.login} component={Pages.Login} />}
+              {!userId && <Redirect to={links.login} />}
 
               <Route exact path={links.home}>
-                {state.requesterId && <Redirect to={links.homeRequester} />}
-                {state.clientId && <Redirect to={links.homeClient} />}
-                {state.helperId && <Redirect to={links.homeHelper} />}
+                {requesterId && <Redirect to={links.homeRequester} />}
+                {clientId && <Redirect to={links.homeClient} />}
+                {helperId && <Redirect to={links.homeHelper} />}
               </Route>
-              {state.requesterId && <Route exact path={links.homeRequester} component={Pages.HomeRequester} />}
-              {state.clientId && <Route exact path={links.homeClient} component={Pages.HomeClient} />}
-              {state.helperId && <Route exact path={links.homeHelper} component={Pages.HomeHelper} />}
+              {requesterId && <Route exact path={links.homeRequester} component={Pages.HomeRequester} />}
+              {clientId && <Route exact path={links.homeClient} component={Pages.HomeClient} />}
+              {helperId && <Route exact path={links.homeHelper} component={Pages.HomeHelper} />}
+
               <Route exact path={links.services} component={Pages.Services} />
 
               <Route exact path={links.job} component={Pages.Job} />
-              {state.requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
-              {state.helperId && <Route exact path={links.jobHelper} component={Pages.JobHelper} />}
+              {requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
+              {helperId && <Route exact path={links.jobHelper} component={Pages.JobHelper} />}
 
-              {state.userId && <Redirect to={links.home} />}
+              <Redirect to={links.home} />
             </Switch>
           </Page>
         </Router>
