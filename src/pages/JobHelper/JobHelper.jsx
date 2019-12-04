@@ -10,26 +10,48 @@ import JobHelperDesktop from './JobHelperDesktop';
 import JobHelperMobile from './JobHelperMobile';
 import JobHelperTablet from './JobHelperTablet';
 
+const getIndex = status => {
+  switch (status) {
+    case 'draft':
+      return 0;
+    case 'cancelled':
+      return 1;
+    case 'open':
+      return 2;
+    case 'reserved':
+      return 3;
+    default:
+      return 0; // Unauthorized
+  }
+};
+
 const JobHelper = () => {
   const { helperId } = useContext(AppContext);
   const history = useHistory();
   const { id } = useParams();
+  const [index, setIndex] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [job, setJob] = useState({});
 
   useEffect(() => {
     async function fetchData() {
-      const resp = await axios.get(JOBS_ID(id));
+      try {
+        const { data } = await axios.get(JOBS_ID(id));
 
-      setJob(resp.data);
-      setIsLoading(false);
+        setIndex(getIndex(data.status));
+        setJob(data);
+      } catch {
+        setIndex(0);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     fetchData();
   }, [id]);
 
-  if (isLoading) return <CircularProgress />;
+  if (isLoading || index === undefined) return <CircularProgress />;
 
   const onBackClick = () => history.push(links.home);
 
@@ -41,7 +63,7 @@ const JobHelper = () => {
   };
 
   return (
-    <DeviceSwitch {...job} onBackClick={onBackClick} onAccept={onAccept} isSubmitting={isSubmitting}>
+    <DeviceSwitch {...job} onBackClick={onBackClick} onAccept={onAccept} isSubmitting={isSubmitting} index={index}>
       <JobHelperMobile />
       <JobHelperTablet />
       <JobHelperDesktop />

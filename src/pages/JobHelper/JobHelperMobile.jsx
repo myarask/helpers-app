@@ -1,8 +1,11 @@
 import React from 'react';
-import { Box, Button, IconButton, Paper, Typography } from '@material-ui/core';
-import { NavBar, NavLogo, HelpingIcon } from 'components';
+import { IconButton } from '@material-ui/core';
+import { NavBar, NavLogo, HelpingIcon, ContentSwitch } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
-import JobService from './_JobHelperService';
+import JobHelperMobile0Unauthorized from './JobHelperMobile0Unauthorized';
+import JobHelperMobile1Cancelled from './JobHelperMobile1Cancelled';
+import JobHelperMobile2Open from './JobHelperMobile2Open';
+import JobHelperMobile3Reserved from './JobHelperMobile3Reserved';
 
 const JobHelperMobile = props => (
   <>
@@ -13,38 +16,12 @@ const JobHelperMobile = props => (
       <NavLogo />
       <HelpingIcon />
     </NavBar>
-    <Box m={2}>
-      <Typography gutterBottom variant="h2">
-        Services required today:
-      </Typography>
-    </Box>
-    <Box m={2}>
-      {props.services.map(service => (
-        <JobService key={service.id} {...service} />
-      ))}
-    </Box>
-    {props.notes && (
-      <Box m={2}>
-        <Paper>
-          <Box p={2}>
-            <Typography gutterBottom variant="h3">
-              Notes to Helpers
-            </Typography>
-            <Typography>{props.notes}</Typography>
-          </Box>
-        </Paper>
-      </Box>
-    )}
-
-    <Box m={2}>
-      <Button fullWidth onClick={props.onAccept} disabled={props.isSubmitting}>
-        Accept
-      </Button>
-
-      <Button fullWidth variant="text" onClick={props.onBackClick}>
-        Go Back
-      </Button>
-    </Box>
+    <ContentSwitch {...props}>
+      <JobHelperMobile0Unauthorized />
+      <JobHelperMobile1Cancelled />
+      <JobHelperMobile2Open />
+      <JobHelperMobile3Reserved />
+    </ContentSwitch>
   </>
 );
 
