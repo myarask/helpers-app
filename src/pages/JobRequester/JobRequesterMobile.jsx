@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Button, Divider, IconButton, Paper, Typography } from '@material-ui/core';
-import { NavBar, Belt } from 'components';
+import { NavBar, Belt, MobileJobServices } from 'components';
 import { ChevronLeft } from '@material-ui/icons';
-import JobService from './_JobRequesterService';
 
 const JobRequesterMobile = props => (
   <>
@@ -14,16 +13,7 @@ const JobRequesterMobile = props => (
         Review Order Details
       </Typography>
     </NavBar>
-    <Box m={2}>
-      <Typography gutterBottom variant="h2">
-        Services required today:
-      </Typography>
-    </Box>
-    <Box m={2}>
-      {props.services.map(service => (
-        <JobService key={service.id} {...service} />
-      ))}
-    </Box>
+    <MobileJobServices services={props.services} />
     <Box m={2}>
       <Paper>
         <Box p={2}>

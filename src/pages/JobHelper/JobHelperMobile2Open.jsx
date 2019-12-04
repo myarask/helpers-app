@@ -1,19 +1,10 @@
 import React from 'react';
 import { Box, Button, Paper, Typography } from '@material-ui/core';
-import JobService from './_JobHelperService';
+import { MobileJobServices } from 'components';
 
 const JobHelperMobile2Open = props => (
   <>
-    <Box m={2}>
-      <Typography gutterBottom variant="h2">
-        Services required today:
-      </Typography>
-    </Box>
-    <Box m={2}>
-      {props.services.map(service => (
-        <JobService key={service.id} {...service} />
-      ))}
-    </Box>
+    <MobileJobServices services={props.services} />
     {props.notes && (
       <Box m={2}>
         <Paper>

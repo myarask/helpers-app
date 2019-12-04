@@ -6,6 +6,7 @@ import HelpingIcon from './HelpingIcon';
 import Img from './Img';
 import IconButtonLink from './IconButtonLink';
 import MobileDrawer from './MobileDrawer';
+import MobileJobServices from './MobileJobServices';
 import NavBar from './NavBar';
 import NavBarMenu from './NavBarMenu';
 import NavLogo from './NavLogo';
@@ -20,6 +21,7 @@ export {
   Img,
   IconButtonLink,
   MobileDrawer,
+  MobileJobServices,
   NavBar,
   NavBarMenu,
   NavLogo,
