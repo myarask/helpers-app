@@ -12,7 +12,7 @@ const HomeRequesterMobile = props => (
     </NavBar>
 
     <Grid container direction="column" style={{ height: 'calc(100% - 56px)' }}>
-      <Grid item style={{ flexGrow: 1 }}>
+      <Grid item style={{ flexGrow: 1, overflowY: 'auto', height: 'calc(100% - 72px)' }}>
         <Paper square>
           <Box p={2}>
             <Typography variant="h2">Current Active Services</Typography>
