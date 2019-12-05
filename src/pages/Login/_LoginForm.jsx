@@ -48,7 +48,15 @@ const LoginForm = () => {
       {({ isSubmitting }) => (
         <Form>
           <Field fullWidth type="email" name="email" margin="normal" label="Email" component={TextField} />
-          <Field fullWidth type="password" name="password" margin="normal" label="Password" component={TextField} />
+          <Field
+            fullWidth
+            type="password"
+            name="password"
+            margin="normal"
+            label="Password"
+            component={TextField}
+            autoComplete="on"
+          />
           <Box mt={2}>
             <Button fullWidth type="submit" disabled={isSubmitting}>
               Login
