@@ -5,6 +5,11 @@ const primary = {
   main: 'rgb(18, 179, 179)',
 };
 
+const margin = '1rem';
+const fullWidth = {
+  width: `calc(100% - 2 * ${margin})`,
+};
+
 const theme = createMuiTheme({
   palette: {
     primary,
@@ -32,6 +37,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       root: {
+        margin,
         textTransform: 'none',
         fontSize: '1rem',
         fontWeight: 600,
@@ -40,6 +46,7 @@ const theme = createMuiTheme({
       containedPrimary: {
         color: 'white',
       },
+      fullWidth,
     },
     MuiCardContent: {
       root: {
@@ -63,10 +70,23 @@ const theme = createMuiTheme({
         height: '28px',
       },
     },
+    MuiFormControl: {
+      fullWidth,
+    },
     MuiFormLabel: {
       root: {
         color: primary.main,
         fontWeight: 'bold',
+      },
+    },
+    MuiInput: {
+      root: {
+        margin,
+      },
+    },
+    MuiInputLabel: {
+      formControl: {
+        left: margin,
       },
     },
     MuiInputBase: {
