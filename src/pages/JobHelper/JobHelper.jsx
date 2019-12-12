@@ -9,21 +9,7 @@ import { AppContext } from 'contexts';
 import JobHelperDesktop from './JobHelperDesktop';
 import JobHelperMobile from './JobHelperMobile';
 import JobHelperTablet from './JobHelperTablet';
-
-const getIndex = status => {
-  switch (status) {
-    case 'draft':
-      return 0;
-    case 'cancelled':
-      return 1;
-    case 'open':
-      return 2;
-    case 'reserved':
-      return 3;
-    default:
-      return 0; // Unauthorized
-  }
-};
+import { getIndex } from './utils';
 
 const JobHelper = () => {
   const { helperId, setAppState } = useContext(AppContext);
@@ -63,12 +49,25 @@ const JobHelper = () => {
       ...prev,
       activeJobId: id,
     }));
+    setIsSubmitting(false);
+  };
 
-    // history.push(links.home);
+  const onStart = async () => {
+    setIsSubmitting(true);
+    const payload = { status: 'in_progress' };
+    await axios.patch(JOBS_ID(id), payload);
+    setIsSubmitting(false);
   };
 
   return (
-    <DeviceSwitch {...job} onBackClick={onBackClick} onAccept={onAccept} isSubmitting={isSubmitting} index={index}>
+    <DeviceSwitch
+      {...job}
+      onBackClick={onBackClick}
+      onAccept={onAccept}
+      onStart={onStart}
+      isSubmitting={isSubmitting}
+      index={index}
+    >
       <JobHelperMobile />
       <JobHelperTablet />
       <JobHelperDesktop />
