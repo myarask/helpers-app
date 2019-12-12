@@ -26,7 +26,7 @@ const getIndex = status => {
 };
 
 const JobHelper = () => {
-  const { helperId } = useContext(AppContext);
+  const { helperId, setAppState } = useContext(AppContext);
   const history = useHistory();
   const { id } = useParams();
   const [index, setIndex] = useState();
@@ -59,7 +59,12 @@ const JobHelper = () => {
     setIsSubmitting(true);
     const payload = { status: 'reserved', helperId };
     await axios.patch(JOBS_ID(id), payload);
-    history.push(links.home);
+    setAppState(prev => ({
+      ...prev,
+      activeJobId: id,
+    }));
+
+    // history.push(links.home);
   };
 
   return (

@@ -11,7 +11,7 @@ import links from 'constants/links';
 import theme from 'constants/theme';
 
 const App = () => {
-  const [state, setState] = useState(appState.local);
+  const [state, setAppState] = useState(appState.local);
   // const [isInitialized, setIsInitialized] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,18 +21,18 @@ const App = () => {
 
   const onLogin = data => {
     localStorage.setItem('jwt', data.token);
-    setState(data);
+    setAppState(data);
   };
 
   const onLogout = () => {
     localStorage.removeItem('APP');
     setIsMenuOpen(false);
-    setState(appState.fresh);
+    setAppState(appState.fresh);
   };
 
   const onToggleHelping = () => {
     axios.patch(HELPERS_ME, { isHelping: !state.isHelping });
-    setState(prevState => ({
+    setAppState(prevState => ({
       ...prevState,
       isHelping: !prevState.isHelping,
     }));
@@ -44,6 +44,7 @@ const App = () => {
     onLogout,
     onToggleHelping,
     setIsMenuOpen,
+    setAppState,
   };
 
   const { userId, requesterId, helperId, clientId } = state;
