@@ -3,7 +3,7 @@ import { Button, Typography, Box, TextField, Avatar } from '@material-ui/core';
 
 const JobHelperMobile5Reviewing = props => (
   <>
-    <Box py={3} px={2}>
+    <Box p={2}>
       <Typography variant="h1" align="center">
         How would you rate your visit today?
       </Typography>
@@ -15,10 +15,14 @@ const JobHelperMobile5Reviewing = props => (
       {[props.client.firstName, props.client.lastName].join(' ')}
     </Typography>
 
-    <TextField fullWidth rows={3} multiline label="Comments" />
-    <Button fullWidth onClick={props.onReview} disabled={props.isSubmitting}>
-      Submit Review
-    </Button>
+    <Box p={2}>
+      <TextField fullWidth rows={3} multiline label="Comments" />
+    </Box>
+    <Box p={2}>
+      <Button fullWidth onClick={props.onReview} disabled={props.isSubmitting}>
+        Submit Review
+      </Button>
+    </Box>
   </>
 );
 
