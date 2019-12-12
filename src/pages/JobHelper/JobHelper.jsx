@@ -59,12 +59,20 @@ const JobHelper = () => {
     setIsSubmitting(false);
   };
 
+  const onFinish = async () => {
+    setIsSubmitting(true);
+    const payload = { status: 'reviewing' };
+    await axios.patch(JOBS_ID(id), payload);
+    setIsSubmitting(false);
+  };
+
   return (
     <DeviceSwitch
       {...job}
       onBackClick={onBackClick}
       onAccept={onAccept}
       onStart={onStart}
+      onFinish={onFinish}
       isSubmitting={isSubmitting}
       index={index}
     >
