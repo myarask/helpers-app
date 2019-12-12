@@ -9,7 +9,27 @@ import { AppContext } from 'contexts';
 import JobHelperDesktop from './JobHelperDesktop';
 import JobHelperMobile from './JobHelperMobile';
 import JobHelperTablet from './JobHelperTablet';
-import { getIndex } from './utils';
+
+const getIndex = status => {
+  switch (status) {
+    case 'draft':
+      return 0;
+    case 'cancelled':
+      return 1;
+    case 'open':
+      return 2;
+    case 'reserved':
+      return 3;
+    case 'in_progress':
+      return 4;
+    case 'reviewing':
+      return 5;
+    case 'complete':
+      return 6;
+    default:
+      return 0; // Unauthorized
+  }
+};
 
 const JobHelper = () => {
   const { helperId, setAppState } = useContext(AppContext);
@@ -43,33 +63,45 @@ const JobHelper = () => {
 
   const onAccept = async () => {
     setIsSubmitting(true);
-    const payload = { status: 'reserved', helperId };
+    const status = 'reserved';
+    const payload = { status, helperId };
     await axios.patch(JOBS_ID(id), payload);
     setAppState(prev => ({
       ...prev,
       activeJobId: id,
     }));
+    setIndex(getIndex(status));
     setIsSubmitting(false);
   };
 
   const onStart = async () => {
     setIsSubmitting(true);
-    const payload = { status: 'in_progress' };
+    const status = 'in_progress';
+    const payload = { status };
     await axios.patch(JOBS_ID(id), payload);
+    setIndex(getIndex(status));
     setIsSubmitting(false);
   };
 
   const onFinish = async () => {
     setIsSubmitting(true);
+    const status = 'reviewing';
     const payload = { status: 'reviewing' };
     await axios.patch(JOBS_ID(id), payload);
+    setIndex(getIndex(status));
     setIsSubmitting(false);
   };
 
   const onReview = async () => {
     setIsSubmitting(true);
-    const payload = { status: 'complete' };
+    const status = 'complete';
+    setAppState(prev => ({
+      ...prev,
+      activeJobId: null,
+    }));
+    const payload = { status };
     await axios.patch(JOBS_ID(id), payload);
+    setIndex(getIndex(status));
     setIsSubmitting(false);
   };
 

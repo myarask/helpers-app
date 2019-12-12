@@ -6,6 +6,7 @@ import JobHelperMobile2Open from './JobHelperMobile2Open';
 import JobHelperMobile3Reserved from './JobHelperMobile3Reserved';
 import JobHelperMobile4InProgress from './JobHelperMobile4InProgress';
 import JobHelperMobile5Reviewing from './JobHelperMobile5Reviewing';
+import JobHelperMobile6Complete from './JobHelperMobile6Complete';
 
 const JobHelperMobile = props => (
   <>
@@ -21,6 +22,7 @@ const JobHelperMobile = props => (
       <JobHelperMobile3Reserved />
       <JobHelperMobile4InProgress />
       <JobHelperMobile5Reviewing />
+      <JobHelperMobile6Complete />
     </ContentSwitch>
   </>
 );
