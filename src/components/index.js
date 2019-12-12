@@ -12,6 +12,7 @@ import NavBar from './NavBar';
 import NavBarMenu from './NavBarMenu';
 import NavLogo from './NavLogo';
 import Page from './Page';
+import Rating from './Rating';
 
 export {
   Belt,
@@ -28,4 +29,5 @@ export {
   NavBarMenu,
   NavLogo,
   Page,
+  Rating,
 };

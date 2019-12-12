@@ -36,6 +36,7 @@ const JobHelper = () => {
   const history = useHistory();
   const { id } = useParams();
   const [index, setIndex] = useState();
+  const [starRating, setStarRating] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [job, setJob] = useState({});
@@ -115,6 +116,8 @@ const JobHelper = () => {
       onReview={onReview}
       isSubmitting={isSubmitting}
       index={index}
+      starRating={starRating}
+      setStarRating={setStarRating}
     >
       <JobHelperMobile />
       <JobHelperTablet />
