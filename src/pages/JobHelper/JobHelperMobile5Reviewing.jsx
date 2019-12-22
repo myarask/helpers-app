@@ -22,7 +22,14 @@ const JobHelperMobile5Reviewing = props => {
       <Rating starRating={props.starRating} setStarRating={props.setStarRating} />
 
       <Box p={2}>
-        <TextField fullWidth rows={3} multiline label="Comments" />
+        <TextField
+          fullWidth
+          rows={3}
+          multiline
+          label="Comments"
+          value={props.comments}
+          onChange={e => props.setComments(e.target.value)}
+        />
       </Box>
       <Box p={2}>
         <Button fullWidth onClick={props.onReview} disabled={props.isSubmitting}>

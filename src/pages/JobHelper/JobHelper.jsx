@@ -3,7 +3,7 @@ import axios from 'utils/axios';
 import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
-import { JOBS_ID } from 'constants/apis';
+import { JOBS_ID, JOB_REVIEWS } from 'constants/apis';
 import links from 'constants/links';
 import { AppContext } from 'contexts';
 import JobHelperDesktop from './JobHelperDesktop';
@@ -37,6 +37,7 @@ const JobHelper = () => {
   const { id } = useParams();
   const [index, setIndex] = useState();
   const [starRating, setStarRating] = useState(null);
+  const [comments, setComments] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [job, setJob] = useState({});
@@ -101,7 +102,12 @@ const JobHelper = () => {
       activeJobId: null,
     }));
     const payload = { status };
-    await axios.patch(JOBS_ID(id), payload);
+    const review = {
+      comments: comments || null,
+      starRating,
+      jobId: Number(id),
+    };
+    await Promise.all([axios.patch(JOBS_ID(id), payload), axios.post(JOB_REVIEWS, review)]);
     setIndex(getIndex(status));
     setIsSubmitting(false);
   };
@@ -118,6 +124,8 @@ const JobHelper = () => {
       index={index}
       starRating={starRating}
       setStarRating={setStarRating}
+      comments={comments}
+      setComments={setComments}
     >
       <JobHelperMobile />
       <JobHelperTablet />
