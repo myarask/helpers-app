@@ -13,14 +13,16 @@ const HomeRequesterMobile = props => (
 
     <Grid container direction="column" style={{ height: 'calc(100% - 56px)' }}>
       <Grid item style={{ flexGrow: 1, overflowY: 'auto', height: 'calc(100% - 72px)' }}>
-        <Paper square>
-          <Box p={2}>
-            <Typography variant="h2">Current Active Services</Typography>
-          </Box>
-        </Paper>
         {props.jobs.map(job => (
           <HomeRequesterJob key={job.id} {...job} />
         ))}
+
+        {!props.jobs.length && (
+          <Box pt={5}>
+            <Typography align="center">You have no scheduled jobs.</Typography>
+            <Typography align="center">Press &quot;Request Help&quot; to start one!</Typography>
+          </Box>
+        )}
       </Grid>
 
       <Grid item>
