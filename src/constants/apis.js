@@ -1,5 +1,5 @@
-// const host = 'https://helpers-test-api.herokuapp.com';
-const host = 'http://localhost:5000';
+const host = 'https://helpers-test-api.herokuapp.com';
+// const host = 'http://localhost:5000';
 const CLIENTS = `${host}/clients`;
 const HELPERS_ME = `${host}/helpers/me`;
 const SESSIONS = `${host}/sessions`;

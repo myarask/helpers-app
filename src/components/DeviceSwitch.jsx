@@ -17,10 +17,10 @@ const DeviceSwitch = ({ children, ...rest }) => {
 
       setDeviceIndex(deviceIndexNow);
 
-      if (deviceIndexNow === 0) {
-        document.body.style.height = `${window.innerHeight}px`;
-        document.getElementById('root').style.height = `${window.innerHeight}px`;
-      }
+      // if (deviceIndexNow === 0) {
+      //   document.body.style.height = `${window.innerHeight}px`;
+      //   document.getElementById('root').style.height = `${window.innerHeight}px`;
+      // }
     };
 
     window.addEventListener('resize', onResize, true);
