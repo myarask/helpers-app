@@ -36,51 +36,62 @@ const ServicesMobile = props => {
           </Select>
         </FormControl>
       </Box>
-      <Divider />
-      <Box m={2}>
-        <Typography gutterBottom variant="h2">
-          Select required services:
-        </Typography>
-      </Box>
-      {props.services.map(service => (
-        <Box m={2} key={service.id}>
-          <ServicesOption
-            {...service}
-            checked={props.serviceIds.includes(service.id)}
-            onClick={() => props.toggleServiceId(service.id)}
-          />
-        </Box>
-      ))}
-      <Divider />
 
-      <Box m={2}>
-        <Typography gutterBottom variant="h3">
-          Important Notes to Helper
-        </Typography>
-        <TextField
-          multiline
-          rows={3}
-          fullWidth
-          variant="outlined"
-          value={props.notes}
-          onChange={e => props.setNotes(e.target.value)}
-        />
-      </Box>
-      <Box m={2}>
-        <Box mb={1}>
-          <Button
-            fullWidth
-            disabled={!props.serviceIds.length || !props.clientId || props.isSubmitting}
-            onClick={props.onSubmit}
-          >
-            Proceed
-          </Button>
-        </Box>
+      {props.clientId && (
+        <>
+          <Divider />
+          <Box m={2}>
+            <Typography gutterBottom variant="h2">
+              Select required services:
+            </Typography>
+          </Box>
+          {props.services.map(service => (
+            <Box m={2} key={service.id}>
+              <ServicesOption
+                {...service}
+                checked={props.serviceIds.includes(service.id)}
+                onClick={() => props.toggleServiceId(service.id)}
+              />
+            </Box>
+          ))}
 
-        <ButtonLink variant="text" fullWidth to={links.home}>
-          Go Back
-        </ButtonLink>
-      </Box>
+          {props.serviceIds.length && (
+            <>
+              <Divider />
+              <Box m={2}>
+                <Typography gutterBottom variant="h3">
+                  Important Notes to Helper
+                </Typography>
+                <TextField
+                  multiline
+                  rows={3}
+                  fullWidth
+                  variant="outlined"
+                  inputProps={{ maxLength: 255 }}
+                  value={props.notes}
+                  onChange={e => props.setNotes(e.target.value)}
+                  helperText={`${props.notes.length}/255 characters`}
+                />
+              </Box>
+              <Box m={2}>
+                <Box mb={1}>
+                  <Button
+                    fullWidth
+                    disabled={!props.serviceIds.length || !props.clientId || props.isSubmitting}
+                    onClick={props.onSubmit}
+                  >
+                    Proceed
+                  </Button>
+                </Box>
+
+                <ButtonLink variant="text" fullWidth to={links.home}>
+                  Go Back
+                </ButtonLink>
+              </Box>
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };

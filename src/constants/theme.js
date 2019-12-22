@@ -109,6 +109,7 @@ const theme = createMuiTheme({
         fontSize: '0.875rem',
         color: grey,
         lineHeight: undefined,
+        wordWrap: 'break-word',
       },
       body2: {
         color: primary.main,

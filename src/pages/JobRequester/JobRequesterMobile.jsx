@@ -10,7 +10,7 @@ const JobRequesterMobile = props => (
         <ChevronLeft style={{ color: 'white' }} />
       </IconButton>
       <Typography variant="h1" style={{ color: 'white' }}>
-        Review Order Details
+        Order Details
       </Typography>
     </NavBar>
     <MobileJobServices services={props.services} />
@@ -34,9 +34,12 @@ const JobRequesterMobile = props => (
       </Box>
       <Divider />
     </Box>
-    <Box my={1}>
-      <Typography align="center">Confirm Order by selecting &quot;Find me a Helper&quot;</Typography>
-    </Box>
+    {props.status === 'draft' && (
+      <Box my={1}>
+        <Typography align="center">Confirm the order by pressing</Typography>
+        <Typography align="center">&quot;Find me a Helper&quot;</Typography>
+      </Box>
+    )}
     <Box m={2}>
       {props.status === 'draft' && (
         <Button fullWidth onClick={props.onSubmit} disabled={props.isSubmitting}>
@@ -45,7 +48,7 @@ const JobRequesterMobile = props => (
       )}
       {props.status === 'open' && (
         <Button fullWidth variant="text" onClick={props.onCancel} disabled={props.isSubmitting}>
-          Cancel
+          Cancel this Job
         </Button>
       )}
 
