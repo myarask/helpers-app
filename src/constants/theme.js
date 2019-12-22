@@ -91,20 +91,24 @@ const theme = createMuiTheme({
         fontSize: '1.25rem',
         fontWeight: 600,
         color: grey,
+        lineHeight: undefined,
       },
       h2: {
         fontSize: '1.125rem',
         color: grey,
         fontWeight: 700,
+        lineHeight: undefined,
       },
       h3: {
         fontSize: '1rem',
         color: grey,
         fontWeight: 600,
+        lineHeight: undefined,
       },
       body1: {
         fontSize: '0.875rem',
         color: grey,
+        lineHeight: undefined,
       },
       body2: {
         color: primary.main,
