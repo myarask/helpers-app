@@ -39,6 +39,7 @@ const JobHelper = () => {
   const [starRating, setStarRating] = useState(null);
   const [comment, setComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMapShown, setIsMapShown] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [job, setJob] = useState({});
 
@@ -126,6 +127,8 @@ const JobHelper = () => {
       setStarRating={setStarRating}
       comment={comment}
       setComment={setComment}
+      isMapShown={isMapShown}
+      setIsMapShown={setIsMapShown}
     >
       <JobHelperMobile />
       <JobHelperTablet />

@@ -1,17 +1,20 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, Button } from '@material-ui/core';
 import Map from './Map';
 
 const MobileClientDetails = props => (
   <>
-    <Box m={2}>
+    <Box m={2} display="flex" justifyContent="space-between" alignItems="center">
       <Typography variant="h2">Client Details:</Typography>
+      <Button size="small" variant="text" onClick={() => props.setIsMapShown(prev => !prev)}>
+        {props.isMapShown ? 'hide map' : 'show map'}
+      </Button>
     </Box>
     <Map
       googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyABXU7Jbtc7fdSdMOMgJUvRdP2YXg0HSL4"
-      loadingElement={<div style={{ height: `100%` }} />}
-      containerElement={<div style={{ height: `200px` }} />}
-      mapElement={<div style={{ height: `100%` }} />}
+      loadingElement={<div style={{ height: '100%' }} />}
+      containerElement={<div style={{ height: '200px', display: !props.isMapShown && 'none' }} />}
+      mapElement={<div style={{ height: '100%' }} />}
       lng={props.lng}
       lat={props.lat}
     />
