@@ -27,8 +27,8 @@ const JobHelperMobile5Reviewing = props => {
           rows={3}
           multiline
           label="Comments"
-          value={props.comments}
-          onChange={e => props.setComments(e.target.value)}
+          value={props.comment}
+          onChange={e => props.setComment(e.target.value)}
         />
       </Box>
       <Box p={2}>

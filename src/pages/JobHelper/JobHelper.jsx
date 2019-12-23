@@ -37,7 +37,7 @@ const JobHelper = () => {
   const { id } = useParams();
   const [index, setIndex] = useState();
   const [starRating, setStarRating] = useState(null);
-  const [comments, setComments] = useState('');
+  const [comment, setComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [job, setJob] = useState({});
@@ -103,7 +103,7 @@ const JobHelper = () => {
     }));
     const payload = { status };
     const review = {
-      comments: comments || null,
+      comment: comment || null,
       starRating,
       jobId: Number(id),
     };
@@ -124,8 +124,8 @@ const JobHelper = () => {
       index={index}
       starRating={starRating}
       setStarRating={setStarRating}
-      comments={comments}
-      setComments={setComments}
+      comment={comment}
+      setComment={setComment}
     >
       <JobHelperMobile />
       <JobHelperTablet />
