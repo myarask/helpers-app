@@ -30,7 +30,7 @@ const JobRequester = () => {
   if (isLoading) return <CircularProgress />;
 
   const onBackClick = () => {
-    if (job.status === 'open') {
+    if (job.status !== 'draft') {
       return history.push(links.home);
     }
 
