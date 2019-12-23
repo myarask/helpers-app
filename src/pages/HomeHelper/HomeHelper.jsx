@@ -34,7 +34,7 @@ const HomeHelper = () => {
 
       const options = {
         params: {
-          status: 'open',
+          statuses: 'open',
         },
       };
 

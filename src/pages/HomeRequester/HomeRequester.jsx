@@ -36,7 +36,7 @@ const HomeRequester = () => {
 
       const options = {
         params: {
-          status: 'open',
+          statuses: 'open,reserved,in_progress,reviewing',
           requesterId,
         },
       };
