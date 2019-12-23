@@ -19,26 +19,25 @@ const HomeRequesterJob = props => {
           <Belt>
             <Box>
               <Typography variant="h3" align="left" gutterBottom>
-                Job {props.id}
+                {[props.client.firstName, props.client.lastName].join(' ')}
               </Typography>
-              <Box display="flex" alignItems="center">
-                {props.services.map(service => (
-                  <img
-                    key={service.id}
-                    src={service.src}
-                    alt={service.name}
-                    style={{ maxHeight: '20px', maxWidth: '20px', paddingRight: '10px' }}
-                  />
-                ))}
-              </Box>
+              <Typography align="left" variant="body2">
+                {props.status === 'open' ? 'looking for helper' : props.status}
+              </Typography>
             </Box>
 
             <Box display="flex" alignItems="center">
               <Box mr={1}>
-                <Typography align="right">{props.feesAfterTaxes}</Typography>
-                <Typography align="right" variant="body2">
-                  {props.status === 'open' ? 'looking for helper' : props.status}
-                </Typography>
+                <Box display="flex" alignItems="center">
+                  {props.services.map(service => (
+                    <img
+                      key={service.id}
+                      src={service.src}
+                      alt={service.name}
+                      style={{ maxHeight: '20px', maxWidth: '20px', paddingLeft: '10px' }}
+                    />
+                  ))}
+                </Box>
               </Box>
               <ChevronRight />
             </Box>

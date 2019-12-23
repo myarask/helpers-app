@@ -29,7 +29,11 @@ const ServicesMobile = props => {
           >
             <option disabled hidden value="" />
             {props.clients.map(client => (
-              <option key={client.clientId} value={client.clientId}>
+              <option
+                key={client.clientId}
+                value={client.clientId}
+                disabled={props.busyClientIds.includes(client.clientId)}
+              >
                 {[client.firstName, client.lastName].join(' ')}
               </option>
             ))}

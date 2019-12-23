@@ -22,19 +22,25 @@ const Services = () => {
 
   const history = useHistory();
   const [clientId, setClientId] = useState(initialClientId);
+  const [busyClientIds, setBusyClientIds] = useState([]);
   const [clients, setClients] = useState([]);
   const [notes, setNotes] = useState(initialNotes);
   const [serviceIds, setServiceIds] = useState(initialServiceIds);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await axios.get(REQUESTERS_ID_CLIENTS(requesterId)).then(resp => resp.data);
+    const options = {
+      params: {
+        statuses: 'open,reserved,in_progress,reviewing',
+        requesterId,
+      },
+    };
 
-      setClients(data);
-    }
-
-    fetchData();
+    axios.get(REQUESTERS_ID_CLIENTS(requesterId)).then(resp => setClients(resp.data));
+    axios
+      .get(JOBS, options)
+      .then(resp => resp.data.data.map(x => x.clientId))
+      .then(clientIds => setBusyClientIds(clientIds));
   }, [requesterId]);
 
   const toggleServiceId = id => {
@@ -64,6 +70,7 @@ const Services = () => {
     <DeviceSwitch
       clientId={clientId}
       clients={clients}
+      busyClientIds={busyClientIds}
       notes={notes}
       serviceIds={serviceIds}
       services={services}
