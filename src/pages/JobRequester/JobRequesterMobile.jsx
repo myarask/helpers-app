@@ -37,13 +37,13 @@ const JobRequesterMobile = props => (
     {props.status === 'draft' && (
       <Box my={1}>
         <Typography align="center">Confirm the order by pressing</Typography>
-        <Typography align="center">&quot;Find me a Helper&quot;</Typography>
+        <Typography align="center">&quot;Find a Helper&quot;</Typography>
       </Box>
     )}
     <Box m={2}>
       {props.status === 'draft' && (
         <Button fullWidth onClick={props.onSubmit} disabled={props.isSubmitting}>
-          Find me a Helper
+          Find a Helper
         </Button>
       )}
       {props.status === 'open' && (

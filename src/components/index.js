@@ -5,6 +5,7 @@ import DeviceSwitch from './DeviceSwitch';
 import HelpingIcon from './HelpingIcon';
 import Img from './Img';
 import IconButtonLink from './IconButtonLink';
+import Map from './Map';
 import MobileClientDetails from './MobileClientDetails';
 import MobileDrawer from './MobileDrawer';
 import MobileJobProfile from './MobileJobProfile';
@@ -23,6 +24,7 @@ export {
   HelpingIcon,
   Img,
   IconButtonLink,
+  Map,
   MobileClientDetails,
   MobileDrawer,
   MobileJobProfile,
