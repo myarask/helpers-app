@@ -10,10 +10,10 @@ import JobHelperMobile6Complete from './JobHelperMobile6Complete';
 
 const JobHelperMobile = props => (
   <>
-    <NavBar>
+    <NavBar padRight>
       <NavBarMenu />
       <NavLogo />
-      <HelpingIcon />
+      {/* <HelpingIcon /> */}
     </NavBar>
     <ContentSwitch {...props}>
       <JobHelperMobile0Unauthorized />
