@@ -5,6 +5,7 @@ import links from 'constants/links';
 
 const JobHelperMobile6Complete = props => {
   const history = useHistory();
+  history.push(links.home);
 
   const onClick = () => history.push(links.home);
 
