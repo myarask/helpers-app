@@ -28,7 +28,7 @@ const HomeHelperJob = props => {
                   {props.feesBeforeTaxes}
                 </Typography>
               </Belt>
-              <Typography align="left">1 min • 0.3km</Typography>
+              <Typography align="left">{[props.duration, props.distance].join(' • ')}</Typography>
 
               <Box display="flex">
                 {props.services.map(service => (
