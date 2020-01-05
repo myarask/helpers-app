@@ -66,8 +66,8 @@ const App = () => {
 
               <Route exact path={links.home}>
                 {requesterId && <Redirect to={links.homeRequester} />}
-                {clientId && <Redirect to={links.homeClient} />}
                 {helperId && <Redirect to={links.homeHelper} />}
+                {clientId && !requesterId && <Redirect to={links.homeClient} />}
               </Route>
               {requesterId && <Route exact path={links.homeRequester} component={Pages.HomeRequester} />}
               {clientId && <Route exact path={links.homeClient} component={Pages.HomeClient} />}
