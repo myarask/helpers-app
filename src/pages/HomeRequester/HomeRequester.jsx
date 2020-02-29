@@ -2,12 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts';
 import axios from 'utils/axios';
 import services from 'constants/services';
-import { DeviceSwitch } from 'components';
 import { JOBS, JOBS_ID } from 'constants/apis';
 import { CircularProgress } from '@material-ui/core';
-import HomeRequesterDesktop from './HomeRequesterDesktop';
 import HomeRequesterMobile from './HomeRequesterMobile';
-import HomeRequesterTablet from './HomeRequesterTablet';
 
 const HomeRequester = () => {
   const { requesterId } = useContext(AppContext);
@@ -57,13 +54,7 @@ const HomeRequester = () => {
 
   if (isLoading) return <CircularProgress />;
 
-  return (
-    <DeviceSwitch jobs={jobs}>
-      <HomeRequesterMobile />
-      <HomeRequesterTablet />
-      <HomeRequesterDesktop />
-    </DeviceSwitch>
-  );
+  return <HomeRequesterMobile jobs={jobs} />;
 };
 
 export default HomeRequester;

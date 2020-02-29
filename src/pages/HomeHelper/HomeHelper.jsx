@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'utils/axios';
 import services from 'constants/services';
 import { JOBS, JOBS_ID } from 'constants/apis';
-import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
-import HomeHelperDesktop from './HomeHelperDesktop';
 import HomeHelperMobile from './HomeHelperMobile';
-import HomeHelperTablet from './HomeHelperTablet';
 
 const HomeHelper = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,13 +78,7 @@ const HomeHelper = () => {
 
   if (isLoading) return <CircularProgress />;
 
-  return (
-    <DeviceSwitch jobs={jobs}>
-      <HomeHelperMobile />
-      <HomeHelperTablet />
-      <HomeHelperDesktop />
-    </DeviceSwitch>
-  );
+  return <HomeHelperMobile jobs={jobs} />;
 };
 
 export default HomeHelper;

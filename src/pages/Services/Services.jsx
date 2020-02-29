@@ -5,10 +5,7 @@ import axios from 'utils/axios';
 import { JOBS, JOB_SERVICES, REQUESTERS_ID_CLIENTS } from 'constants/apis';
 import { AppContext } from 'contexts';
 import { useHistory, useLocation } from 'react-router-dom';
-import { DeviceSwitch } from 'components';
-import ServicesDesktop from './ServicesDesktop';
 import ServicesMobile from './ServicesMobile';
-import ServicesTablet from './ServicesTablet';
 
 const Services = () => {
   const query = new URLSearchParams(useLocation().search);
@@ -67,7 +64,7 @@ const Services = () => {
   };
 
   return (
-    <DeviceSwitch
+    <ServicesMobile
       clientId={clientId}
       clients={clients}
       busyClientIds={busyClientIds}
@@ -80,11 +77,7 @@ const Services = () => {
       toggleServiceId={toggleServiceId}
       isSubmitting={isSubmitting}
       onSubmit={onSubmit}
-    >
-      <ServicesMobile />
-      <ServicesTablet />
-      <ServicesDesktop />
-    </DeviceSwitch>
+    />
   );
 };
 

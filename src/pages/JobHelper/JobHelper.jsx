@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'utils/axios';
-import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
 import { JOBS_ID, JOB_REVIEWS } from 'constants/apis';
 import links from 'constants/links';
 import { AppContext } from 'contexts';
-import JobHelperDesktop from './JobHelperDesktop';
 import JobHelperMobile from './JobHelperMobile';
-import JobHelperTablet from './JobHelperTablet';
 
 const getIndex = status => {
   switch (status) {
@@ -114,7 +111,7 @@ const JobHelper = () => {
   };
 
   return (
-    <DeviceSwitch
+    <JobHelperMobile
       {...job}
       onBackClick={onBackClick}
       onAccept={onAccept}
@@ -129,11 +126,7 @@ const JobHelper = () => {
       setComment={setComment}
       isMapShown={isMapShown}
       setIsMapShown={setIsMapShown}
-    >
-      <JobHelperMobile />
-      <JobHelperTablet />
-      <JobHelperDesktop />
-    </DeviceSwitch>
+    />
   );
 };
 

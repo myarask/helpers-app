@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'utils/axios';
-import { DeviceSwitch } from 'components';
 import { CircularProgress } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
 import { JOBS, JOBS_ID } from 'constants/apis';
 import links from 'constants/links';
-import JobRequesterDesktop from './JobRequesterDesktop';
 import JobRequesterMobile from './JobRequesterMobile';
-import JobRequesterTablet from './JobRequesterTablet';
 
 const JobRequester = () => {
   const history = useHistory();
@@ -68,17 +65,13 @@ const JobRequester = () => {
   };
 
   return (
-    <DeviceSwitch
+    <JobRequesterMobile
       {...job}
       onBackClick={onBackClick}
       onSubmit={onSubmit}
       onCancel={onCancel}
       isSubmitting={isSubmitting}
-    >
-      <JobRequesterMobile />
-      <JobRequesterTablet />
-      <JobRequesterDesktop />
-    </DeviceSwitch>
+    />
   );
 };
 
