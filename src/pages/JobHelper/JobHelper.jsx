@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'utils/axios';
 import { CircularProgress } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
-import { JOBS_ID, JOB_REVIEWS } from 'constants/apis';
 import links from 'constants/links';
 import { AppContext } from 'contexts';
+import { startJob, finishTasks, reviewJob, finishJob, acceptJob, getJob } from 'services';
 import JobHelperMobile from './JobHelperMobile';
 
 const getIndex = status => {
@@ -43,7 +42,7 @@ const JobHelper = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get(JOBS_ID(id));
+        const { data } = await getJob(id);
 
         setIndex(getIndex(data.status));
         setJob(data);
@@ -63,50 +62,43 @@ const JobHelper = () => {
 
   const onAccept = async () => {
     setIsSubmitting(true);
-    const status = 'reserved';
-    const payload = { status, helperId };
-    await axios.patch(JOBS_ID(id), payload);
+    await acceptJob(id, helperId);
     setAppState(prev => ({
       ...prev,
       activeJobId: id,
     }));
-    setIndex(getIndex(status));
+    setIndex(getIndex('reserved'));
     setIsSubmitting(false);
   };
 
   const onStart = async () => {
     setIsSubmitting(true);
-    const status = 'in_progress';
-    const payload = { status };
-    await axios.patch(JOBS_ID(id), payload);
-    setIndex(getIndex(status));
+    await startJob(id);
+    setIndex(getIndex('in_progress'));
     setIsSubmitting(false);
   };
 
   const onFinish = async () => {
     setIsSubmitting(true);
-    const status = 'reviewing';
-    const payload = { status: 'reviewing' };
-    await axios.patch(JOBS_ID(id), payload);
-    setIndex(getIndex(status));
+    await finishTasks(id);
+    setIndex(getIndex('reviewing'));
     setIsSubmitting(false);
   };
 
   const onReview = async () => {
     setIsSubmitting(true);
-    const status = 'complete';
     setAppState(prev => ({
       ...prev,
       activeJobId: null,
     }));
-    const payload = { status };
+
     const review = {
       comment: comment || null,
       starRating,
-      jobId: Number(id),
     };
-    await Promise.all([axios.patch(JOBS_ID(id), payload), axios.post(JOB_REVIEWS, review)]);
-    setIndex(getIndex(status));
+
+    await Promise.all([finishJob(id), reviewJob(id, review)]);
+    setIndex(getIndex('complete'));
     setIsSubmitting(false);
   };
 
