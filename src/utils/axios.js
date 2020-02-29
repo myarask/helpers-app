@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-axios.defaults.headers.common.Authorization = localStorage.getItem('jwt');
-
 axios.interceptors.request.use(config => {
   const jwt = localStorage.getItem('jwt');
 
