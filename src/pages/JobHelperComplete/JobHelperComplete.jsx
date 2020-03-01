@@ -3,9 +3,8 @@ import { Button, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import links from 'constants/links';
 
-const JobHelperMobile6Complete = props => {
+const JobHelperComplete = () => {
   const history = useHistory();
-  history.push(links.home);
 
   const onClick = () => history.push(links.home);
 
@@ -17,4 +16,4 @@ const JobHelperMobile6Complete = props => {
   );
 };
 
-export default JobHelperMobile6Complete;
+export default JobHelperComplete;

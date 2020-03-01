@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Pages from 'pages';
+import Binders from 'binders';
 import axios from 'utils/axios';
 import { HELPERS_ME } from 'constants/apis';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
@@ -62,7 +63,7 @@ const App = () => {
 
               <Route exact path={links.job} component={Pages.Job} />
               {requesterId && <Route exact path={links.jobRequester} component={Pages.JobRequester} />}
-              {helperId && <Route exact path={links.jobHelper} component={Pages.JobHelper} />}
+              {helperId && <Route path={links.jobHelper} component={Binders.JobHelper} />}
 
               <Route exact path={links.home}>
                 {requesterId && <Redirect to={links.homeRequester} />}
