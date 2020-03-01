@@ -24,7 +24,7 @@ const getNextURL = status => {
     case 'complete':
       return links.jobHelperComplete;
     default:
-      return links.jobHelperUnauthorized; // Unauthorized
+      return links.jobHelperUnauthorized;
   }
 };
 
