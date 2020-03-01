@@ -1,8 +1,7 @@
 import React from 'react';
-import HomeClientMobile from './HomeClientMobile';
 
 const HomeClient = () => {
-  return <HomeClientMobile />;
+  return <div />;
 };
 
 export default HomeClient;
